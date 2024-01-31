@@ -1,13 +1,9 @@
 package com.nulp.mobilepartsshop.core.service;
 
-import com.nulp.mobilepartsshop.core.enums.UserRole;
 import com.nulp.mobilepartsshop.core.model.user.User;
 import com.nulp.mobilepartsshop.exception.security.jwt.ClaimNotFoundException;
-import com.nulp.mobilepartsshop.exception.security.jwt.InvalidClaimValueException;
-import com.nulp.mobilepartsshop.exception.security.jwt.InvalidClaimValueTypeException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.RequiredTypeException;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,8 +22,6 @@ public class JwtService {
     @Value("${jwt.token.issuer}")
     private String TOKEN_ISSUER;
 
-    private static final String KEY_SUBJECT_ROLE = "subject_role";
-
     private static final long TOKEN_EXPIRATION_TIME = 1000 * 60 * 60 * 24; // 24 hours
 
     public String generateToken(final User user) {
@@ -40,7 +34,6 @@ public class JwtService {
                     .issuedAt(issuedDate)
                     .expiration(expirationDate)
                     .subject(user.getUsername())
-                    .add(KEY_SUBJECT_ROLE, user.getRole())
                 .and()
                 .signWith(getSecretKey(), Jwts.SIG.HS256)
                 .compact();
@@ -54,22 +47,6 @@ public class JwtService {
         return username;
     }
 
-    public UserRole extractSubjectRole(String jwtToken) throws ClaimNotFoundException, InvalidClaimValueTypeException, InvalidClaimValueException {
-        try {
-            String roleStr = extractClaim(jwtToken, claims -> claims.get(KEY_SUBJECT_ROLE, String.class));
-            if (roleStr == null) {
-                throw new ClaimNotFoundException("Claim '" + KEY_SUBJECT_ROLE + "' not found in the token");
-            }
-            try {
-                return UserRole.valueOf(roleStr);
-            } catch (IllegalArgumentException e) {
-                throw new InvalidClaimValueException("Claim '" + KEY_SUBJECT_ROLE + "' has an invalid value: " + roleStr);
-            }
-        } catch (RequiredTypeException e) {
-            throw new InvalidClaimValueTypeException("Claim '" + KEY_SUBJECT_ROLE + "' expected type is String", e);
-        }
-    }
-
     public boolean isTokenValid(String jwtToken, User user) {
         if (jwtToken == null || jwtToken.isEmpty()) {
             return false;
@@ -77,8 +54,7 @@ public class JwtService {
         final boolean tokenIssuerValid = isTokenIssuerValid(jwtToken);
         final boolean tokenNotExpired = isTokenNotExpired(jwtToken);
         final boolean tokenSubjectValid = isTokenSubjectValid(jwtToken, user);
-        final boolean tokenSubjectRoleValid = isTokenSubjectRoleValid(jwtToken, user);
-        return tokenIssuerValid && tokenNotExpired && tokenSubjectValid && tokenSubjectRoleValid;
+        return tokenIssuerValid && tokenNotExpired && tokenSubjectValid;
     }
 
     private boolean isTokenIssuerValid(String jwtToken) {
@@ -95,11 +71,6 @@ public class JwtService {
     private boolean isTokenSubjectValid(String jwtToken, User user) {
         final String actualSubject = extractUsername(jwtToken);
         return actualSubject.equals(user.getUsername());
-    }
-
-    private boolean isTokenSubjectRoleValid(String jwtToken, User user) {
-        final UserRole actualRole = extractSubjectRole(jwtToken);
-        return actualRole == user.getRole();
     }
 
     private Claims extractAllClaims(String jwtToken) {

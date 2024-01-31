@@ -9,11 +9,11 @@ import com.nulp.mobilepartsshop.core.model.user.User;
 import com.nulp.mobilepartsshop.core.repository.UserRepository;
 import com.nulp.mobilepartsshop.exception.auth.InvalidPasswordException;
 import com.nulp.mobilepartsshop.exception.auth.UsernameAlreadyUsedException;
+import com.nulp.mobilepartsshop.exception.auth.UsernameNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

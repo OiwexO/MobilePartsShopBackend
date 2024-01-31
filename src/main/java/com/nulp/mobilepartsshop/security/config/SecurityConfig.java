@@ -44,10 +44,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request ->
                         request.requestMatchers(WHITE_LIST_URL)
                                 .permitAll()
-                                .requestMatchers("/api/v1/demo/**")
-                                .hasAnyRole(UserRole.CUSTOMER.name())
-//                                .requestMatchers(SECURED_STAFF_URL).hasAnyRole(UserRole.STAFF.name(), UserRole.ADMIN.name())
-//                                .requestMatchers(SECURED_ADMIN_URL).hasAnyRole(UserRole.ADMIN.name())
+                                .requestMatchers(SECURED_CUSTOMER_URL).hasAnyAuthority(UserRole.CUSTOMER.name(), UserRole.STAFF.name(), UserRole.ADMIN.name())
+                                .requestMatchers(SECURED_STAFF_URL).hasAnyAuthority(UserRole.STAFF.name(), UserRole.ADMIN.name())
+                                .requestMatchers(SECURED_ADMIN_URL).hasAnyAuthority(UserRole.ADMIN.name())
                                 .anyRequest()
                                 .authenticated()
                 )
