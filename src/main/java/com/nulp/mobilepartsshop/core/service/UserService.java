@@ -1,6 +1,6 @@
-package com.nulp.mobilepartsshop.domain.service;
+package com.nulp.mobilepartsshop.core.service;
 
-import com.nulp.mobilepartsshop.domain.model.user.User;
+import com.nulp.mobilepartsshop.core.model.user.User;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public interface UserService {

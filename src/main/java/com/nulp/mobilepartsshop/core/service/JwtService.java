@@ -1,10 +1,10 @@
-package com.nulp.mobilepartsshop.domain.service;
+package com.nulp.mobilepartsshop.core.service;
 
-import com.nulp.mobilepartsshop.domain.model.user.Role;
-import com.nulp.mobilepartsshop.domain.model.user.User;
-import com.nulp.mobilepartsshop.security.exception.ClaimNotFoundException;
-import com.nulp.mobilepartsshop.security.exception.InvalidClaimValueException;
-import com.nulp.mobilepartsshop.security.exception.InvalidClaimValueTypeException;
+import com.nulp.mobilepartsshop.core.enums.UserRole;
+import com.nulp.mobilepartsshop.core.model.user.User;
+import com.nulp.mobilepartsshop.exception.security.jwt.ClaimNotFoundException;
+import com.nulp.mobilepartsshop.exception.security.jwt.InvalidClaimValueException;
+import com.nulp.mobilepartsshop.exception.security.jwt.InvalidClaimValueTypeException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.RequiredTypeException;
@@ -17,7 +17,6 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.function.Function;
 
-//https://youtu.be/BVdQ3iuovg0?t=5033&si=GCq3XaWBWP_YIrdS
 @Service
 public class JwtService {
 
@@ -26,10 +25,12 @@ public class JwtService {
 
     @Value("${jwt.token.issuer}")
     private String TOKEN_ISSUER;
+
     private static final String KEY_SUBJECT_ROLE = "subject_role";
+
     private static final long TOKEN_EXPIRATION_TIME = 1000 * 60 * 60 * 24; // 24 hours
 
-    public String generateToken(User user) {
+    public String generateToken(final User user) {
         long currentTime = System.currentTimeMillis();
         Date issuedDate = new Date(currentTime);
         Date expirationDate = new Date(currentTime + TOKEN_EXPIRATION_TIME);
@@ -53,14 +54,14 @@ public class JwtService {
         return username;
     }
 
-    public Role extractSubjectRole(String jwtToken) throws ClaimNotFoundException, InvalidClaimValueTypeException, InvalidClaimValueException {
+    public UserRole extractSubjectRole(String jwtToken) throws ClaimNotFoundException, InvalidClaimValueTypeException, InvalidClaimValueException {
         try {
             String roleStr = extractClaim(jwtToken, claims -> claims.get(KEY_SUBJECT_ROLE, String.class));
             if (roleStr == null) {
                 throw new ClaimNotFoundException("Claim '" + KEY_SUBJECT_ROLE + "' not found in the token");
             }
             try {
-                return Role.valueOf(roleStr);
+                return UserRole.valueOf(roleStr);
             } catch (IllegalArgumentException e) {
                 throw new InvalidClaimValueException("Claim '" + KEY_SUBJECT_ROLE + "' has an invalid value: " + roleStr);
             }
@@ -97,7 +98,7 @@ public class JwtService {
     }
 
     private boolean isTokenSubjectRoleValid(String jwtToken, User user) {
-        final Role actualRole = extractSubjectRole(jwtToken);
+        final UserRole actualRole = extractSubjectRole(jwtToken);
         return actualRole == user.getRole();
     }
 

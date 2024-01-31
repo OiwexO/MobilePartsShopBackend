@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.security.exception;
+package com.nulp.mobilepartsshop.exception.security.jwt;
 
 public class InvalidClaimValueException extends RuntimeException {
 

@@ -1,8 +1,8 @@
 package com.nulp.mobilepartsshop.security.filter;
 
-import com.nulp.mobilepartsshop.domain.model.user.User;
-import com.nulp.mobilepartsshop.domain.service.JwtService;
-import com.nulp.mobilepartsshop.domain.service.UserService;
+import com.nulp.mobilepartsshop.core.model.user.User;
+import com.nulp.mobilepartsshop.core.service.JwtService;
+import com.nulp.mobilepartsshop.core.service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -56,7 +56,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     }
 
     private boolean isUserAuthenticated() {
-        return SecurityContextHolder.getContext().getAuthentication().isAuthenticated();
+        return SecurityContextHolder.getContext().getAuthentication() != null;
     }
 
     private void authenticateUser(User user, @NonNull HttpServletRequest request) {
