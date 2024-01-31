@@ -8,6 +8,9 @@ build/
 ### Local properties ###
 /src/main/resources/application-local.properties
 
+### JWT token properties ###
+/src/main/resources/jwt.properties
+
 ### STS ###
 .apt_generated
 .classpath
