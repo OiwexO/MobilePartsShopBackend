@@ -2,7 +2,7 @@ package com.nulp.mobilepartsshop.security.config;
 
 import com.nulp.mobilepartsshop.api.v1.auth.controller.AuthenticationController;
 import com.nulp.mobilepartsshop.core.enums.UserRole;
-import com.nulp.mobilepartsshop.security.filter.JwtAuthFilter;
+import com.nulp.mobilepartsshop.security.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private static final String[] WHITE_LIST_URL = {
-            AuthenticationController.AUTHENTICATION_MAPPING + "/**",
+            AuthenticationController.MAPPING + "/**",
     };
 
     private static final String[] SECURED_CUSTOMER_URL = {
@@ -34,8 +34,22 @@ public class SecurityConfig {
             "/api/v1/demo/admin"
     };
 
+    private static final String[] AUTHORITY_CUSTOMER_OR_HIGHER = {
+            UserRole.CUSTOMER.name(),
+            UserRole.STAFF.name(),
+            UserRole.ADMIN.name()
+    };
+
+    private static final String[] AUTHORITY_STAFF_OR_HIGHER = {
+            UserRole.STAFF.name(),
+            UserRole.ADMIN.name()
+    };
+    private static final String[] AUTHORITY_ADMIN_OR_HIGHER = {
+            UserRole.ADMIN.name()
+    };
+
     private final AuthenticationProvider authenticationProvider;
-    private final JwtAuthFilter jwtAuthFilter;
+    private final JwtAuthorizationFilter jwtAuthorizationFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
@@ -44,15 +58,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request ->
                         request.requestMatchers(WHITE_LIST_URL)
                                 .permitAll()
-                                .requestMatchers(SECURED_CUSTOMER_URL).hasAnyAuthority(UserRole.CUSTOMER.name(), UserRole.STAFF.name(), UserRole.ADMIN.name())
-                                .requestMatchers(SECURED_STAFF_URL).hasAnyAuthority(UserRole.STAFF.name(), UserRole.ADMIN.name())
-                                .requestMatchers(SECURED_ADMIN_URL).hasAnyAuthority(UserRole.ADMIN.name())
+                                .requestMatchers(SECURED_CUSTOMER_URL).hasAnyAuthority(AUTHORITY_CUSTOMER_OR_HIGHER)
+                                .requestMatchers(SECURED_STAFF_URL).hasAnyAuthority(AUTHORITY_STAFF_OR_HIGHER)
+                                .requestMatchers(SECURED_ADMIN_URL).hasAnyAuthority(AUTHORITY_ADMIN_OR_HIGHER)
                                 .anyRequest()
                                 .authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 }

@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.exception.auth;
+package com.nulp.mobilepartsshop.exception.authentication;
 
 public class UsernameAlreadyUsedException extends AuthenticationException {
 

@@ -1,7 +1,6 @@
-package com.nulp.mobilepartsshop.security.config;
+package com.nulp.mobilepartsshop.core.config;
 
 import com.nulp.mobilepartsshop.core.repository.UserRepository;
-import com.nulp.mobilepartsshop.core.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,14 +26,8 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public UserService userService() {
-        return username -> userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Username " + username + " not found in database"));
-    }
-
-    @Bean
     public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        final DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
