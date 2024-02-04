@@ -1,7 +1,7 @@
 package com.nulp.mobilepartsshop.security.config;
 
 import com.nulp.mobilepartsshop.api.v1.authentication.controller.AuthenticationController;
-import com.nulp.mobilepartsshop.core.enums.UserRole;
+import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import com.nulp.mobilepartsshop.security.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -35,17 +35,17 @@ public class SecurityConfig {
     };
 
     private static final String[] AUTHORITY_CUSTOMER_OR_HIGHER = {
-            UserRole.CUSTOMER.name(),
-            UserRole.STAFF.name(),
-            UserRole.ADMIN.name()
+            UserAuthority.CUSTOMER.name(),
+            UserAuthority.STAFF.name(),
+            UserAuthority.ADMIN.name()
     };
 
     private static final String[] AUTHORITY_STAFF_OR_HIGHER = {
-            UserRole.STAFF.name(),
-            UserRole.ADMIN.name()
+            UserAuthority.STAFF.name(),
+            UserAuthority.ADMIN.name()
     };
     private static final String[] AUTHORITY_ADMIN_OR_HIGHER = {
-            UserRole.ADMIN.name()
+            UserAuthority.ADMIN.name()
     };
 
     private final AuthenticationProvider authenticationProvider;

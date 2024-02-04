@@ -5,7 +5,7 @@ import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.RegistrationRe
 import com.nulp.mobilepartsshop.api.v1.authentication.dto.response.AuthorizationResponse;
 import com.nulp.mobilepartsshop.api.v1.authentication.service.AuthenticationService;
 import com.nulp.mobilepartsshop.security.service.JwtService;
-import com.nulp.mobilepartsshop.core.enums.UserRole;
+import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import com.nulp.mobilepartsshop.core.model.user.User;
 import com.nulp.mobilepartsshop.core.repository.UserRepository;
 import com.nulp.mobilepartsshop.exception.authentication.InvalidPasswordException;
@@ -43,7 +43,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .firstname(request.getFirstname())
                 .lastname(request.getLastname())
-                .role(UserRole.CUSTOMER)
+                .role(UserAuthority.CUSTOMER)
                 .build();
         repository.save(newUser);
         final String jwtToken = jwtService.generateToken(newUser);

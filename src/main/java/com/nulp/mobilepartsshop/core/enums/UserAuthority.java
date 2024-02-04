@@ -1,6 +1,6 @@
 package com.nulp.mobilepartsshop.core.enums;
 
-public enum UserRole {
+public enum UserAuthority {
     CUSTOMER,
     STAFF,
     ADMIN

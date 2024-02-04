@@ -1,6 +1,6 @@
 package com.nulp.mobilepartsshop.core.model.user;
 
-import com.nulp.mobilepartsshop.core.enums.UserRole;
+import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +34,7 @@ public class User implements UserDetails {
     private String lastname;
 
     @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private UserAuthority role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
