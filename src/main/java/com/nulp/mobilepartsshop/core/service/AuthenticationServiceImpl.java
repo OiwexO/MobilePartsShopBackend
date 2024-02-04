@@ -1,9 +1,9 @@
 package com.nulp.mobilepartsshop.core.service;
 
-import com.nulp.mobilepartsshop.api.v1.auth.dto.request.AuthorizationRequest;
-import com.nulp.mobilepartsshop.api.v1.auth.dto.request.RegistrationRequest;
-import com.nulp.mobilepartsshop.api.v1.auth.dto.response.AuthorizationResponse;
-import com.nulp.mobilepartsshop.api.v1.auth.service.AuthenticationService;
+import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.AuthorizationRequest;
+import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.RegistrationRequest;
+import com.nulp.mobilepartsshop.api.v1.authentication.dto.response.AuthorizationResponse;
+import com.nulp.mobilepartsshop.api.v1.authentication.service.AuthenticationService;
 import com.nulp.mobilepartsshop.security.service.JwtService;
 import com.nulp.mobilepartsshop.core.enums.UserRole;
 import com.nulp.mobilepartsshop.core.model.user.User;

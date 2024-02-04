@@ -1,8 +1,8 @@
-package com.nulp.mobilepartsshop.api.v1.auth.service;
+package com.nulp.mobilepartsshop.api.v1.authentication.service;
 
-import com.nulp.mobilepartsshop.api.v1.auth.dto.request.AuthorizationRequest;
-import com.nulp.mobilepartsshop.api.v1.auth.dto.request.RegistrationRequest;
-import com.nulp.mobilepartsshop.api.v1.auth.dto.response.AuthorizationResponse;
+import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.AuthorizationRequest;
+import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.RegistrationRequest;
+import com.nulp.mobilepartsshop.api.v1.authentication.dto.response.AuthorizationResponse;
 import com.nulp.mobilepartsshop.exception.authentication.InvalidPasswordException;
 import com.nulp.mobilepartsshop.exception.authentication.UsernameAlreadyUsedException;
 import com.nulp.mobilepartsshop.exception.authentication.UsernameNotFoundException;

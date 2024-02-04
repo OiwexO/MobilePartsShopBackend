@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.api.v1.auth.controller;
+package com.nulp.mobilepartsshop.api.v1.authentication.controller;
 
 import com.nulp.mobilepartsshop.api.v1.ApiConstants;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     public static final String MAPPING = ApiConstants.GLOBAL_MAPPING + "/demo";
-    
+
     @GetMapping("/customer")
     public ResponseEntity<String> helloCustomer() {
         return ResponseEntity.ok("Hello Customer");

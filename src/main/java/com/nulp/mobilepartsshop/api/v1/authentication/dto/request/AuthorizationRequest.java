@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.api.v1.auth.dto.response;
+package com.nulp.mobilepartsshop.api.v1.authentication.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorizationResponse {
+public class AuthorizationRequest {
 
-    private String jwtToken;
+    private String username;
+
+    private String password;
 }

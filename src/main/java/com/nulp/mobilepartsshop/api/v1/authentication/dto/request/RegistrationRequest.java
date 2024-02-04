@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.api.v1.auth.dto.request;
+package com.nulp.mobilepartsshop.api.v1.authentication.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorizationRequest {
+public class RegistrationRequest {
+
+    private String firstname;
+
+    private String lastname;
 
     private String username;
 
