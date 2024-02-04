@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.core.model.user;
+package com.nulp.mobilepartsshop.core.entity.user;
 
 import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import jakarta.persistence.*;
@@ -34,11 +34,11 @@ public class User implements UserDetails {
     private String lastname;
 
     @Enumerated(EnumType.STRING)
-    private UserAuthority role;
+    private UserAuthority authority;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(authority.name()));
     }
 
     @Override

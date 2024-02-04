@@ -1,5 +1,6 @@
 package com.nulp.mobilepartsshop.security.config;
 
+import com.nulp.mobilepartsshop.api.v1.adminPanel.controller.UserRegistrationController;
 import com.nulp.mobilepartsshop.api.v1.authentication.controller.AuthenticationController;
 import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import com.nulp.mobilepartsshop.security.filter.JwtAuthorizationFilter;
@@ -31,7 +32,8 @@ public class SecurityConfig {
             "/api/v1/demo/staff"
     };
     private static final String[] SECURED_ADMIN_URL = {
-            "/api/v1/demo/admin"
+            "/api/v1/demo/admin",
+            UserRegistrationController.MAPPING + "/**",
     };
 
     private static final String[] AUTHORITY_CUSTOMER_OR_HIGHER = {

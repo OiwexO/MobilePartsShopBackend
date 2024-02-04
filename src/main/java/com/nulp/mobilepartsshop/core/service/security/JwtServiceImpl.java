@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.core.service;
+package com.nulp.mobilepartsshop.core.service.security;
 
 import com.nulp.mobilepartsshop.security.service.JwtService;
 import io.jsonwebtoken.Claims;

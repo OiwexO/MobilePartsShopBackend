@@ -1,6 +1,6 @@
 package com.nulp.mobilepartsshop.core.repository;
 
-import com.nulp.mobilepartsshop.core.model.user.User;
+import com.nulp.mobilepartsshop.core.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
