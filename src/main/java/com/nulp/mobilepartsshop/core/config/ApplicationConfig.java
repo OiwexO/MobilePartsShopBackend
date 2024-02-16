@@ -1,6 +1,6 @@
 package com.nulp.mobilepartsshop.core.config;
 
-import com.nulp.mobilepartsshop.core.repository.UserRepository;
+import com.nulp.mobilepartsshop.core.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

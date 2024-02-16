@@ -1,6 +1,5 @@
 package com.nulp.mobilepartsshop.core.entity.manufacturer;
 
-import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "manufacturers")
+@Table(name = "manufacturers", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
 public class Manufacturer {
 
     @Id
@@ -21,6 +20,7 @@ public class Manufacturer {
 
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "manufacturer")
+    @OneToOne(mappedBy = "manufacturer", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private ManufacturerLogo logo;
 }

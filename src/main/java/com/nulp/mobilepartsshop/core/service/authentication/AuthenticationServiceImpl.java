@@ -7,7 +7,7 @@ import com.nulp.mobilepartsshop.api.v1.authentication.service.AuthenticationServ
 import com.nulp.mobilepartsshop.security.service.JwtService;
 import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import com.nulp.mobilepartsshop.core.entity.user.User;
-import com.nulp.mobilepartsshop.core.repository.UserRepository;
+import com.nulp.mobilepartsshop.core.repository.user.UserRepository;
 import com.nulp.mobilepartsshop.exception.authentication.InvalidPasswordException;
 import com.nulp.mobilepartsshop.exception.authentication.UsernameAlreadyUsedException;
 import com.nulp.mobilepartsshop.exception.authentication.UsernameNotFoundException;

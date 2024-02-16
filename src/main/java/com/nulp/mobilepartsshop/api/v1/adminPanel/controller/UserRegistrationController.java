@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(UserRegistrationController.MAPPING)
 @RequiredArgsConstructor
 public class UserRegistrationController {
-    public static final String MAPPING = ApiConstants.GLOBAL_MAPPING + "/admin/userRegistration";
+    public static final String MAPPING = ApiConstants.ADMIN_MAPPING + "/userRegistration";
 
     private final UserRegistrationService userRegistrationService;
 

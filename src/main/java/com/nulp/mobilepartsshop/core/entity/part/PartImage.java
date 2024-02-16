@@ -1,5 +1,5 @@
 package com.nulp.mobilepartsshop.core.entity.part;
-
+/*
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,3 +24,4 @@ public class PartImage {
     @JoinColumn(name = "part_id")
     private Part part;
 }
+*/

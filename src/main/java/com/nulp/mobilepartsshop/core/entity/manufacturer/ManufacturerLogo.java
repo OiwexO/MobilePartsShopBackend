@@ -11,16 +11,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "logos")
+@Table(name = "manufacturer_logos")
 public class ManufacturerLogo {
 
     @Id
-    @GeneratedValue
+    @Column(name = "manufacturer_id")
     private Long id;
 
-    private String fileName;
+    private String filepath;
 
-    @ManyToOne
+    @OneToOne
+    @MapsId
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 }
