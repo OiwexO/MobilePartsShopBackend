@@ -4,9 +4,11 @@ import com.nulp.mobilepartsshop.exception.image.ImageStoreException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 @Service
 public class LocalImageStoreService implements ImageStoreService {
@@ -25,7 +27,7 @@ public class LocalImageStoreService implements ImageStoreService {
     }
 
     @Override
-    public void deleteImage(String filepath) throws NoSuchFileException, IOException {
+    public void deleteImage(String filepath) throws IOException {
         final Path targetPath = Paths.get(filepath).toAbsolutePath();
         Files.delete(targetPath);
     }
