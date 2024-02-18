@@ -1,9 +1,10 @@
 package com.nulp.mobilepartsshop.api.v1.manufacturer.controller;
 
 import com.nulp.mobilepartsshop.api.v1.ApiConstants;
-import com.nulp.mobilepartsshop.api.v1.manufacturer.dto.request.ManufacturerRequest;
 import com.nulp.mobilepartsshop.api.v1.manufacturer.dto.ManufacturerDto;
+import com.nulp.mobilepartsshop.api.v1.manufacturer.dto.request.ManufacturerRequest;
 import com.nulp.mobilepartsshop.api.v1.manufacturer.service.ManufacturerService;
+import com.nulp.mobilepartsshop.api.v1.mapper.ManufacturerMapper;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
@@ -11,10 +12,10 @@ import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
 import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
 import com.nulp.mobilepartsshop.exception.image.ImageStoreException;
 import com.nulp.mobilepartsshop.exception.manufacturer.ManufacturerNotFoundException;
+import com.nulp.mobilepartsshop.utils.ImageUtils;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.InvalidMediaTypeException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,18 +37,28 @@ public class ManufacturerController {
 
     public static final String MAPPING = ApiConstants.GLOBAL_MAPPING + "/manufacturers";
 
+    public static final String GET_MANUFACTURER_MAPPING = "/{manufacturerId}";
+
+    public static final String GET_MANUFACTURER_LOGO_MAPPING = "/{manufacturerId}/logo";
+
+    public static final String PUT_MANUFACTURER_MAPPING = "/{manufacturerId}";
+
+    public static final String DELETE_MANUFACTURER_MAPPING = "/{manufacturerId}";
+
     private final ManufacturerService manufacturerService;
 
+    private final HttpServletRequest httpServletRequest;
+
     @GetMapping()
-    public ResponseEntity<List<ManufacturerDto>> getManufacturer() {
+    public ResponseEntity<List<ManufacturerDto>> getAllManufacturers() {
         List<Manufacturer> manufacturers = manufacturerService.getAllManufacturers();
         List<ManufacturerDto> manufacturerDtos = manufacturers.stream()
-                .map(this::mapToManufacturerDto)
+                .map(manufacturer -> ManufacturerMapper.toDto(httpServletRequest, manufacturer))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(manufacturerDtos);
     }
 
-    @GetMapping("/{manufacturerId}")
+    @GetMapping(GET_MANUFACTURER_MAPPING)
     public ResponseEntity<ManufacturerDto> getManufacturer(@PathVariable Long manufacturerId) {
         if (manufacturerId == null) {
             return ResponseEntity.badRequest().build();
@@ -57,12 +68,12 @@ public class ManufacturerController {
             return ResponseEntity.notFound().build();
         }
         Manufacturer manufacturer = optionalManufacturer.get();
-        ManufacturerDto manufacturerDto = mapToManufacturerDto(manufacturer);
+        ManufacturerDto manufacturerDto = ManufacturerMapper.toDto(httpServletRequest, manufacturer);
         return ResponseEntity.ok(manufacturerDto);
     }
 
     //TODO refactor
-    @GetMapping("/{manufacturerId}/logo")
+    @GetMapping(GET_MANUFACTURER_LOGO_MAPPING)
     @ResponseBody
     public ResponseEntity<InputStreamResource> getManufacturerLogo(@PathVariable Long manufacturerId) {
         if (manufacturerId == null) {
@@ -90,30 +101,33 @@ public class ManufacturerController {
     public ResponseEntity<ManufacturerDto> createManufacturer(@ModelAttribute ManufacturerRequest request) {
         String name = request.getName();
         MultipartFile logo = request.getLogo();
-        ImageType imageType = getImageType(logo);
+        ImageType imageType = ImageUtils.getImageType(logo);
         if (name == null || name.isBlank() || logo.isEmpty() || imageType == ImageType.UNSUPPORTED) {
             return ResponseEntity.badRequest().build();
         }
         try {
             final Manufacturer manufacturer = manufacturerService.createManufacturer(name, logo, imageType);
-            final ManufacturerDto manufacturerDto = mapToManufacturerDto(manufacturer);
+            final ManufacturerDto manufacturerDto = ManufacturerMapper.toDto(httpServletRequest, manufacturer);
             return ResponseEntity.ok(manufacturerDto);
         } catch (ImageSaveException e) {
             return ResponseEntity.internalServerError().build();
         }
     }
 
-    @PutMapping("/{manufacturerId}")
-    public ResponseEntity<ManufacturerDto> updateManufacturer(@PathVariable Long manufacturerId, @ModelAttribute ManufacturerRequest request) {
+    @PutMapping(PUT_MANUFACTURER_MAPPING)
+    public ResponseEntity<ManufacturerDto> updateManufacturer(
+            @PathVariable Long manufacturerId,
+            @ModelAttribute ManufacturerRequest request
+    ) {
         String name = request.getName();
         MultipartFile logo = request.getLogo();
-        ImageType imageType = getImageType(logo);
+        ImageType imageType = ImageUtils.getImageType(logo);
         if (manufacturerId == null || name == null || name.isBlank() || imageType == ImageType.UNSUPPORTED) {
             return ResponseEntity.badRequest().build();
         }
         try {
             Manufacturer manufacturer = manufacturerService.updateManufacturer(manufacturerId, name, logo, imageType);
-            ManufacturerDto manufacturerDto = mapToManufacturerDto(manufacturer);
+            ManufacturerDto manufacturerDto = ManufacturerMapper.toDto(httpServletRequest, manufacturer);
             return ResponseEntity.ok(manufacturerDto);
         } catch (ManufacturerNotFoundException e) {
             return ResponseEntity.notFound().build();
@@ -122,7 +136,7 @@ public class ManufacturerController {
         }
     }
 
-    @DeleteMapping("/{manufacturerId}")
+    @DeleteMapping(DELETE_MANUFACTURER_MAPPING)
     public ResponseEntity<Void> deleteManufacturer(@PathVariable Long manufacturerId) {
         if (manufacturerId == null) {
             return ResponseEntity.badRequest().build();
@@ -135,43 +149,5 @@ public class ManufacturerController {
             return ResponseEntity.internalServerError().build();
         }
         return ResponseEntity.noContent().build();
-    }
-
-    //TODO remove or rewrite logoUrl
-    private ManufacturerDto mapToManufacturerDto(Manufacturer manufacturer) {
-        String logoUrl;
-        try {
-            final Path logoPath = Paths.get(manufacturer.getLogo().getFilepath()).toAbsolutePath();
-            logoUrl = new UrlResource(logoPath.toUri()).toString();
-        } catch (Exception e) {
-            logoUrl = "";
-        }
-        return ManufacturerDto.builder()
-                .id(manufacturer.getId())
-                .name(manufacturer.getName())
-                .logoUrl(logoUrl)
-                .build();
-    }
-
-    public ImageType getImageType(MultipartFile file) {
-        if (file == null || file.isEmpty()) {
-            return ImageType.UNSUPPORTED;
-        }
-        String contentType = file.getContentType();
-        if (contentType == null) {
-            return ImageType.UNSUPPORTED;
-        }
-        try {
-            MediaType mediaType = MediaType.parseMediaType(file.getContentType());
-            if (mediaType.equals(MediaType.IMAGE_JPEG)) {
-                return ImageType.JPG;
-            } else if (mediaType.equals(MediaType.IMAGE_PNG)) {
-                return ImageType.PNG;
-            } else {
-                return ImageType.UNSUPPORTED;
-            }
-        } catch (InvalidMediaTypeException e) {
-            return ImageType.UNSUPPORTED;
-        }
     }
 }
