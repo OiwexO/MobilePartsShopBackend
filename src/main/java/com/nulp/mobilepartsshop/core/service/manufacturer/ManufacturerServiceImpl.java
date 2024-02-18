@@ -1,12 +1,14 @@
 package com.nulp.mobilepartsshop.core.service.manufacturer;
 
-import com.nulp.mobilepartsshop.api.v1.manufacturer.dto.request.CreateManufacturerRequest;
 import com.nulp.mobilepartsshop.api.v1.manufacturer.service.ManufacturerLogoService;
 import com.nulp.mobilepartsshop.api.v1.manufacturer.service.ManufacturerService;
+import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.core.repository.manufacturer.ManufacturerRepository;
-import com.nulp.mobilepartsshop.exception.manufacturer.ManufacturerLogoStoreException;
+import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
+import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
+import com.nulp.mobilepartsshop.exception.image.ImageStoreException;
 import com.nulp.mobilepartsshop.exception.manufacturer.ManufacturerNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,32 +36,32 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     }
 
     @Override
-    public Manufacturer createManufacturer(CreateManufacturerRequest request) throws ManufacturerLogoStoreException {
+    public Manufacturer createManufacturer(String name, MultipartFile logo, ImageType imageType) throws ImageSaveException {
         Manufacturer manufacturer = new Manufacturer();
-        manufacturer.setName(request.getName());
-        final ManufacturerLogo logo = manufacturerLogoService.createManufacturerLogo(manufacturer, request.getLogo());
-        manufacturer.setLogo(logo);
+        manufacturer.setName(name);
+        final ManufacturerLogo manufacturerLogo = manufacturerLogoService.createManufacturerLogo(manufacturer, logo, imageType);
+        manufacturer.setLogo(manufacturerLogo);
         return manufacturerRepository.save(manufacturer);
     }
 
     @Override
-    public Manufacturer updateManufacturer(Long id, String name, MultipartFile logo)
-            throws ManufacturerNotFoundException, ManufacturerLogoStoreException {
-        Manufacturer existingManufacturer = manufacturerRepository.findById(id)
+    public Manufacturer updateManufacturer(Long id, String name, MultipartFile newLogoImage, ImageType imageType)
+            throws ManufacturerNotFoundException, ImageStoreException {
+        Manufacturer manufacturer = manufacturerRepository.findById(id)
                 .orElseThrow(() -> new ManufacturerNotFoundException("Manufacturer not found with id: " + id));
-        existingManufacturer.setName(name);
-        if (!logo.isEmpty()) {
-            manufacturerLogoService.updateManufacturerLogo(existingManufacturer, logo);
+        manufacturer.setName(name);
+        if (!newLogoImage.isEmpty()) {
+            manufacturerLogoService.updateManufacturerLogo(manufacturer.getLogo(), newLogoImage, imageType);
         }
-        return manufacturerRepository.save(existingManufacturer);
+        return manufacturerRepository.save(manufacturer);
     }
 
     @Override
-    public void deleteManufacturer(Long id) throws ManufacturerNotFoundException {
-        if (manufacturerRepository.findById(id).isPresent()) {
-            manufacturerRepository.deleteById(id);
-        } else {
-            throw new ManufacturerNotFoundException("Manufacturer not found with id: " + id);
-        }
+    public void deleteManufacturer(Long id) throws ManufacturerNotFoundException, ImageDeleteException {
+        Manufacturer manufacturer = manufacturerRepository.findById(id).orElseThrow(
+                () -> new ManufacturerNotFoundException("Manufacturer not found with id: " + id)
+        );
+        manufacturerLogoService.deleteManufacturerLogo(manufacturer.getLogo());
+        manufacturerRepository.deleteById(id);
     }
 }

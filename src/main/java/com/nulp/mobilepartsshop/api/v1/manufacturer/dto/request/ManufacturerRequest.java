@@ -4,12 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetManufacturerRequest {
+public class ManufacturerRequest {
 
-    private Long id;
+    private String name;
+
+    private MultipartFile logo;
 }

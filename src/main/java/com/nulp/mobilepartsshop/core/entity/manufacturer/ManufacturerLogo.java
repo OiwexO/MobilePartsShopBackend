@@ -20,6 +20,9 @@ public class ManufacturerLogo {
 
     private String filepath;
 
+    @Enumerated(EnumType.STRING)
+    private ImageType imageType;
+
     @OneToOne
     @MapsId
     @JoinColumn(name = "manufacturer_id")

@@ -1,18 +1,19 @@
 package com.nulp.mobilepartsshop.core.service.manufacturer;
 
 import com.nulp.mobilepartsshop.api.v1.manufacturer.service.ManufacturerLogoService;
+import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.core.repository.manufacturer.ManufacturerLogoRepository;
 import com.nulp.mobilepartsshop.core.service.image.ImageStoreService;
+import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
+import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
 import com.nulp.mobilepartsshop.exception.image.ImageStoreException;
-import com.nulp.mobilepartsshop.exception.manufacturer.ManufacturerLogoStoreException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.Optional;
 
 @Service
@@ -32,36 +33,29 @@ public class ManufacturerLogoServiceImpl implements ManufacturerLogoService {
     }
 
     @Override
-    public ManufacturerLogo createManufacturerLogo(Manufacturer manufacturer, MultipartFile logo) throws ManufacturerLogoStoreException {
-        final String filepath;
-        try {
-            filepath = imageStoreService.saveImage(logo, LOGOS_DIRECTORY);
-        } catch (ImageStoreException e) {
-            throw new ManufacturerLogoStoreException(e.getMessage(), e.getCause());
-        }
+    public ManufacturerLogo createManufacturerLogo(Manufacturer manufacturer, MultipartFile logo, ImageType imageType)
+            throws ImageSaveException {
+        final String filepath = imageStoreService.saveImage(logo, LOGOS_DIRECTORY);
         final ManufacturerLogo manufacturerLogo = ManufacturerLogo.builder()
                 .filepath(filepath)
                 .manufacturer(manufacturer)
+                .imageType(imageType)
                 .build();
         return manufacturerLogoRepository.save(manufacturerLogo);
     }
 
     @Override
-    public ManufacturerLogo updateManufacturerLogo(Manufacturer manufacturer, MultipartFile logo)
-            throws ManufacturerLogoStoreException {
-        ManufacturerLogo existingLogo = manufacturer.getLogo();
-        try {
-            imageStoreService.deleteImage(existingLogo.getFilepath());
-        } catch (IOException e) {
-            throw new ManufacturerLogoStoreException(e.getMessage(), e.getCause());
-        }
-        final String newLogoPath;
-        try {
-            newLogoPath = imageStoreService.saveImage(logo, LOGOS_DIRECTORY);
-        } catch (ImageStoreException e) {
-            throw new ManufacturerLogoStoreException(e.getMessage(), e.getCause());
-        }
+    public ManufacturerLogo updateManufacturerLogo(ManufacturerLogo existingLogo, MultipartFile newLogoImage, ImageType imageType)
+            throws ImageStoreException {
+        imageStoreService.deleteImage(existingLogo.getFilepath());
+        final String newLogoPath = imageStoreService.saveImage(newLogoImage, LOGOS_DIRECTORY);
         existingLogo.setFilepath(newLogoPath);
         return manufacturerLogoRepository.save(existingLogo);
+    }
+
+    @Override
+    public void deleteManufacturerLogo(ManufacturerLogo logo) throws ImageDeleteException {
+        imageStoreService.deleteImage(logo.getFilepath());
+        manufacturerLogoRepository.delete(logo);
     }
 }

@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.api.v1.manufacturer.dto.response;
+package com.nulp.mobilepartsshop.api.v1.manufacturer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetManufacturerResponse {
+public class ManufacturerDto {
 
     private Long id;
 

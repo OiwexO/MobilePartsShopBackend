@@ -1,8 +1,11 @@
 package com.nulp.mobilepartsshop.api.v1.manufacturer.service;
 
+import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
-import com.nulp.mobilepartsshop.exception.manufacturer.ManufacturerLogoStoreException;
+import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
+import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
+import com.nulp.mobilepartsshop.exception.image.ImageStoreException;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
@@ -11,10 +14,12 @@ public interface ManufacturerLogoService {
 
     Optional<ManufacturerLogo> getManufacturerLogoById(Long id);
 
-    ManufacturerLogo createManufacturerLogo(Manufacturer manufacturer, MultipartFile logo)
-            throws ManufacturerLogoStoreException;
+    ManufacturerLogo createManufacturerLogo(Manufacturer manufacturer, MultipartFile logo, ImageType imageType)
+            throws ImageSaveException;
 
-    ManufacturerLogo updateManufacturerLogo(Manufacturer manufacturer, MultipartFile logo)
-            throws ManufacturerLogoStoreException;
+    ManufacturerLogo updateManufacturerLogo(ManufacturerLogo existingLogo, MultipartFile newLogoImage, ImageType imageType)
+            throws ImageStoreException;
+
+    void deleteManufacturerLogo(ManufacturerLogo logo) throws ImageDeleteException;
 
 }
