@@ -7,6 +7,7 @@ import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.core.repository.manufacturer.ManufacturerLogoRepository;
 import com.nulp.mobilepartsshop.core.service.image.ImageStoreService;
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
+import com.nulp.mobilepartsshop.exception.image.ImageGetInputStreamException;
 import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
 import com.nulp.mobilepartsshop.exception.image.ImageStoreException;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.InputStream;
 import java.util.Optional;
 
 @Service
@@ -30,6 +32,11 @@ public class ManufacturerLogoServiceImpl implements ManufacturerLogoService {
     @Override
     public Optional<ManufacturerLogo> getManufacturerLogoById(Long id) {
         return manufacturerLogoRepository.findById(id);
+    }
+
+    @Override
+    public InputStream getManufacturerLogoInputStream(ManufacturerLogo logo) throws ImageGetInputStreamException {
+        return imageStoreService.getImageInputStream(logo.getFilepath());
     }
 
     @Override

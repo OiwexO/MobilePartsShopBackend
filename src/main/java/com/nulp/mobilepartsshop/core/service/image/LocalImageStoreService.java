@@ -1,6 +1,7 @@
 package com.nulp.mobilepartsshop.core.service.image;
 
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
+import com.nulp.mobilepartsshop.exception.image.ImageGetInputStreamException;
 import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,6 +16,17 @@ import java.nio.file.StandardCopyOption;
 
 @Service
 public class LocalImageStoreService implements ImageStoreService {
+
+    @Override
+    public InputStream getImageInputStream(String filepath) throws ImageGetInputStreamException {
+        try {
+            final Path targetPath = Paths.get(filepath).toAbsolutePath();
+            return Files.newInputStream(targetPath);
+        } catch (Exception e) {
+            throw new ImageGetInputStreamException(e);
+        }
+
+    }
 
     @Override
     public String saveImage(MultipartFile image, String filepath) throws ImageSaveException {

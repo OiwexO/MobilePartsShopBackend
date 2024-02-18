@@ -9,6 +9,7 @@ import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
+import com.nulp.mobilepartsshop.exception.image.ImageGetInputStreamException;
 import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
 import com.nulp.mobilepartsshop.exception.image.ImageStoreException;
 import com.nulp.mobilepartsshop.exception.manufacturer.ManufacturerNotFoundException;
@@ -21,11 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -72,7 +69,6 @@ public class ManufacturerController {
         return ResponseEntity.ok(manufacturerDto);
     }
 
-    //TODO refactor
     @GetMapping(GET_MANUFACTURER_LOGO_MAPPING)
     @ResponseBody
     public ResponseEntity<InputStreamResource> getManufacturerLogo(@PathVariable Long manufacturerId) {
@@ -85,16 +81,14 @@ public class ManufacturerController {
         }
         ManufacturerLogo logo = optionalManufacturer.get().getLogo();
         MediaType contentType = logo.getImageType() == ImageType.JPG ? MediaType.IMAGE_JPEG : MediaType.IMAGE_PNG;
-        final Path targetPath = Paths.get(logo.getFilepath()).toAbsolutePath();
-        InputStream in;
         try {
-            in = Files.newInputStream(targetPath);
-        } catch (IOException e) {
+            InputStream in = manufacturerService.getManufacturerLogoInputStream(logo);
+            return ResponseEntity.ok()
+                    .contentType(contentType)
+                    .body(new InputStreamResource(in));
+        } catch (ImageGetInputStreamException e) {
             return ResponseEntity.internalServerError().build();
         }
-        return ResponseEntity.ok()
-                .contentType(contentType)
-                .body(new InputStreamResource(in));
     }
 
     @PostMapping()
