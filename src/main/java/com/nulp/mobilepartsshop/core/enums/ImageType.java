@@ -1,6 +1,7 @@
-package com.nulp.mobilepartsshop.core.entity.manufacturer;
+package com.nulp.mobilepartsshop.core.enums;
 
 public enum ImageType {
+
     JPG,
     PNG,
     UNSUPPORTED

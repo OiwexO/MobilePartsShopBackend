@@ -2,7 +2,7 @@ package com.nulp.mobilepartsshop.core.service.manufacturer;
 
 import com.nulp.mobilepartsshop.api.v1.manufacturer.service.ManufacturerLogoService;
 import com.nulp.mobilepartsshop.api.v1.manufacturer.service.ManufacturerService;
-import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
+import com.nulp.mobilepartsshop.core.enums.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.core.repository.manufacturer.ManufacturerRepository;

@@ -34,7 +34,6 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
                 .authority(request.getAuthority())
                 .build();
         User registeredUser = repository.save(newUser);
-//        final Optional<User> registeredUser = repository.findByUsername(request.getUsername());
         return UserRegistrationResponse.builder()
                 .userId(registeredUser.getId())
                 .build();

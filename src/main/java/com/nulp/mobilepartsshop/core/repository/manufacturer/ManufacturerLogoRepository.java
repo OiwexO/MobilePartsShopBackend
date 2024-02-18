@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ManufacturerLogoRepository extends JpaRepository<ManufacturerLogo, Long> {
+
+
 }

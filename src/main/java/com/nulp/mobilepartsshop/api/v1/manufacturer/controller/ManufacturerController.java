@@ -5,7 +5,7 @@ import com.nulp.mobilepartsshop.api.v1.manufacturer.dto.ManufacturerDto;
 import com.nulp.mobilepartsshop.api.v1.manufacturer.dto.request.ManufacturerRequest;
 import com.nulp.mobilepartsshop.api.v1.manufacturer.service.ManufacturerService;
 import com.nulp.mobilepartsshop.api.v1.mapper.ManufacturerMapper;
-import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
+import com.nulp.mobilepartsshop.core.enums.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;

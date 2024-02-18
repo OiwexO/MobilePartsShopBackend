@@ -1,7 +1,7 @@
 package com.nulp.mobilepartsshop.core.service.manufacturer;
 
 import com.nulp.mobilepartsshop.api.v1.manufacturer.service.ManufacturerLogoService;
-import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
+import com.nulp.mobilepartsshop.core.enums.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.core.repository.manufacturer.ManufacturerLogoRepository;
@@ -40,8 +40,11 @@ public class ManufacturerLogoServiceImpl implements ManufacturerLogoService {
     }
 
     @Override
-    public ManufacturerLogo createManufacturerLogo(Manufacturer manufacturer, MultipartFile logo, ImageType imageType)
-            throws ImageSaveException {
+    public ManufacturerLogo createManufacturerLogo(
+            Manufacturer manufacturer,
+            MultipartFile logo,
+            ImageType imageType
+    ) throws ImageSaveException {
         final String filepath = imageStoreService.saveImage(logo, LOGOS_DIRECTORY);
         final ManufacturerLogo manufacturerLogo = ManufacturerLogo.builder()
                 .filepath(filepath)
@@ -52,8 +55,11 @@ public class ManufacturerLogoServiceImpl implements ManufacturerLogoService {
     }
 
     @Override
-    public ManufacturerLogo updateManufacturerLogo(ManufacturerLogo existingLogo, MultipartFile newLogoImage, ImageType imageType)
-            throws ImageStoreException {
+    public ManufacturerLogo updateManufacturerLogo(
+            ManufacturerLogo existingLogo,
+            MultipartFile newLogoImage,
+            ImageType imageType
+    ) throws ImageStoreException {
         imageStoreService.deleteImage(existingLogo.getFilepath());
         final String newLogoPath = imageStoreService.saveImage(newLogoImage, LOGOS_DIRECTORY);
         existingLogo.setFilepath(newLogoPath);

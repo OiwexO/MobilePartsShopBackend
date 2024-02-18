@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(AuthenticationController.MAPPING)
 @RequiredArgsConstructor
 public class AuthenticationController {
+
     public static final String MAPPING = ApiConstants.GLOBAL_MAPPING + "/authentication";
 
     private final AuthenticationService authenticationService;
+
     @PostMapping("/register")
-    public ResponseEntity<AuthorizationResponse> register(
-            @RequestBody RegistrationRequest request
-    ) {
+    public ResponseEntity<AuthorizationResponse> register(@RequestBody RegistrationRequest request) {
         AuthorizationResponse response;
         try {
             response = authenticationService.register(request);
@@ -37,9 +37,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/authorize")
-    public ResponseEntity<AuthorizationResponse> authorize(
-            @RequestBody AuthorizationRequest request
-    ) {
+    public ResponseEntity<AuthorizationResponse> authorize(@RequestBody AuthorizationRequest request) {
         AuthorizationResponse response;
         try {
             response = authenticationService.authorize(request);

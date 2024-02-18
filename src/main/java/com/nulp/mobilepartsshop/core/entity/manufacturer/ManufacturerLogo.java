@@ -1,5 +1,6 @@
 package com.nulp.mobilepartsshop.core.entity.manufacturer;
 
+import com.nulp.mobilepartsshop.core.enums.ImageType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

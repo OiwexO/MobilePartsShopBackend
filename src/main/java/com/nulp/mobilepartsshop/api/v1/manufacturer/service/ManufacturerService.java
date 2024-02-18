@@ -1,6 +1,6 @@
 package com.nulp.mobilepartsshop.api.v1.manufacturer.service;
 
-import com.nulp.mobilepartsshop.core.entity.manufacturer.ImageType;
+import com.nulp.mobilepartsshop.core.enums.ImageType;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
@@ -29,4 +29,3 @@ public interface ManufacturerService {
 
     void deleteManufacturer(Long id) throws ManufacturerNotFoundException, ImageDeleteException;
 }
-

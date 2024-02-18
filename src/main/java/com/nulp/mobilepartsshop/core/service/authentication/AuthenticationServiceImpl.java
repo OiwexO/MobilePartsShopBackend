@@ -73,5 +73,4 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .jwtToken(jwtToken)
                 .build();
     }
-
 }

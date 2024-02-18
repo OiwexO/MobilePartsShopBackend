@@ -88,5 +88,4 @@ public class JwtServiceImpl implements JwtService {
                 .parseSignedClaims(jwtToken)
                 .getPayload();
     }
-
 }
