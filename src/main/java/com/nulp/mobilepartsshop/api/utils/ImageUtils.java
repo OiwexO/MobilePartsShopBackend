@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.utils;
+package com.nulp.mobilepartsshop.api.utils;
 
 import com.nulp.mobilepartsshop.core.enums.ImageType;
 import org.springframework.http.InvalidMediaTypeException;

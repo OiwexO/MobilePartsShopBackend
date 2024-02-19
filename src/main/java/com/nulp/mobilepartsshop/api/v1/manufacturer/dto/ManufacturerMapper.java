@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.api.v1.mapper;
+package com.nulp.mobilepartsshop.api.v1.manufacturer.dto;
 
 import com.nulp.mobilepartsshop.api.v1.manufacturer.controller.ManufacturerController;
 import com.nulp.mobilepartsshop.api.v1.manufacturer.dto.ManufacturerDto;

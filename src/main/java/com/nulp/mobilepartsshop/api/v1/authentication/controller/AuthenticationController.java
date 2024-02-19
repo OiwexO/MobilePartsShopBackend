@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
-    public static final String MAPPING = ApiConstants.GLOBAL_MAPPING + "/authentication";
+    public static final String MAPPING = ApiConstants.GLOBAL_MAPPING_V1 + "/authentication";
 
     private final AuthenticationService authenticationService;
 
