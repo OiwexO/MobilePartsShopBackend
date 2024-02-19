@@ -6,7 +6,7 @@ build/
 !**/src/test/**/build/
 
 ### Local properties ###
-/src/main/resources/application-local.properties
+/src/main/resources/datasource.properties
 
 ### JWT token properties ###
 /src/main/resources/jwt.properties
