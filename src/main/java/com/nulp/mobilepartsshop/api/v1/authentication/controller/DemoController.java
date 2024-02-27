@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(DemoController.MAPPING)
 public class DemoController {
 
-    public static final String MAPPING = ApiConstants.GLOBAL_MAPPING + "/demo";
+    public static final String MAPPING = ApiConstants.GLOBAL_MAPPING_V1 + "/demo";
 
     @GetMapping("/customer")
     public ResponseEntity<String> helloCustomer() {

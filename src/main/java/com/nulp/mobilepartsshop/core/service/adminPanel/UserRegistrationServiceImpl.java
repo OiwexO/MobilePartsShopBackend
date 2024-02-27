@@ -4,7 +4,7 @@ import com.nulp.mobilepartsshop.api.v1.adminPanel.dto.request.UserRegistrationRe
 import com.nulp.mobilepartsshop.api.v1.adminPanel.dto.response.UserRegistrationResponse;
 import com.nulp.mobilepartsshop.api.v1.adminPanel.service.UserRegistrationService;
 import com.nulp.mobilepartsshop.core.entity.user.User;
-import com.nulp.mobilepartsshop.core.repository.UserRepository;
+import com.nulp.mobilepartsshop.core.repository.user.UserRepository;
 import com.nulp.mobilepartsshop.exception.authentication.UsernameAlreadyUsedException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,7 +34,6 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
                 .authority(request.getAuthority())
                 .build();
         User registeredUser = repository.save(newUser);
-//        final Optional<User> registeredUser = repository.findByUsername(request.getUsername());
         return UserRegistrationResponse.builder()
                 .userId(registeredUser.getId())
                 .build();

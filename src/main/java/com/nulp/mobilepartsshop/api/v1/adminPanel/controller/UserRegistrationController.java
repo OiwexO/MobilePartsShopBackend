@@ -17,14 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(UserRegistrationController.MAPPING)
 @RequiredArgsConstructor
 public class UserRegistrationController {
-    public static final String MAPPING = ApiConstants.GLOBAL_MAPPING + "/admin/userRegistration";
+
+    public static final String MAPPING = ApiConstants.ADMIN_MAPPING + "/userRegistration";
 
     private final UserRegistrationService userRegistrationService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserRegistrationResponse> register(
-            @RequestBody UserRegistrationRequest request
-    ) {
+    public ResponseEntity<UserRegistrationResponse> register(@RequestBody UserRegistrationRequest request) {
         UserRegistrationResponse response;
         try {
             response = userRegistrationService.register(request);
