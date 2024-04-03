@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.core.entity.part;
+package com.nulp.mobilepartsshop.core.entity.partType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "device_types")
-public class DeviceType {
+@Table(name = "part_types")
+public class PartType {
 
     @Id
     @GeneratedValue

@@ -1,6 +1,6 @@
 package com.nulp.mobilepartsshop.api.v1.partType.dto;
 
-import com.nulp.mobilepartsshop.core.entity.part.PartType;
+import com.nulp.mobilepartsshop.core.entity.partType.PartType;
 
 import java.util.List;
 

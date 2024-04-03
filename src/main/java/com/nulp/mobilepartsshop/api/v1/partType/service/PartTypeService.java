@@ -1,6 +1,6 @@
 package com.nulp.mobilepartsshop.api.v1.partType.service;
 
-import com.nulp.mobilepartsshop.core.entity.part.PartType;
+import com.nulp.mobilepartsshop.core.entity.partType.PartType;
 
 import java.util.List;
 import java.util.Optional;

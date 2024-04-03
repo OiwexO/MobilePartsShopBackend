@@ -3,14 +3,16 @@ package com.nulp.mobilepartsshop.core.entity.part;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Data;th S
 import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
+@NoArgsConstructorth S
+@AllArgsConstructor1 438 переглядів  24 лют. 2024 р.  REST with SpringBoot
+
+@Entity1 438 переглядів  24 лют. 2024 р.  REST with SpringBoot
+
 @Table(name = "part_images")
 public class PartImage {
 

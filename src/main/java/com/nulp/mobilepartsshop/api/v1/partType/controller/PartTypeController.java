@@ -5,7 +5,7 @@ import com.nulp.mobilepartsshop.api.v1.partType.dto.PartTypeDto;
 import com.nulp.mobilepartsshop.api.v1.partType.dto.PartTypeDtoValidator;
 import com.nulp.mobilepartsshop.api.v1.partType.dto.PartTypeMapper;
 import com.nulp.mobilepartsshop.api.v1.partType.service.PartTypeService;
-import com.nulp.mobilepartsshop.core.entity.part.PartType;
+import com.nulp.mobilepartsshop.core.entity.partType.PartType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

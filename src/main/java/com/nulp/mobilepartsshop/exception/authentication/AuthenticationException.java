@@ -2,6 +2,9 @@ package com.nulp.mobilepartsshop.exception.authentication;
 
 public class AuthenticationException extends Exception {
 
+    public AuthenticationException() {
+    }
+
     public AuthenticationException(String message) {
         super(message);
     }

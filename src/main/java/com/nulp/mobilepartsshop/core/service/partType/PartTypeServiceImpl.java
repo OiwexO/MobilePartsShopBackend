@@ -1,7 +1,7 @@
 package com.nulp.mobilepartsshop.core.service.partType;
 
 import com.nulp.mobilepartsshop.api.v1.partType.service.PartTypeService;
-import com.nulp.mobilepartsshop.core.entity.part.PartType;
+import com.nulp.mobilepartsshop.core.entity.partType.PartType;
 import com.nulp.mobilepartsshop.core.repository.part.PartTypeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
