@@ -2,8 +2,8 @@ package com.nulp.mobilepartsshop.security.config;
 
 import com.nulp.mobilepartsshop.api.v1.adminPanel.controller.UserRegistrationController;
 import com.nulp.mobilepartsshop.api.v1.authentication.controller.AuthenticationController;
-import com.nulp.mobilepartsshop.api.v1.manufacturer.controller.ManufacturerController;
-import com.nulp.mobilepartsshop.api.v1.partType.controller.PartTypeController;
+import com.nulp.mobilepartsshop.api.v1.part.controller.ManufacturerController;
+import com.nulp.mobilepartsshop.api.v1.part.controller.PartTypeController;
 import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import com.nulp.mobilepartsshop.security.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,9 @@
 package com.nulp.mobilepartsshop.core.entity.part;
 
-import com.nulp.mobilepartsshop.core.enums.ImageType;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,18 +13,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
-
-@Table(name = "part_images")
-public class PartImage {
+@Table(name = "part_types")
+public class PartType {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String filepath;
+    private String nameEn;
 
-    @Enumerated(EnumType.STRING)
-    private ImageType imageType;
-}
+    private String nameUk;}
