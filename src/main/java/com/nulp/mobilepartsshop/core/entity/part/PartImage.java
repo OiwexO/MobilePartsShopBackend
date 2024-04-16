@@ -15,13 +15,11 @@ import lombok.NoArgsConstructor;
 public class PartImage {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     private String filepath;
 
-    @ManyToOne
+    @OneToOne
     @MapsId
-    @JoinColumn(name = "part_id")
     private Part part;
 }

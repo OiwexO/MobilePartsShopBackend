@@ -1,12 +1,14 @@
 package com.nulp.mobilepartsshop.api.utils;
 
-public abstract class RequestValidator {
+public abstract class RequestValidator<T> {
 
-    public static boolean isValidId(Long id) {
+    public boolean isValidId(Long id) {
         return id != null && id > 0;
     }
 
-    protected static boolean isValidString(String str) {
+    public abstract boolean isValidRequest(T request);
+
+    protected boolean isValidString(String str) {
         return str != null && !str.isBlank();
     }
 }

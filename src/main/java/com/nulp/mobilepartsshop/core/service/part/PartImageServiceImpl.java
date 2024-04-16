@@ -26,7 +26,7 @@ public class PartImageServiceImpl implements PartImageService {
 
     private final ImageStoreService imageStoreService;
 
-    PartImageRepository partImageRepository;
+    private final PartImageRepository partImageRepository;
 
     @Override
     public Optional<PartImage> getPartImageById(Long id) {

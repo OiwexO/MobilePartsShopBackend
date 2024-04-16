@@ -7,14 +7,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "parts", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
+@Table(name = "parts")
 public class Part {
 
     @Id
@@ -41,6 +39,7 @@ public class Part {
     @JoinColumn(name = "part_type_id")
     private PartType partType;
 
-    @OneToMany(mappedBy = "part"/*, cascade = CascadeType.ALL*/)
-    private List<PartImage> partImages;
+    @OneToOne(mappedBy = "part")
+    @PrimaryKeyJoinColumn
+    private PartImage partImage;
 }

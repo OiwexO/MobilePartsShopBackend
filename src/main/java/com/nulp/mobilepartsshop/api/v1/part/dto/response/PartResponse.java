@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -28,6 +26,4 @@ public class PartResponse {
     private DeviceTypeResponse deviceType;
 
     private PartTypeResponse partType;
-
-    private List<Long> imageIds;
 }

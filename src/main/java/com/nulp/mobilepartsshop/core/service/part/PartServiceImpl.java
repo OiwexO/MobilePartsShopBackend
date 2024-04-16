@@ -23,7 +23,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,13 +66,9 @@ public class PartServiceImpl implements PartService {
             throw new EntityAlreadyExistsException();
         }
         Part part = new Part();
-        List<MultipartFile> images = partRequest.getPartImages();
-        List<PartImage> partImages = new ArrayList<>();
-        for (MultipartFile image : images) {
-            PartImage partImage = partImageService.createPartImage(part, image);
-            partImages.add(partImage);
-        }
-        setPartFields(part, partRequest, partImages);
+        MultipartFile image = partRequest.getPartImage();
+        PartImage partImage = partImageService.createPartImage(part, image);
+        setPartFields(part, partRequest, partImage);
         return partRepository.save(part);
     }
 
@@ -84,21 +79,12 @@ public class PartServiceImpl implements PartService {
             return Optional.empty();
         }
         Part part = optionalPart.get();
-        List<PartImage> partImages = part.getPartImages();
-        List<MultipartFile> images = partRequest.getPartImages();
-        if (images != null && !images.isEmpty()) {
-            for (PartImage partImage : partImages) {
-                partImageService.deletePartImage(partImage);
-                partImages.remove(partImage);
-            }
-            for (MultipartFile image : images) {
-                if (!image.isEmpty()) {
-                    PartImage newPartImage = partImageService.createPartImage(part, image);
-                    partImages.add(newPartImage);
-                }
-            }
+        PartImage partImage = part.getPartImage();
+        MultipartFile image = partRequest.getPartImage();
+        if (image != null && !image.isEmpty()) {
+            partImageService.updatePartImage(partImage, image);
         }
-        setPartFields(part, partRequest, partImages);
+        setPartFields(part, partRequest, partImage);
         return Optional.of(partRepository.save(part));
     }
 
@@ -108,15 +94,13 @@ public class PartServiceImpl implements PartService {
         if (optionalPart.isEmpty()) {
             return false;
         }
-        List<PartImage> partImages = optionalPart.get().getPartImages();
-        for (PartImage partImage : partImages) {
-            partImageService.deletePartImage(partImage);
-        }
+        PartImage partImage = optionalPart.get().getPartImage();
+        partImageService.deletePartImage(partImage);
         partRepository.deleteById(id);
-        return false;
+        return true;
     }
 
-    private void setPartFields(Part part, PartRequest partRequest, List<PartImage> partImages) throws EntityNotFoundException {
+    private void setPartFields(Part part, PartRequest partRequest, PartImage partImage) throws EntityNotFoundException {
         Manufacturer manufacturer = manufacturerService
                 .getManufacturerById(partRequest.getManufacturerId())
                 .orElseThrow(EntityNotFoundException::new);
@@ -133,6 +117,6 @@ public class PartServiceImpl implements PartService {
         part.setManufacturer(manufacturer);
         part.setDeviceType(deviceType);
         part.setPartType(partType);
-        part.setPartImages(partImages);
+        part.setPartImage(partImage);
     }
 }

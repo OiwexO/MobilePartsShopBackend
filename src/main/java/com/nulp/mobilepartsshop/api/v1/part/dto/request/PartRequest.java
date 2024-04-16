@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -28,5 +26,5 @@ public class PartRequest {
 
     private Long partTypeId;
 
-    private List<MultipartFile> partImages;
+    private MultipartFile partImage;
 }

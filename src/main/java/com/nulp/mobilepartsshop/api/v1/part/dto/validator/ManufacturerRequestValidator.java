@@ -5,15 +5,18 @@ import com.nulp.mobilepartsshop.api.utils.MultipartFileUtils;
 import com.nulp.mobilepartsshop.api.v1.part.dto.request.ManufacturerRequest;
 import org.springframework.web.multipart.MultipartFile;
 
-public class ManufacturerRequestValidator extends RequestValidator {
+public class ManufacturerRequestValidator extends RequestValidator<ManufacturerRequest> {
 
-    public static boolean isValidDto(ManufacturerRequest manufacturerRequest) {
-        String name = manufacturerRequest.getName();
-        MultipartFile logo = manufacturerRequest.getLogo();
+    public ManufacturerRequestValidator() {}
+
+    @Override
+    public boolean isValidRequest(ManufacturerRequest request) {
+        final String name = request.getName();
+        final MultipartFile logo = request.getLogo();
         return isValidName(name) && MultipartFileUtils.isValidFileForManufacturerLogo(logo);
     }
 
-    public static boolean isValidName(String name) {
+    public boolean isValidName(String name) {
         return isValidString(name);
     }
 }
