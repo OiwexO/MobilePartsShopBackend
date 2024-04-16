@@ -14,6 +14,4 @@ public class ManufacturerResponse {
     private Long id;
 
     private String name;
-
-    private String logoUrl;
 }

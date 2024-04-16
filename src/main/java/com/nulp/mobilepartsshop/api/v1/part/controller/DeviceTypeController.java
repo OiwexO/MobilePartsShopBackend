@@ -4,7 +4,7 @@ import com.nulp.mobilepartsshop.api.v1.ApiConstants;
 import com.nulp.mobilepartsshop.api.v1.part.dto.mapper.DeviceTypeMapper;
 import com.nulp.mobilepartsshop.api.v1.part.dto.request.DeviceTypeRequest;
 import com.nulp.mobilepartsshop.api.v1.part.dto.response.DeviceTypeResponse;
-import com.nulp.mobilepartsshop.api.v1.part.dto.validator.DeviceTypeDtoValidator;
+import com.nulp.mobilepartsshop.api.v1.part.dto.validator.DeviceTypeRequestValidator;
 import com.nulp.mobilepartsshop.api.v1.part.service.DeviceTypeService;
 import com.nulp.mobilepartsshop.core.entity.part.DeviceType;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +31,7 @@ public class DeviceTypeController {
 
     @GetMapping("/{deviceTypeId}")
     public ResponseEntity<DeviceTypeResponse> getDeviceType(@PathVariable Long deviceTypeId) {
-        if (!DeviceTypeDtoValidator.isValidId(deviceTypeId)) {
+        if (!DeviceTypeRequestValidator.isValidId(deviceTypeId)) {
             return ResponseEntity.badRequest().build();
         }
         return deviceTypeService.getDeviceTypeById(deviceTypeId)
@@ -42,7 +42,7 @@ public class DeviceTypeController {
 
     @PostMapping
     public ResponseEntity<DeviceTypeResponse> createDeviceType(@RequestBody DeviceTypeRequest deviceTypeRequest) {
-        if (!DeviceTypeDtoValidator.isValidDto(deviceTypeRequest)) {
+        if (!DeviceTypeRequestValidator.isValidDto(deviceTypeRequest)) {
             return ResponseEntity.badRequest().build();
         }
         DeviceType deviceType = DeviceTypeMapper.toEntity(deviceTypeRequest);
@@ -56,7 +56,7 @@ public class DeviceTypeController {
             @PathVariable Long deviceTypeId,
             @RequestBody DeviceTypeRequest deviceTypeRequest
     ) {
-        if (!DeviceTypeDtoValidator.isValidId(deviceTypeId) || !DeviceTypeDtoValidator.isValidDto(deviceTypeRequest)) {
+        if (!DeviceTypeRequestValidator.isValidId(deviceTypeId) || !DeviceTypeRequestValidator.isValidDto(deviceTypeRequest)) {
             return ResponseEntity.badRequest().build();
         }
         DeviceType deviceType = DeviceTypeMapper.toEntity(deviceTypeRequest);
@@ -68,7 +68,7 @@ public class DeviceTypeController {
 
     @DeleteMapping("/{deviceTypeId}")
     public ResponseEntity<Void> deleteDeviceType(@PathVariable Long deviceTypeId) {
-        if (!DeviceTypeDtoValidator.isValidId(deviceTypeId)) {
+        if (!DeviceTypeRequestValidator.isValidId(deviceTypeId)) {
             return ResponseEntity.badRequest().build();
         }
         if (deviceTypeService.deleteDeviceType(deviceTypeId)) {

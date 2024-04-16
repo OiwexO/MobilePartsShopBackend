@@ -2,7 +2,7 @@ package com.nulp.mobilepartsshop.api.v1.part.service.manufacturer;
 
 import com.nulp.mobilepartsshop.core.entity.part.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.part.manufacturer.ManufacturerLogo;
-import com.nulp.mobilepartsshop.core.enums.ImageType;
+import com.nulp.mobilepartsshop.exception.entity.EntityAlreadyExistsException;
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
 import com.nulp.mobilepartsshop.exception.image.ImageGetInputStreamException;
 import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
@@ -21,9 +21,9 @@ public interface ManufacturerService {
 
     InputStream getManufacturerLogoInputStream(ManufacturerLogo logo) throws ImageGetInputStreamException;
 
-    Manufacturer createManufacturer(String name, MultipartFile logo, ImageType imageType) throws ImageSaveException;
+    Manufacturer createManufacturer(String name, MultipartFile logo) throws EntityAlreadyExistsException, ImageSaveException;
 
-    Optional<Manufacturer> updateManufacturer(Long id, String name, MultipartFile logo, ImageType imageType)
+    Optional<Manufacturer> updateManufacturer(Long id, String name, MultipartFile logo)
             throws ImageStoreException;
 
     boolean deleteManufacturer(Long id) throws ImageDeleteException;

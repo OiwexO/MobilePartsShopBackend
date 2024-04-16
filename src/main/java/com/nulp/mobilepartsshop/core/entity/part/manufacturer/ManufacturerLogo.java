@@ -1,6 +1,5 @@
 package com.nulp.mobilepartsshop.core.entity.part.manufacturer;
 
-import com.nulp.mobilepartsshop.core.enums.ImageType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,16 +15,11 @@ import lombok.NoArgsConstructor;
 public class ManufacturerLogo {
 
     @Id
-    @Column(name = "manufacturer_id")
     private Long id;
 
     private String filepath;
 
-    @Enumerated(EnumType.STRING)
-    private ImageType imageType;
-
     @OneToOne
     @MapsId
-    @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 }

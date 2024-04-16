@@ -5,6 +5,7 @@ import com.nulp.mobilepartsshop.api.v1.part.dto.response.DeviceTypeResponse;
 import com.nulp.mobilepartsshop.core.entity.part.DeviceType;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DeviceTypeMapper {
 
@@ -19,7 +20,7 @@ public class DeviceTypeMapper {
     public static List<DeviceTypeResponse> toDtoList(List<DeviceType> deviceTypes) {
         return deviceTypes.stream()
                 .map(DeviceTypeMapper::toDto)
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public static DeviceType toEntity(DeviceTypeRequest deviceTypeRequest) {

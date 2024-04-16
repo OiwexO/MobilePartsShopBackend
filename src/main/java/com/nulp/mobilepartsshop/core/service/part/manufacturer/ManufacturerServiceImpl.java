@@ -4,8 +4,8 @@ import com.nulp.mobilepartsshop.api.v1.part.service.manufacturer.ManufacturerLog
 import com.nulp.mobilepartsshop.api.v1.part.service.manufacturer.ManufacturerService;
 import com.nulp.mobilepartsshop.core.entity.part.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.part.manufacturer.ManufacturerLogo;
-import com.nulp.mobilepartsshop.core.enums.ImageType;
 import com.nulp.mobilepartsshop.core.repository.part.manufacturer.ManufacturerRepository;
+import com.nulp.mobilepartsshop.exception.entity.EntityAlreadyExistsException;
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
 import com.nulp.mobilepartsshop.exception.image.ImageGetInputStreamException;
 import com.nulp.mobilepartsshop.exception.image.ImageSaveException;
@@ -44,12 +44,14 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     @Override
     public Manufacturer createManufacturer(
             String name,
-            MultipartFile logo,
-            ImageType imageType
-    ) throws ImageSaveException {
+            MultipartFile logo
+    ) throws EntityAlreadyExistsException, ImageSaveException {
+        if (manufacturerRepository.existsManufacturerByName(name)) {
+            throw new EntityAlreadyExistsException();
+        }
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setName(name);
-        ManufacturerLogo manufacturerLogo = manufacturerLogoService.createManufacturerLogo(manufacturer, logo, imageType);
+        ManufacturerLogo manufacturerLogo = manufacturerLogoService.createManufacturerLogo(manufacturer, logo);
         manufacturer.setLogo(manufacturerLogo);
         return manufacturerRepository.save(manufacturer);
     }
@@ -58,17 +60,16 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public Optional<Manufacturer> updateManufacturer(
             Long id,
             String name,
-            MultipartFile newLogoImage,
-            ImageType imageType
+            MultipartFile newLogoImage
     ) throws ImageStoreException {
         Optional<Manufacturer> optionalManufacturer = manufacturerRepository.findById(id);
         if (optionalManufacturer.isEmpty()) {
-            return optionalManufacturer;
+            return Optional.empty();
         }
         Manufacturer manufacturer = optionalManufacturer.get();
         manufacturer.setName(name);
         if (!newLogoImage.isEmpty()) {
-            manufacturerLogoService.updateManufacturerLogo(manufacturer.getLogo(), newLogoImage, imageType);
+            manufacturerLogoService.updateManufacturerLogo(manufacturer.getLogo(), newLogoImage);
         }
         return Optional.of(manufacturerRepository.save(manufacturer));
     }

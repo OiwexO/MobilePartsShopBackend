@@ -3,7 +3,7 @@ package com.nulp.mobilepartsshop.api.v1.part.controller;
 import com.nulp.mobilepartsshop.api.v1.ApiConstants;
 import com.nulp.mobilepartsshop.api.v1.part.dto.request.PartTypeRequest;
 import com.nulp.mobilepartsshop.api.v1.part.dto.response.PartTypeResponse;
-import com.nulp.mobilepartsshop.api.v1.part.dto.validator.PartTypeDtoValidator;
+import com.nulp.mobilepartsshop.api.v1.part.dto.validator.PartTypeRequestValidator;
 import com.nulp.mobilepartsshop.api.v1.part.dto.mapper.PartTypeMapper;
 import com.nulp.mobilepartsshop.api.v1.part.service.PartTypeService;
 import com.nulp.mobilepartsshop.core.entity.part.PartType;
@@ -31,7 +31,7 @@ public class PartTypeController {
 
     @GetMapping("/{partTypeId}")
     public ResponseEntity<PartTypeResponse> getPartType(@PathVariable Long partTypeId) {
-        if (!PartTypeDtoValidator.isValidId(partTypeId)) {
+        if (!PartTypeRequestValidator.isValidId(partTypeId)) {
             return ResponseEntity.badRequest().build();
         }
         return partTypeService.getPartTypeById(partTypeId)
@@ -42,7 +42,7 @@ public class PartTypeController {
 
     @PostMapping
     public ResponseEntity<PartTypeResponse> createPartType(@RequestBody PartTypeRequest partTypeRequest) {
-        if (!PartTypeDtoValidator.isValidDto(partTypeRequest)) {
+        if (!PartTypeRequestValidator.isValidDto(partTypeRequest)) {
             return ResponseEntity.badRequest().build();
         }
         PartType partType = PartTypeMapper.toEntity(partTypeRequest);
@@ -56,7 +56,7 @@ public class PartTypeController {
             @PathVariable Long partTypeId,
             @RequestBody PartTypeRequest partTypeRequest
     ) {
-        if (!PartTypeDtoValidator.isValidId(partTypeId) || !PartTypeDtoValidator.isValidDto(partTypeRequest)) {
+        if (!PartTypeRequestValidator.isValidId(partTypeId) || !PartTypeRequestValidator.isValidDto(partTypeRequest)) {
             return ResponseEntity.badRequest().build();
         }
         PartType partType = PartTypeMapper.toEntity(partTypeRequest);
@@ -68,7 +68,7 @@ public class PartTypeController {
 
     @DeleteMapping("/{partTypeId}")
     public ResponseEntity<Void> deletePartType(@PathVariable Long partTypeId) {
-        if (!PartTypeDtoValidator.isValidId(partTypeId)) {
+        if (!PartTypeRequestValidator.isValidId(partTypeId)) {
             return ResponseEntity.badRequest().build();
         }
         if (partTypeService.deletePartType(partTypeId)) {

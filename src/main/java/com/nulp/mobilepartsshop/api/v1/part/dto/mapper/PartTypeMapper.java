@@ -5,6 +5,7 @@ import com.nulp.mobilepartsshop.api.v1.part.dto.response.PartTypeResponse;
 import com.nulp.mobilepartsshop.core.entity.part.PartType;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PartTypeMapper {
 
@@ -19,7 +20,7 @@ public class PartTypeMapper {
     public static List<PartTypeResponse> toDtoList(List<PartType> partTypes) {
         return partTypes.stream()
                 .map(PartTypeMapper::toDto)
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public static PartType toEntity(PartTypeRequest partTypeRequest) {
