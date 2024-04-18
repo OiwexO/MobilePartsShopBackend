@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.core.entity.part;
+package com.nulp.mobilepartsshop.core.entity.part.manufacturer;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,17 +11,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "part_images")
-public class PartImage {
+@Table(name = "manufacturer_logos")
+public class ManufacturerLogo {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     private String filepath;
 
-    @ManyToOne
+    @OneToOne
     @MapsId
-    @JoinColumn(name = "part_id")
-    private Part part;
+    private Manufacturer manufacturer;
 }

@@ -23,5 +23,4 @@ public class PartType {
 
     private String nameEn;
 
-    private String nameUk;
-}
+    private String nameUk;}

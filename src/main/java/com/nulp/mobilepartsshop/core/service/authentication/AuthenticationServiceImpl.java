@@ -36,7 +36,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public AuthorizationResponse register(RegistrationRequest request) throws UsernameAlreadyUsedException {
         final Optional<User> user = repository.findByUsername(request.getUsername());
         if (user.isPresent()) {
-            throw new UsernameAlreadyUsedException("Username is already used");
+            throw new UsernameAlreadyUsedException();
         }
         final User newUser = User.builder()
                 .username(request.getUsername())
@@ -57,7 +57,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             AuthorizationRequest request
     ) throws UsernameNotFoundException, InvalidPasswordException {
         final User user = repository.findByUsername(request.getUsername()).orElseThrow(
-                () -> new UsernameNotFoundException("Username not found")
+                UsernameNotFoundException::new
         );
         final UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                 request.getUsername(),
@@ -66,7 +66,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         try {
             authenticationManager.authenticate(authToken);
         } catch (AuthenticationException e) {
-            throw new InvalidPasswordException("Invalid password");
+            throw new InvalidPasswordException();
         }
         final String jwtToken = jwtService.generateToken(user);
         return AuthorizationResponse.builder()
