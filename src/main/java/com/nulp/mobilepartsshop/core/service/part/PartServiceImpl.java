@@ -62,7 +62,7 @@ public class PartServiceImpl implements PartService {
                 partRequest.getManufacturerId(),
                 partRequest.getDeviceTypeId(),
                 partRequest.getPartTypeId()
-                )) {
+        )) {
             throw new EntityAlreadyExistsException();
         }
         Part part = new Part();

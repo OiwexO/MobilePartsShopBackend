@@ -33,6 +33,12 @@ public class User implements UserDetails {
 
     private String lastname;
 
+    @OneToOne(mappedBy = "user")
+    private Address address;
+
+    @OneToOne(mappedBy = "user")
+    private Device device; //TODO add device in all layers
+
     @Enumerated(EnumType.STRING)
     private UserAuthority authority;
 

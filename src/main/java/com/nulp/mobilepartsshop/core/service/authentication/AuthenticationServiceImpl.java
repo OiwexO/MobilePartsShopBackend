@@ -45,9 +45,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .lastname(request.getLastname())
                 .authority(UserAuthority.CUSTOMER)
                 .build();
-        repository.save(newUser);
+        User savedUser = repository.save(newUser);
         final String jwtToken = jwtService.generateToken(newUser);
         return AuthorizationResponse.builder()
+                .userId(savedUser.getId())
                 .jwtToken(jwtToken)
                 .build();
     }
@@ -70,6 +71,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
         final String jwtToken = jwtService.generateToken(user);
         return AuthorizationResponse.builder()
+                .userId(user.getId())
                 .jwtToken(jwtToken)
                 .build();
     }

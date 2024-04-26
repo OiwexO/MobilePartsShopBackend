@@ -47,9 +47,9 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review createReview(ReviewRequest reviewRequest) throws EntityNotFoundException {
-        User author = userRepository.findById(reviewRequest.getAuthorId()).orElseThrow(EntityNotFoundException::new);
-        Part part = partRepository.findById(reviewRequest.getPartId()).orElseThrow(EntityNotFoundException::new);
-        Review review = Review.builder()
+        final User author = userRepository.findById(reviewRequest.getAuthorId()).orElseThrow(EntityNotFoundException::new);
+        final Part part = partRepository.findById(reviewRequest.getPartId()).orElseThrow(EntityNotFoundException::new);
+        final Review review = Review.builder()
                 .author(author)
                 .part(part)
                 .rating(reviewRequest.getRating())
@@ -63,11 +63,11 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Optional<Review> updateReview(Long id, ReviewRequest request) {
-        Optional<Review> optionalReview = reviewRepository.findById(id);
+        final Optional<Review> optionalReview = reviewRepository.findById(id);
         if (optionalReview.isEmpty()) {
             return Optional.empty();
         }
-        Review review = optionalReview.get();
+        final Review review = optionalReview.get();
         review.setRating(request.getRating());
         review.setTitle(request.getTitle());
         review.setText(request.getText());
@@ -77,7 +77,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public boolean deleteReview(Long id) {
-        Optional<Review> review = reviewRepository.findById(id);
+        final Optional<Review> review = reviewRepository.findById(id);
         if (review.isEmpty()) {
             return false;
         }

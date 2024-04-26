@@ -7,6 +7,8 @@ import com.nulp.mobilepartsshop.api.v1.part.controller.ManufacturerController;
 import com.nulp.mobilepartsshop.api.v1.part.controller.PartController;
 import com.nulp.mobilepartsshop.api.v1.part.controller.PartTypeController;
 import com.nulp.mobilepartsshop.api.v1.review.controller.ReviewController;
+import com.nulp.mobilepartsshop.api.v1.user.controller.AddressController;
+import com.nulp.mobilepartsshop.api.v1.user.controller.DeviceController;
 import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import com.nulp.mobilepartsshop.security.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
@@ -26,19 +28,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
+    private static final String ANY_REQUEST = "/**";
+
     private static final String[] WHITE_LIST_MAPPINGS = {
-            AuthenticationController.MAPPING + "/**",
+            AuthenticationController.MAPPING + ANY_REQUEST,
     };
 
     private static final String[] SECURED_MAPPINGS = {
             // part mappings
-            DeviceTypeController.MAPPING + "/**",
-            ManufacturerController.MAPPING + "/**",
-            PartTypeController.MAPPING + "/**",
-            PartController.MAPPING + "/**",
+            DeviceTypeController.MAPPING + ANY_REQUEST,
+            ManufacturerController.MAPPING + ANY_REQUEST,
+            PartTypeController.MAPPING + ANY_REQUEST,
+            PartController.MAPPING + ANY_REQUEST,
 
             // review mappings
-            ReviewController.MAPPING + "/**",
+            ReviewController.MAPPING + ANY_REQUEST,
+
+            // user mappings
+            AddressController.MAPPING + ANY_REQUEST,
+            DeviceController.MAPPING + ANY_REQUEST,
     };
 
     private static final String[] SECURED_CUSTOMER_URL = {
@@ -50,7 +58,7 @@ public class SecurityConfig {
     };
     private static final String[] SECURED_ADMIN_URL = {
             "/api/v1/demo/admin",
-            UserRegistrationController.MAPPING + "/**",
+            UserRegistrationController.MAPPING + ANY_REQUEST,
     };
 
     private static final String[] AUTHORITY_CUSTOMER_OR_HIGHER = {
@@ -83,6 +91,7 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.DELETE, SECURED_MAPPINGS).hasAnyAuthority(AUTHORITY_STAFF_OR_HIGHER)
                                 .requestMatchers(SECURED_CUSTOMER_URL).hasAnyAuthority(AUTHORITY_CUSTOMER_OR_HIGHER)
                                 .requestMatchers(SECURED_STAFF_URL).hasAnyAuthority(AUTHORITY_STAFF_OR_HIGHER)
+                                .requestMatchers(UserRegistrationController.ADMIN_REGISTRATION_MAPPING).permitAll()
                                 .requestMatchers(SECURED_ADMIN_URL).hasAnyAuthority(AUTHORITY_ADMIN_OR_HIGHER)
                                 .anyRequest()
                                 .authenticated()

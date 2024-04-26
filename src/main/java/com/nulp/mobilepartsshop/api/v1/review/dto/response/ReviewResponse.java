@@ -26,4 +26,6 @@ public class ReviewResponse {
     private String title;
 
     private String text;
+
+    private boolean isEdited;
 }

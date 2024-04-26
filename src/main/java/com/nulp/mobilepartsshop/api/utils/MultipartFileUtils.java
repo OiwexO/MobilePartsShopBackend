@@ -23,12 +23,12 @@ public class MultipartFileUtils {
         if (file == null || file.isEmpty()) {
             return false;
         }
-        String contentType = file.getContentType();
+        final String contentType = file.getContentType();
         if (contentType == null || !contentType.startsWith(CONTENT_TYPE_IMAGE)) {
             return false;
         }
 
-        MediaType mediaType;
+        final MediaType mediaType;
         try {
             mediaType = MediaType.parseMediaType(contentType);
         } catch (Exception e) {

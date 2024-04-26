@@ -27,9 +27,9 @@ public class JwtServiceImpl implements JwtService {
 
     @Override
     public String generateToken(final UserDetails userDetails) {
-        long currentTime = System.currentTimeMillis();
-        Date issuedDate = new Date(currentTime);
-        Date expirationDate = new Date(currentTime + TOKEN_EXPIRATION_TIME);
+        final long currentTime = System.currentTimeMillis();
+        final Date issuedDate = new Date(currentTime);
+        final Date expirationDate = new Date(currentTime + TOKEN_EXPIRATION_TIME);
         return Jwts.builder()
                 .claims()
                 .issuer(TOKEN_ISSUER)
@@ -61,7 +61,7 @@ public class JwtServiceImpl implements JwtService {
     }
 
     private SecretKey getSecretKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        final byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 

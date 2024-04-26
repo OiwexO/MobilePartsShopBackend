@@ -18,6 +18,7 @@ public class ReviewMapper extends Mapper<Review, ReviewResponse> {
                 .publicationDate(entity.getPublicationDate())
                 .title(entity.getTitle())
                 .text(entity.getText())
+                .isEdited(entity.getIsEdited())
                 .build();
     }
 }
