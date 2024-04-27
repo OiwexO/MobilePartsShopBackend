@@ -57,8 +57,8 @@ public class PartServiceImpl implements PartService {
 
     @Override
     public Part createPart(PartRequest partRequest) throws EntityAlreadyExistsException, ImageSaveException, EntityNotFoundException {
-        if (partRepository.existsByModelAndManufacturerIdAndDeviceTypeIdAndPartTypeId(
-                partRequest.getModel(),
+        if (partRepository.existsByNameAndManufacturerIdAndDeviceTypeIdAndPartTypeId(
+                partRequest.getName(),
                 partRequest.getManufacturerId(),
                 partRequest.getDeviceTypeId(),
                 partRequest.getPartTypeId()
@@ -112,7 +112,8 @@ public class PartServiceImpl implements PartService {
                 .orElseThrow(EntityNotFoundException::new);
         part.setPrice(partRequest.getPrice());
         part.setQuantity(partRequest.getQuantity());
-        part.setModel(partRequest.getModel());
+        part.setName(partRequest.getName());
+        part.setDeviceModels(partRequest.getDeviceModels());
         part.setSpecifications(partRequest.getSpecifications());
         part.setManufacturer(manufacturer);
         part.setDeviceType(deviceType);

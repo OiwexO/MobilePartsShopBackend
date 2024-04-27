@@ -4,25 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PartRequest {
-
-    private Double price;
-
-    private Integer quantity;
-
-    private String name;
-
-    private List<String> deviceModels;
-
-    private String specifications;
+public class RecommendationByCriteriaRequest {
 
     private Long manufacturerId;
 
@@ -30,5 +17,5 @@ public class PartRequest {
 
     private Long partTypeId;
 
-    private MultipartFile partImage;
+    private Boolean sortAscending;
 }

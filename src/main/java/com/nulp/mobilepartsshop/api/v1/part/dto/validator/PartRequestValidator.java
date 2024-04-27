@@ -5,6 +5,8 @@ import com.nulp.mobilepartsshop.api.utils.RequestValidator;
 import com.nulp.mobilepartsshop.api.v1.part.dto.request.PartRequest;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 public class PartRequestValidator extends RequestValidator<PartRequest> {
 
     @Override
@@ -17,10 +19,19 @@ public class PartRequestValidator extends RequestValidator<PartRequest> {
         if (quantity == null || quantity <= 0) {
             return false;
         }
-        final String model = request.getModel();
+        final String name = request.getName();
         final String specifications = request.getSpecifications();
-        if (!isValidString(model) || !isValidString(specifications)) {
+        if (!isValidString(name) || !isValidString(specifications)) {
             return false;
+        }
+        final List<String> deviceModels = request.getDeviceModels();
+        if (deviceModels == null) {
+            return false;
+        }
+        for (String deviceModel : deviceModels) {
+            if (!isValidString(deviceModel)) {
+                return false;
+            }
         }
         final Long manufacturerId = request.getManufacturerId();
         final Long deviceTypeId = request.getDeviceTypeId();

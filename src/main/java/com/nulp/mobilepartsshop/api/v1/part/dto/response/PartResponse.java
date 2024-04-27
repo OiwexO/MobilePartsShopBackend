@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -17,7 +19,9 @@ public class PartResponse {
 
     private Integer quantity;
 
-    private String model;
+    private String name;
+
+    private List<String> deviceModels;
 
     private String specifications;
 

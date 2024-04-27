@@ -2,10 +2,7 @@ package com.nulp.mobilepartsshop.security.config;
 
 import com.nulp.mobilepartsshop.api.v1.adminPanel.controller.UserRegistrationController;
 import com.nulp.mobilepartsshop.api.v1.authentication.controller.AuthenticationController;
-import com.nulp.mobilepartsshop.api.v1.part.controller.DeviceTypeController;
-import com.nulp.mobilepartsshop.api.v1.part.controller.ManufacturerController;
-import com.nulp.mobilepartsshop.api.v1.part.controller.PartController;
-import com.nulp.mobilepartsshop.api.v1.part.controller.PartTypeController;
+import com.nulp.mobilepartsshop.api.v1.part.controller.*;
 import com.nulp.mobilepartsshop.api.v1.review.controller.ReviewController;
 import com.nulp.mobilepartsshop.api.v1.user.controller.AddressController;
 import com.nulp.mobilepartsshop.api.v1.user.controller.DeviceController;
@@ -38,8 +35,9 @@ public class SecurityConfig {
             // part mappings
             DeviceTypeController.MAPPING + ANY_REQUEST,
             ManufacturerController.MAPPING + ANY_REQUEST,
-            PartTypeController.MAPPING + ANY_REQUEST,
             PartController.MAPPING + ANY_REQUEST,
+            PartRecommendationController.MAPPING + ANY_REQUEST,
+            PartTypeController.MAPPING + ANY_REQUEST,
 
             // review mappings
             ReviewController.MAPPING + ANY_REQUEST,
