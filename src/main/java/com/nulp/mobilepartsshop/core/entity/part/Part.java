@@ -44,7 +44,6 @@ public class Part {
     @JoinColumn(name = "part_type_id")
     private PartType partType;
 
-    @OneToOne(mappedBy = "part")
-    @PrimaryKeyJoinColumn
+    @OneToOne
     private PartImage partImage;
 }

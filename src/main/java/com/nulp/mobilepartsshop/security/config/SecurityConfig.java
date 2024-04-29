@@ -2,6 +2,7 @@ package com.nulp.mobilepartsshop.security.config;
 
 import com.nulp.mobilepartsshop.api.v1.adminPanel.controller.UserRegistrationController;
 import com.nulp.mobilepartsshop.api.v1.authentication.controller.AuthenticationController;
+import com.nulp.mobilepartsshop.api.v1.order.controller.OrderController;
 import com.nulp.mobilepartsshop.api.v1.part.controller.*;
 import com.nulp.mobilepartsshop.api.v1.review.controller.ReviewController;
 import com.nulp.mobilepartsshop.api.v1.user.controller.AddressController;
@@ -32,6 +33,9 @@ public class SecurityConfig {
     };
 
     private static final String[] SECURED_MAPPINGS = {
+            // order mappings
+            OrderController.MAPPING + ANY_REQUEST,
+
             // part mappings
             DeviceTypeController.MAPPING + ANY_REQUEST,
             ManufacturerController.MAPPING + ANY_REQUEST,

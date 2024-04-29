@@ -15,7 +15,7 @@ public class OrderItemMapper extends Mapper<OrderItem, OrderItemResponse> {
     public OrderItemResponse toResponse(OrderItem entity) {
         return OrderItemResponse.builder()
                 .id(entity.getId())
-                .orderId(entity.getOrder().getId())
+                .orderId(entity.getOrderId())
                 .part(partMapper.toResponse(entity.getPart()))
                 .quantity(entity.getQuantity())
                 .build();

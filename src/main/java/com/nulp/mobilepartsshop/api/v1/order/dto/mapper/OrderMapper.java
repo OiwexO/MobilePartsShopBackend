@@ -28,7 +28,7 @@ public class OrderMapper extends Mapper<Order, OrderResponse> {
                 .status(entity.getStatus())
                 .date(entity.getDate())
                 .customerId(entity.getCustomer().getId())
-                .staffId(entity.getStaff().getId())
+                .staffId(entity.getStaffId())
                 .shippingAddress(shippingAddress)
                 .build();
     }

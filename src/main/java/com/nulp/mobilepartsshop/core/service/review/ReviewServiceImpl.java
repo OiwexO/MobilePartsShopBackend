@@ -12,6 +12,7 @@ import com.nulp.mobilepartsshop.exception.entity.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +54,7 @@ public class ReviewServiceImpl implements ReviewService {
                 .author(author)
                 .part(part)
                 .rating(reviewRequest.getRating())
-                .publicationDate(reviewRequest.getPublicationDate())
+                .publicationDate(new Date())
                 .title(reviewRequest.getTitle())
                 .text(reviewRequest.getText())
                 .isEdited(false)

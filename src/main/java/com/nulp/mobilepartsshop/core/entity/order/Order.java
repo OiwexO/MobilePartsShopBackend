@@ -24,11 +24,12 @@ public class Order {
     @GeneratedValue
     private Long id;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "orderId")
     private List<OrderItem> orderItems;
 
     private Double price;
 
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
     private Date date;
@@ -36,9 +37,8 @@ public class Order {
     @ManyToOne
     private User customer;
 
-    @ManyToOne
-    private User staff;
+    private Long staffId;
 
-    @ManyToOne
+    @ManyToOne()
     private Address shippingAddress;
 }

@@ -51,7 +51,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
         }
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setName(name);
-        ManufacturerLogo manufacturerLogo = manufacturerLogoService.createManufacturerLogo(manufacturer, logo);
+        ManufacturerLogo manufacturerLogo = manufacturerLogoService.createManufacturerLogo(logo);
         manufacturer.setLogo(manufacturerLogo);
         return manufacturerRepository.save(manufacturer);
     }

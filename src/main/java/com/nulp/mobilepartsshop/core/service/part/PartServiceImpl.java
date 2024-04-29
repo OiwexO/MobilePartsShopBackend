@@ -67,7 +67,7 @@ public class PartServiceImpl implements PartService {
         }
         Part part = new Part();
         MultipartFile image = partRequest.getPartImage();
-        PartImage partImage = partImageService.createPartImage(part, image);
+        PartImage partImage = partImageService.createPartImage(image);
         setPartFields(part, partRequest, partImage);
         return partRepository.save(part);
     }

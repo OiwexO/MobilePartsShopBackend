@@ -40,13 +40,11 @@ public class PartImageServiceImpl implements PartImageService {
 
     @Override
     public PartImage createPartImage(
-            Part part,
             MultipartFile partImage
     ) throws ImageSaveException {
         final String filepath = imageStoreService.saveImage(partImage, PART_IMAGES_DIRECTORY);
         final PartImage savedPartImage = PartImage.builder()
                 .filepath(filepath)
-                .part(part)
                 .build();
         return partImageRepository.save(savedPartImage);
     }

@@ -3,7 +3,7 @@ package com.nulp.mobilepartsshop.core.enums;
 public enum OrderStatus {
     PENDING,
     PROCESSING,
-    SHIPPED,
+    SHIPPING,
     DELIVERED,
     CANCELED
 }

@@ -17,7 +17,7 @@ public interface OrderService {
 
     Optional<Order> getOrderById(Long id);
 
-    Order createOrder(Long customerId, OrderRequest request);
+    Order createOrder(Long customerId, OrderRequest request) throws EntityNotFoundException;
 
     Optional<Order> updateOrder(Long id, OrderRequest request);
 

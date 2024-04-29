@@ -31,7 +31,4 @@ public class Device {
     @ManyToOne
     @JoinColumn(name = "device_type_id")
     private DeviceType deviceType;
-
-    @OneToOne
-    private User user;
 }

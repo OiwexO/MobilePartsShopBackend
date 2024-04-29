@@ -18,7 +18,6 @@ public interface ManufacturerLogoService {
     InputStream getManufacturerLogoInputStream(ManufacturerLogo logo) throws ImageGetInputStreamException;
 
     ManufacturerLogo createManufacturerLogo(
-            Manufacturer manufacturer,
             MultipartFile logo
     ) throws ImageSaveException;
 

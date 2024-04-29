@@ -59,7 +59,6 @@ public class AddressServiceImpl implements AddressService {
                 .city(request.getCity())
                 .street(request.getStreet())
                 .buildingNumber(request.getBuildingNumber())
-                .user(user)
                 .build();
         Address savedAddress = addressRepository.save(address);
         user.setAddress(savedAddress);

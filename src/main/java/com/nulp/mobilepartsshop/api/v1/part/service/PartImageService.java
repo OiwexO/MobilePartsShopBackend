@@ -18,7 +18,6 @@ public interface PartImageService {
     InputStream getPartImageInputStream(PartImage partImage) throws ImageGetInputStreamException;
 
     PartImage createPartImage(
-            Part part,
             MultipartFile partImage
     ) throws ImageSaveException;
 

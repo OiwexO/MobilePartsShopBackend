@@ -15,11 +15,8 @@ import lombok.NoArgsConstructor;
 public class PartImage {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String filepath;
-
-    @OneToOne
-    @MapsId
-    private Part part;
 }

@@ -69,7 +69,7 @@ public class DeviceServiceImpl implements DeviceService {
         }
         User user = optionalUser.get();
         Device device = new Device();
-        setDeviceFields(device, request, user);
+        setDeviceFields(device, request);
         Device savedDevice = deviceRepository.save(device);
         user.setDevice(savedDevice);
         userRepository.save(user);
@@ -87,7 +87,7 @@ public class DeviceServiceImpl implements DeviceService {
         if (device == null) {
             return Optional.empty();
         }
-        setDeviceFields(device, request, user);
+        setDeviceFields(device, request);
         Device savedDevice = deviceRepository.save(device);
         user.setDevice(savedDevice);
         userRepository.save(user);
@@ -118,7 +118,7 @@ public class DeviceServiceImpl implements DeviceService {
         return true;
     }
 
-    private void setDeviceFields(Device device, DeviceRequest request, User user) throws EntityNotFoundException {
+    private void setDeviceFields(Device device, DeviceRequest request) throws EntityNotFoundException {
         Manufacturer manufacturer = manufacturerService
                 .getManufacturerById(request.getManufacturerId())
                 .orElseThrow(EntityNotFoundException::new);
@@ -129,6 +129,6 @@ public class DeviceServiceImpl implements DeviceService {
         device.setSpecifications(request.getSpecifications());
         device.setManufacturer(manufacturer);
         device.setDeviceType(deviceType);
-        device.setUser(user);
+//        device.setUser(user);
     }
 }
