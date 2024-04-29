@@ -15,11 +15,8 @@ import lombok.NoArgsConstructor;
 public class ManufacturerLogo {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String filepath;
-
-    @OneToOne
-    @MapsId
-    private Manufacturer manufacturer;
 }

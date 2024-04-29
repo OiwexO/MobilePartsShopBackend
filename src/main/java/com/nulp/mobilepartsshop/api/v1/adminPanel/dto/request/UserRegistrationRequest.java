@@ -1,6 +1,5 @@
 package com.nulp.mobilepartsshop.api.v1.adminPanel.dto.request;
 
-import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +18,4 @@ public class UserRegistrationRequest {
     private String firstname;
 
     private String lastname;
-
-    private UserAuthority authority;
 }

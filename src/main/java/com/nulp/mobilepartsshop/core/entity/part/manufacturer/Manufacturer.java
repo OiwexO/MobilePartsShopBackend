@@ -20,7 +20,6 @@ public class Manufacturer {
 
     private String name;
 
-    @OneToOne(mappedBy = "manufacturer"/*, cascade = CascadeType.ALL*/)
-    @PrimaryKeyJoinColumn
+    @OneToOne
     private ManufacturerLogo logo;
 }

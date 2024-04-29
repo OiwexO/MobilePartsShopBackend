@@ -7,36 +7,44 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-public class PartRequestValidator extends RequestValidator {
+public class PartRequestValidator extends RequestValidator<PartRequest> {
 
-    public static boolean isValidDto(PartRequest partRequest) {
-        final Double price = partRequest.getPrice();
+    @Override
+    public boolean isValidRequest(PartRequest request) {
+        final Double price = request.getPrice();
         if (price == null || price <= 0) {
             return false;
         }
-        final Integer quantity = partRequest.getQuantity();
+        final Integer quantity = request.getQuantity();
         if (quantity == null || quantity <= 0) {
             return false;
         }
-        final String model = partRequest.getModel();
-        final String specifications = partRequest.getSpecifications();
-        if (!isValidString(model) || !isValidString(specifications)) {
+        final String name = request.getName();
+        final String specifications = request.getSpecifications();
+        if (!isValidString(name) || !isValidString(specifications)) {
             return false;
         }
-        final Long manufacturerId = partRequest.getManufacturerId();
-        final Long deviceTypeId = partRequest.getDeviceTypeId();
-        final Long partTypeId = partRequest.getPartTypeId();
+        final List<String> deviceModels = request.getDeviceModels();
+        if (deviceModels == null) {
+            return false;
+        }
+        for (String deviceModel : deviceModels) {
+            if (!isValidString(deviceModel)) {
+                return false;
+            }
+        }
+        final Long manufacturerId = request.getManufacturerId();
+        final Long deviceTypeId = request.getDeviceTypeId();
+        final Long partTypeId = request.getPartTypeId();
         if (!isValidId(manufacturerId) || !isValidId(deviceTypeId) || !isValidId(partTypeId)) {
             return false;
         }
-        final List<MultipartFile> images = partRequest.getPartImages();
-        if (images == null) {
+        final MultipartFile image = request.getPartImage();
+        if (image == null) {
             return false;
         }
-        for (MultipartFile image : images) {
-            if (!MultipartFileUtils.isValidFileForPartImage(image)) {
-                return false;
-            }
+        if (!image.isEmpty()) {
+            return MultipartFileUtils.isValidFileForPartImage(image);
         }
         return true;
     }

@@ -27,7 +27,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<AuthorizationResponse> register(@RequestBody RegistrationRequest request) {
-        AuthorizationResponse response;
+        final AuthorizationResponse response;
         try {
             response = authenticationService.register(request);
             return ResponseEntity.ok(response);
@@ -38,7 +38,7 @@ public class AuthenticationController {
 
     @PostMapping("/authorize")
     public ResponseEntity<AuthorizationResponse> authorize(@RequestBody AuthorizationRequest request) {
-        AuthorizationResponse response;
+        final AuthorizationResponse response;
         try {
             response = authenticationService.authorize(request);
             return ResponseEntity.ok(response);

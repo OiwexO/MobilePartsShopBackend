@@ -1,7 +1,6 @@
 package com.nulp.mobilepartsshop.core.service.part;
 
 import com.nulp.mobilepartsshop.api.v1.part.service.PartImageService;
-import com.nulp.mobilepartsshop.core.entity.part.Part;
 import com.nulp.mobilepartsshop.core.entity.part.PartImage;
 import com.nulp.mobilepartsshop.core.repository.part.PartImageRepository;
 import com.nulp.mobilepartsshop.core.service.image.ImageStoreService;
@@ -26,7 +25,7 @@ public class PartImageServiceImpl implements PartImageService {
 
     private final ImageStoreService imageStoreService;
 
-    PartImageRepository partImageRepository;
+    private final PartImageRepository partImageRepository;
 
     @Override
     public Optional<PartImage> getPartImageById(Long id) {
@@ -40,13 +39,11 @@ public class PartImageServiceImpl implements PartImageService {
 
     @Override
     public PartImage createPartImage(
-            Part part,
             MultipartFile partImage
     ) throws ImageSaveException {
         final String filepath = imageStoreService.saveImage(partImage, PART_IMAGES_DIRECTORY);
         final PartImage savedPartImage = PartImage.builder()
                 .filepath(filepath)
-                .part(part)
                 .build();
         return partImageRepository.save(savedPartImage);
     }

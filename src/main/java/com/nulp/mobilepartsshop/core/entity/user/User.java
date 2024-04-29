@@ -1,5 +1,6 @@
 package com.nulp.mobilepartsshop.core.entity.user;
 
+import com.nulp.mobilepartsshop.core.entity.order.Order;
 import com.nulp.mobilepartsshop.core.enums.UserAuthority;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,8 +34,17 @@ public class User implements UserDetails {
 
     private String lastname;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Device device; //TODO add device in all layers
+
     @Enumerated(EnumType.STRING)
     private UserAuthority authority;
+
+    @OneToMany(mappedBy = "staffId", cascade = CascadeType.ALL)
+    private List<Order> assignedOrders; // only for staff
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

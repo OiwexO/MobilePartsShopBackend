@@ -32,46 +32,43 @@ public class PartController {
 
     public static final String MAPPING = ApiConstants.PART_MAPPING_V1 + "/parts";
 
-    public static final String GET_PART_IMAGE_MAPPING = "/{partId}/{imageId}";
+    public static final String GET_PART_IMAGE_MAPPING = "/{partId}/image";
 
     private final PartService partService;
+
+    private final PartRequestValidator requestValidator = new PartRequestValidator();
+
+    private final PartMapper mapper = new PartMapper();
 
     @GetMapping
     public ResponseEntity<List<PartResponse>> getAllParts() {
         List<Part> parts = partService.getAllParts();
-        List<PartResponse> partResponses = PartMapper.toDtoList(parts);
-        return ResponseEntity.ok(partResponses);
+        List<PartResponse> responseList = mapper.toResponseList(parts);
+        return ResponseEntity.ok(responseList);
     }
 
     @GetMapping("/{partId}")
     public ResponseEntity<PartResponse> getPart(@PathVariable Long partId) {
-        if (!PartRequestValidator.isValidId(partId)) {
+        if (!requestValidator.isValidId(partId)) {
             return ResponseEntity.badRequest().build();
         }
         return partService.getPartById(partId)
-                .map(PartMapper::toDto)
+                .map(mapper::toResponse)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping(GET_PART_IMAGE_MAPPING)
     @ResponseBody
-    public ResponseEntity<InputStreamResource> getPartImage(@PathVariable Long partId, @PathVariable Long imageId) {
-        if (!PartRequestValidator.isValidId(partId) || !PartRequestValidator.isValidId(imageId)) {
+    public ResponseEntity<InputStreamResource> getPartImage(@PathVariable Long partId) {
+        if (!requestValidator.isValidId(partId)) {
             return ResponseEntity.badRequest().build();
         }
         Optional<Part> optionalPart = partService.getPartById(partId);
         if (optionalPart.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        List<PartImage> partImages = optionalPart.get().getPartImages();
-        Optional<PartImage> optionalPartImage = partImages.stream()
-                .filter(partImage -> partImage.getId().equals(imageId))
-                .findFirst();
-        if (optionalPartImage.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        PartImage partImage = optionalPartImage.get();
+        PartImage partImage = optionalPart.get().getPartImage();
         try {
             InputStream in = partService.getPartImageInputStream(partImage);
             return ResponseEntity.ok()
@@ -84,13 +81,13 @@ public class PartController {
 
     @PostMapping()
     public ResponseEntity<PartResponse> createPart(@ModelAttribute PartRequest request) {
-        if (!PartRequestValidator.isValidDto(request) || request.getPartImages().isEmpty()) {
+        if (!requestValidator.isValidRequest(request) || request.getPartImage().isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
         try {
             final Part part = partService.createPart(request);
-            final PartResponse partResponse = PartMapper.toDto(part);
-            return ResponseEntity.ok(partResponse);
+            final PartResponse response = mapper.toResponse(part);
+            return ResponseEntity.ok(response);
         } catch (EntityAlreadyExistsException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         } catch (ImageSaveException e) {
@@ -106,12 +103,12 @@ public class PartController {
             @PathVariable Long partId,
             @ModelAttribute PartRequest request
     ) {
-        if (!PartRequestValidator.isValidId(partId) || !PartRequestValidator.isValidDto(request)) {
+        if (!requestValidator.isValidId(partId) || !requestValidator.isValidRequest(request)) {
             return ResponseEntity.badRequest().build();
         }
         try {
             return partService.updatePart(partId, request)
-                    .map(PartMapper::toDto)
+                    .map(mapper::toResponse)
                     .map(ResponseEntity::ok)
                     .orElse(ResponseEntity.notFound().build());
         } catch (EntityNotFoundException e) {
@@ -123,7 +120,7 @@ public class PartController {
 
     @DeleteMapping("/{partId}")
     public ResponseEntity<Void> deletePart(@PathVariable Long partId) {
-        if (!PartRequestValidator.isValidId(partId)) {
+        if (!requestValidator.isValidId(partId)) {
             return ResponseEntity.badRequest().build();
         }
         try {

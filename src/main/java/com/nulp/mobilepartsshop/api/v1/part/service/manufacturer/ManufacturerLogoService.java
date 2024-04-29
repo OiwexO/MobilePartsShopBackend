@@ -1,6 +1,5 @@
 package com.nulp.mobilepartsshop.api.v1.part.service.manufacturer;
 
-import com.nulp.mobilepartsshop.core.entity.part.manufacturer.Manufacturer;
 import com.nulp.mobilepartsshop.core.entity.part.manufacturer.ManufacturerLogo;
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
 import com.nulp.mobilepartsshop.exception.image.ImageGetInputStreamException;
@@ -18,7 +17,6 @@ public interface ManufacturerLogoService {
     InputStream getManufacturerLogoInputStream(ManufacturerLogo logo) throws ImageGetInputStreamException;
 
     ManufacturerLogo createManufacturerLogo(
-            Manufacturer manufacturer,
             MultipartFile logo
     ) throws ImageSaveException;
 

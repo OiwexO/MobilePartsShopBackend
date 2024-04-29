@@ -3,11 +3,14 @@ package com.nulp.mobilepartsshop.api.v1.part.dto.validator;
 import com.nulp.mobilepartsshop.api.utils.RequestValidator;
 import com.nulp.mobilepartsshop.api.v1.part.dto.request.PartTypeRequest;
 
-public class PartTypeRequestValidator extends RequestValidator {
+public class PartTypeRequestValidator extends RequestValidator<PartTypeRequest> {
 
-    public static boolean isValidDto(PartTypeRequest partTypeRequest) {
-        final String nameEn = partTypeRequest.getNameEn();
-        final String nameUk = partTypeRequest.getNameUk();
+    public PartTypeRequestValidator() {}
+
+    @Override
+    public boolean isValidRequest(PartTypeRequest request) {
+        final String nameEn = request.getNameEn();
+        final String nameUk = request.getNameUk();
         return isValidString(nameEn) && isValidString(nameUk);
     }
 

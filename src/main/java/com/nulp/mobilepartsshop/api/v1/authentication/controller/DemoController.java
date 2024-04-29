@@ -19,7 +19,7 @@ public class DemoController {
 
     @GetMapping("/staff")
     public ResponseEntity<String> helloStaff() {
-        return ResponseEntity.ok("Hello Staff");
+        return ResponseEntity.ok("Hello Denys Kostetskyi");
     }
 
     @GetMapping("/admin")

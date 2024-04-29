@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "parts", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
+@Table(name = "parts")
 public class Part {
 
     @Id
@@ -25,7 +25,10 @@ public class Part {
 
     private Integer quantity;
 
-    private String model;
+    private String name;
+
+    @ElementCollection
+    private List<String> deviceModels;
 
     private String specifications;
 
@@ -41,6 +44,6 @@ public class Part {
     @JoinColumn(name = "part_type_id")
     private PartType partType;
 
-    @OneToMany(mappedBy = "part"/*, cascade = CascadeType.ALL*/)
-    private List<PartImage> partImages;
+    @OneToOne
+    private PartImage partImage;
 }

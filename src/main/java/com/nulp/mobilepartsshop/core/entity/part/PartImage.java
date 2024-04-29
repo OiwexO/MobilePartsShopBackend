@@ -19,9 +19,4 @@ public class PartImage {
     private Long id;
 
     private String filepath;
-
-    @ManyToOne
-    @MapsId
-    @JoinColumn(name = "part_id")
-    private Part part;
 }

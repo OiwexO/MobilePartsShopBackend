@@ -18,7 +18,9 @@ public class PartRequest {
 
     private Integer quantity;
 
-    private String model;
+    private String name;
+
+    private List<String> deviceModels;
 
     private String specifications;
 
@@ -28,5 +30,5 @@ public class PartRequest {
 
     private Long partTypeId;
 
-    private List<MultipartFile> partImages;
+    private MultipartFile partImage;
 }

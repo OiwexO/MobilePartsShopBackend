@@ -1,29 +1,24 @@
 package com.nulp.mobilepartsshop.api.v1.part.dto.mapper;
 
+import com.nulp.mobilepartsshop.api.utils.Mapper;
 import com.nulp.mobilepartsshop.api.v1.part.dto.request.DeviceTypeRequest;
 import com.nulp.mobilepartsshop.api.v1.part.dto.response.DeviceTypeResponse;
 import com.nulp.mobilepartsshop.core.entity.part.DeviceType;
 
-import java.util.List;
-import java.util.stream.Collectors;
+public class DeviceTypeMapper extends Mapper<DeviceType, DeviceTypeResponse> {
 
-public class DeviceTypeMapper {
+    public DeviceTypeMapper() {}
 
-    public static DeviceTypeResponse toDto(DeviceType deviceType) {
+    @Override
+    public DeviceTypeResponse toResponse(DeviceType entity) {
         return DeviceTypeResponse.builder()
-                .id(deviceType.getId())
-                .nameEn(deviceType.getNameEn())
-                .nameUk(deviceType.getNameUk())
+                .id(entity.getId())
+                .nameEn(entity.getNameEn())
+                .nameUk(entity.getNameUk())
                 .build();
     }
 
-    public static List<DeviceTypeResponse> toDtoList(List<DeviceType> deviceTypes) {
-        return deviceTypes.stream()
-                .map(DeviceTypeMapper::toDto)
-                .collect(Collectors.toList());
-    }
-
-    public static DeviceType toEntity(DeviceTypeRequest deviceTypeRequest) {
+    public DeviceType toEntity(DeviceTypeRequest deviceTypeRequest) {
         return DeviceType.builder()
                 .nameEn(deviceTypeRequest.getNameEn())
                 .nameUk(deviceTypeRequest.getNameUk())

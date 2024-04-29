@@ -36,20 +36,24 @@ public class ManufacturerController {
 
     private final ManufacturerService manufacturerService;
 
+    private final ManufacturerRequestValidator requestValidator = new ManufacturerRequestValidator();
+
+    private final ManufacturerMapper mapper = new ManufacturerMapper();
+
     @GetMapping()
     public ResponseEntity<List<ManufacturerResponse>> getAllManufacturers() {
         List<Manufacturer> manufacturers = manufacturerService.getAllManufacturers();
-        List<ManufacturerResponse> manufacturerResponses = ManufacturerMapper.toDtoList(manufacturers);
+        List<ManufacturerResponse> manufacturerResponses = mapper.toResponseList(manufacturers);
         return ResponseEntity.ok(manufacturerResponses);
     }
 
     @GetMapping("/{manufacturerId}")
     public ResponseEntity<ManufacturerResponse> getManufacturer(@PathVariable Long manufacturerId) {
-        if (!ManufacturerRequestValidator.isValidId(manufacturerId)) {
+        if (!requestValidator.isValidId(manufacturerId)) {
             return ResponseEntity.badRequest().build();
         }
         return manufacturerService.getManufacturerById(manufacturerId)
-                .map(ManufacturerMapper::toDto)
+                .map(mapper::toResponse)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -57,7 +61,7 @@ public class ManufacturerController {
     @GetMapping(GET_MANUFACTURER_LOGO_MAPPING)
     @ResponseBody
     public ResponseEntity<InputStreamResource> getManufacturerLogo(@PathVariable Long manufacturerId) {
-        if (!ManufacturerRequestValidator.isValidId(manufacturerId)) {
+        if (!requestValidator.isValidId(manufacturerId)) {
             return ResponseEntity.badRequest().build();
         }
         Optional<Manufacturer> optionalManufacturer = manufacturerService.getManufacturerById(manufacturerId);
@@ -77,14 +81,14 @@ public class ManufacturerController {
 
     @PostMapping()
     public ResponseEntity<ManufacturerResponse> createManufacturer(@ModelAttribute ManufacturerRequest request) {
-        if (!ManufacturerRequestValidator.isValidDto(request)) {
+        if (!requestValidator.isValidRequest(request)) {
             return ResponseEntity.badRequest().build();
         }
         String name = request.getName();
         MultipartFile logo = request.getLogo();
         try {
             final Manufacturer manufacturer = manufacturerService.createManufacturer(name, logo);
-            final ManufacturerResponse manufacturerResponse = ManufacturerMapper.toDto(manufacturer);
+            final ManufacturerResponse manufacturerResponse = mapper.toResponse(manufacturer);
             return ResponseEntity.ok(manufacturerResponse);
         } catch (EntityAlreadyExistsException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
@@ -100,8 +104,7 @@ public class ManufacturerController {
     ) {
         String name = request.getName();
         MultipartFile logo = request.getLogo();
-        if (!ManufacturerRequestValidator.isValidId(manufacturerId) ||
-                !ManufacturerRequestValidator.isValidName(name)) {
+        if (!requestValidator.isValidId(manufacturerId) || !requestValidator.isValidName(name)) {
             return ResponseEntity.badRequest().build();
         }
         if (!logo.isEmpty()) {
@@ -111,7 +114,7 @@ public class ManufacturerController {
         }
         try {
             return manufacturerService.updateManufacturer(manufacturerId, name, logo)
-                    .map(ManufacturerMapper::toDto)
+                    .map(mapper::toResponse)
                     .map(ResponseEntity::ok)
                     .orElse(ResponseEntity.notFound().build());
         } catch (ImageStoreException e) {
@@ -121,7 +124,7 @@ public class ManufacturerController {
 
     @DeleteMapping("/{manufacturerId}")
     public ResponseEntity<Void> deleteManufacturer(@PathVariable Long manufacturerId) {
-        if (!ManufacturerRequestValidator.isValidId(manufacturerId)) {
+        if (!requestValidator.isValidId(manufacturerId)) {
             return ResponseEntity.badRequest().build();
         }
         try {

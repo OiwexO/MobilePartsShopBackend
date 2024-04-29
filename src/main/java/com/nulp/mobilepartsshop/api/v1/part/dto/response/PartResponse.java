@@ -19,7 +19,9 @@ public class PartResponse {
 
     private Integer quantity;
 
-    private String model;
+    private String name;
+
+    private List<String> deviceModels;
 
     private String specifications;
 
@@ -28,6 +30,4 @@ public class PartResponse {
     private DeviceTypeResponse deviceType;
 
     private PartTypeResponse partType;
-
-    private List<Long> imageIds;
 }

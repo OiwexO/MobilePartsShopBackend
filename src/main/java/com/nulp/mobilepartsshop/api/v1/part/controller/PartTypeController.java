@@ -22,53 +22,57 @@ public class PartTypeController {
 
     private final PartTypeService partTypeService;
 
+    private final PartTypeRequestValidator requestValidator = new PartTypeRequestValidator();
+
+    private final PartTypeMapper mapper = new PartTypeMapper();
+
     @GetMapping
     public ResponseEntity<List<PartTypeResponse>> getAllPartTypes() {
         List<PartType> partTypes = partTypeService.getAllPartTypes();
-        List<PartTypeResponse> partTypeResponses = PartTypeMapper.toDtoList(partTypes);
+        List<PartTypeResponse> partTypeResponses = mapper.toResponseList(partTypes);
         return ResponseEntity.ok(partTypeResponses);
     }
 
     @GetMapping("/{partTypeId}")
     public ResponseEntity<PartTypeResponse> getPartType(@PathVariable Long partTypeId) {
-        if (!PartTypeRequestValidator.isValidId(partTypeId)) {
+        if (!requestValidator.isValidId(partTypeId)) {
             return ResponseEntity.badRequest().build();
         }
         return partTypeService.getPartTypeById(partTypeId)
-                .map(PartTypeMapper::toDto)
+                .map(mapper::toResponse)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<PartTypeResponse> createPartType(@RequestBody PartTypeRequest partTypeRequest) {
-        if (!PartTypeRequestValidator.isValidDto(partTypeRequest)) {
+    public ResponseEntity<PartTypeResponse> createPartType(@RequestBody PartTypeRequest request) {
+        if (!requestValidator.isValidRequest(request)) {
             return ResponseEntity.badRequest().build();
         }
-        PartType partType = PartTypeMapper.toEntity(partTypeRequest);
+        PartType partType = mapper.toEntity(request);
         PartType createdPartType = partTypeService.createPartType(partType);
-        PartTypeResponse result = PartTypeMapper.toDto(createdPartType);
+        PartTypeResponse result = mapper.toResponse(createdPartType);
         return ResponseEntity.ok(result);
     }
 
     @PutMapping("/{partTypeId}")
     public ResponseEntity<PartTypeResponse> updatePartType(
             @PathVariable Long partTypeId,
-            @RequestBody PartTypeRequest partTypeRequest
+            @RequestBody PartTypeRequest request
     ) {
-        if (!PartTypeRequestValidator.isValidId(partTypeId) || !PartTypeRequestValidator.isValidDto(partTypeRequest)) {
+        if (!requestValidator.isValidId(partTypeId) || !requestValidator.isValidRequest(request)) {
             return ResponseEntity.badRequest().build();
         }
-        PartType partType = PartTypeMapper.toEntity(partTypeRequest);
+        PartType partType = mapper.toEntity(request);
         return partTypeService.updatePartType(partTypeId, partType)
-                .map(PartTypeMapper::toDto)
+                .map(mapper::toResponse)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{partTypeId}")
     public ResponseEntity<Void> deletePartType(@PathVariable Long partTypeId) {
-        if (!PartTypeRequestValidator.isValidId(partTypeId)) {
+        if (!requestValidator.isValidId(partTypeId)) {
             return ResponseEntity.badRequest().build();
         }
         if (partTypeService.deletePartType(partTypeId)) {

@@ -24,7 +24,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    private final UserRepository repository;
+    private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -34,7 +34,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public AuthorizationResponse register(RegistrationRequest request) throws UsernameAlreadyUsedException {
-        final Optional<User> user = repository.findByUsername(request.getUsername());
+        final Optional<User> user = userRepository.findByUsername(request.getUsername());
         if (user.isPresent()) {
             throw new UsernameAlreadyUsedException();
         }
@@ -45,9 +45,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .lastname(request.getLastname())
                 .authority(UserAuthority.CUSTOMER)
                 .build();
-        repository.save(newUser);
+        User savedUser = userRepository.save(newUser);
         final String jwtToken = jwtService.generateToken(newUser);
         return AuthorizationResponse.builder()
+                .userId(savedUser.getId())
                 .jwtToken(jwtToken)
                 .build();
     }
@@ -56,7 +57,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public AuthorizationResponse authorize(
             AuthorizationRequest request
     ) throws UsernameNotFoundException, InvalidPasswordException {
-        final User user = repository.findByUsername(request.getUsername()).orElseThrow(
+        final User user = userRepository.findByUsername(request.getUsername()).orElseThrow(
                 UsernameNotFoundException::new
         );
         final UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
@@ -70,6 +71,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
         final String jwtToken = jwtService.generateToken(user);
         return AuthorizationResponse.builder()
+                .userId(user.getId())
                 .jwtToken(jwtToken)
                 .build();
     }

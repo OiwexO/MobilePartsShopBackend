@@ -11,5 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AuthorizationResponse {
 
+    private Long userId;
+
     private String jwtToken;
 }
