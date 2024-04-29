@@ -50,7 +50,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .build();
         User savedUser = userRepository.save(newUser);
         final String jwtToken = jwtService.generateToken(newUser);
-        emailService.sendGreetingEmail(savedUser.getUsername());
+        emailService.sendGreetingCustomerEmail(savedUser.getUsername(), savedUser.getFirstname());
         return AuthorizationResponse.builder()
                 .userId(savedUser.getId())
                 .jwtToken(jwtToken)

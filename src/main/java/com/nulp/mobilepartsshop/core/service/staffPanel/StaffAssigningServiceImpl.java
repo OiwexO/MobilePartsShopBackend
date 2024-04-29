@@ -31,6 +31,6 @@ public class StaffAssigningServiceImpl implements StaffAssigningService {
         freeStaff.setAssignedOrders(assignedOrders);
         order.setStaffId(freeStaff.getId());
         userRepository.save(freeStaff);
-        emailService.sendOrderAssignedStaffEmail(freeStaff.getUsername());
+        emailService.sendOrderAssignedStaffEmail(freeStaff.getUsername(), freeStaff.getFirstname(), order.getId());
     }
 }

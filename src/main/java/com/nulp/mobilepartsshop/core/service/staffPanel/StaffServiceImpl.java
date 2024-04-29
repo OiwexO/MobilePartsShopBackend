@@ -48,7 +48,7 @@ public class StaffServiceImpl implements StaffService {
     public Order setOrderStatusDelivered(Long orderId) throws EntityNotFoundException {
         Order order = updateOrderStatus(orderId, OrderStatus.DELIVERED);
         User customer = order.getCustomer();
-        emailService.sendOrderDeliveredCustomerEmail(customer.getUsername());
+        emailService.sendOrderDeliveredCustomerEmail(customer.getUsername(), customer.getFirstname(), orderId);
         return order;
     }
 

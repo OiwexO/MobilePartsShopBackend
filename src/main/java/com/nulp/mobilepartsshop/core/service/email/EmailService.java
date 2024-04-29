@@ -2,11 +2,11 @@ package com.nulp.mobilepartsshop.core.service.email;
 
 public interface EmailService {
 
-    void sendEmail(String to, String subject, String content);
+    void sendEmail(String recipientEmail, String recipientName, String templateName);
 
-    void sendGreetingEmail(String to);
+    void sendGreetingCustomerEmail(String recipientEmail, String recipientName);
 
-    void sendOrderAssignedStaffEmail(String to);
+    void sendOrderAssignedStaffEmail(String recipientEmail, String recipientName, Long orderId);
 
-    void sendOrderDeliveredCustomerEmail(String to);
+    void sendOrderDeliveredCustomerEmail(String recipientEmail, String recipientName, Long orderId);
 }
