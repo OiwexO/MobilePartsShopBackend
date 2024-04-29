@@ -1,6 +1,5 @@
 package com.nulp.mobilepartsshop.api.v1.part.service;
 
-import com.nulp.mobilepartsshop.core.entity.part.Part;
 import com.nulp.mobilepartsshop.core.entity.part.PartImage;
 import com.nulp.mobilepartsshop.exception.image.ImageDeleteException;
 import com.nulp.mobilepartsshop.exception.image.ImageGetInputStreamException;

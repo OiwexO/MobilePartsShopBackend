@@ -1,7 +1,6 @@
 package com.nulp.mobilepartsshop.core.service.part;
 
 import com.nulp.mobilepartsshop.api.v1.part.service.PartImageService;
-import com.nulp.mobilepartsshop.core.entity.part.Part;
 import com.nulp.mobilepartsshop.core.entity.part.PartImage;
 import com.nulp.mobilepartsshop.core.repository.part.PartImageRepository;
 import com.nulp.mobilepartsshop.core.service.image.ImageStoreService;
