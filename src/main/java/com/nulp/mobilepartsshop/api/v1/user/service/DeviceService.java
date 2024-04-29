@@ -20,7 +20,5 @@ public interface DeviceService {
 
     Optional<Device> updateDevice(Long userId, DeviceRequest request) throws EntityNotFoundException;
 
-//    boolean deleteDevice(Long id);
-
     boolean deleteDeviceByUserId(Long userId);
 }

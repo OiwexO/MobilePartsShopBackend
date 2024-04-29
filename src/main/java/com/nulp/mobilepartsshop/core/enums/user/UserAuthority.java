@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.core.enums;
+package com.nulp.mobilepartsshop.core.enums.user;
 
 public enum UserAuthority {
 

@@ -7,7 +7,7 @@ import com.nulp.mobilepartsshop.api.v1.part.controller.*;
 import com.nulp.mobilepartsshop.api.v1.review.controller.ReviewController;
 import com.nulp.mobilepartsshop.api.v1.user.controller.AddressController;
 import com.nulp.mobilepartsshop.api.v1.user.controller.DeviceController;
-import com.nulp.mobilepartsshop.core.enums.UserAuthority;
+import com.nulp.mobilepartsshop.core.enums.user.UserAuthority;
 import com.nulp.mobilepartsshop.security.filter.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

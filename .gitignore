@@ -8,6 +8,9 @@ build/
 ### Local properties ###
 /src/main/resources/datasource.properties
 
+### Email properties ###
+/src/main/resources/email.properties
+
 ### JWT token properties ###
 /src/main/resources/jwt.properties
 

@@ -94,16 +94,6 @@ public class DeviceServiceImpl implements DeviceService {
         return Optional.of(savedDevice);
     }
 
-//    @Override
-//    public boolean deleteDevice(Long id) {
-//        Optional<Device> optionalDevice = deviceRepository.findById(id);
-//        if (optionalDevice.isEmpty()) {
-//            return false;
-//        } //TODO nullify user's device
-//        deviceRepository.deleteById(id);
-//        return true;
-//    }
-
     @Override
     public boolean deleteDeviceByUserId(Long userId) {
         Optional<User> optionalUser = userRepository.findById(userId);

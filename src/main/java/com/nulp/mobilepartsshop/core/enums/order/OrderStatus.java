@@ -1,4 +1,4 @@
-package com.nulp.mobilepartsshop.core.enums;
+package com.nulp.mobilepartsshop.core.enums.order;
 
 public enum OrderStatus {
     PENDING,

@@ -1,7 +1,7 @@
 package com.nulp.mobilepartsshop.api.v1.order.dto.response;
 
 import com.nulp.mobilepartsshop.api.v1.user.dto.response.AddressResponse;
-import com.nulp.mobilepartsshop.core.enums.OrderStatus;
+import com.nulp.mobilepartsshop.core.enums.order.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

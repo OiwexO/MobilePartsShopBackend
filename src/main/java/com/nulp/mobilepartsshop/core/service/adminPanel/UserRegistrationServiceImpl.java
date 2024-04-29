@@ -4,7 +4,7 @@ import com.nulp.mobilepartsshop.api.v1.adminPanel.dto.request.UserRegistrationRe
 import com.nulp.mobilepartsshop.api.v1.adminPanel.dto.response.UserRegistrationResponse;
 import com.nulp.mobilepartsshop.api.v1.adminPanel.service.UserRegistrationService;
 import com.nulp.mobilepartsshop.core.entity.user.User;
-import com.nulp.mobilepartsshop.core.enums.UserAuthority;
+import com.nulp.mobilepartsshop.core.enums.user.UserAuthority;
 import com.nulp.mobilepartsshop.core.repository.user.UserRepository;
 import com.nulp.mobilepartsshop.exception.adminPanel.AdminAlreadyExistsException;
 import com.nulp.mobilepartsshop.exception.authentication.UsernameAlreadyUsedException;
