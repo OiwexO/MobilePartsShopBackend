@@ -35,26 +35,24 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public Order setOrderStatusProcessing(Long orderId) throws EntityNotFoundException {
-        return updateOrderStatus(orderId, OrderStatus.PROCESSING);
-    }
-
-    @Override
-    public Order setOrderStatusShipping(Long orderId) throws EntityNotFoundException {
-        return updateOrderStatus(orderId, OrderStatus.SHIPPING);
-    }
-
-    @Override
-    public Order setOrderStatusDelivered(Long orderId) throws EntityNotFoundException {
-        Order order = updateOrderStatus(orderId, OrderStatus.DELIVERED);
-        User customer = order.getCustomer();
-        emailService.sendOrderDeliveredCustomerEmail(customer.getUsername(), customer.getFirstname(), orderId);
-        return order;
-    }
-
-    private Order updateOrderStatus(Long orderId, OrderStatus status) throws EntityNotFoundException {
+    public Order updateOrderStatus(Long orderId) throws EntityNotFoundException {
         Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
-        order.setStatus(status);
+        OrderStatus status = order.getStatus();
+        switch (status) {
+            case PENDING:
+                order.setStatus(OrderStatus.PROCESSING);
+                break;
+            case PROCESSING:
+                order.setStatus(OrderStatus.SHIPPING);
+                break;
+            case SHIPPING:
+                order.setStatus(OrderStatus.DELIVERED);
+                User customer = order.getCustomer();
+                emailService.sendOrderDeliveredCustomerEmail(customer.getUsername(), customer.getFirstname(), orderId);
+                break;
+            case DELIVERED, CANCELED:
+                return order;
+        }
         return orderRepository.save(order);
     }
 }

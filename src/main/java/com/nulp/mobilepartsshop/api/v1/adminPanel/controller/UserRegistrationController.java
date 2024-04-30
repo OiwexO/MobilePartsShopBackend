@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class UserRegistrationController {
 
-    public static final String MAPPING = ApiConstants.ADMIN_MAPPING + "/register";
+    public static final String MAPPING = ApiConstants.ADMIN_MAPPING_V1 + "/register";
 
     public static final String ADMIN_REGISTRATION_MAPPING = MAPPING + "/admin";
 
