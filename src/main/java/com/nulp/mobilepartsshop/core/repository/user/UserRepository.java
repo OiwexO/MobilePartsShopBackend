@@ -1,7 +1,7 @@
 package com.nulp.mobilepartsshop.core.repository.user;
 
 import com.nulp.mobilepartsshop.core.entity.user.User;
-import com.nulp.mobilepartsshop.core.enums.UserAuthority;
+import com.nulp.mobilepartsshop.core.enums.user.UserAuthority;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

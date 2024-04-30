@@ -1,7 +1,7 @@
 package com.nulp.mobilepartsshop.core.repository.order;
 
 import com.nulp.mobilepartsshop.core.entity.order.Order;
-import com.nulp.mobilepartsshop.core.enums.OrderStatus;
+import com.nulp.mobilepartsshop.core.enums.order.OrderStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package com.nulp.mobilepartsshop.core.entity.order;
 
 import com.nulp.mobilepartsshop.core.entity.user.Address;
 import com.nulp.mobilepartsshop.core.entity.user.User;
-import com.nulp.mobilepartsshop.core.enums.OrderStatus;
+import com.nulp.mobilepartsshop.core.enums.order.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

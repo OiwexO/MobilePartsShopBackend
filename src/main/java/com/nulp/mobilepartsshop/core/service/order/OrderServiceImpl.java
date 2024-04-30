@@ -11,7 +11,7 @@ import com.nulp.mobilepartsshop.core.entity.order.OrderItem;
 import com.nulp.mobilepartsshop.core.entity.part.Part;
 import com.nulp.mobilepartsshop.core.entity.user.Address;
 import com.nulp.mobilepartsshop.core.entity.user.User;
-import com.nulp.mobilepartsshop.core.enums.OrderStatus;
+import com.nulp.mobilepartsshop.core.enums.order.OrderStatus;
 import com.nulp.mobilepartsshop.core.repository.order.OrderItemRepository;
 import com.nulp.mobilepartsshop.core.repository.order.OrderRepository;
 import com.nulp.mobilepartsshop.core.repository.user.UserRepository;
@@ -80,7 +80,7 @@ public class OrderServiceImpl implements OrderService {
         try {
             staffAssigningService.assignFreeStaffToOrder(savedOrder);
         } catch (NoAvailableStaffException e) {
-            //TODO cancel order
+            deleteOrder(savedOrder.getId());
         }
         savedOrder.setShippingAddress(shippingAddress);
         return orderRepository.save(savedOrder);

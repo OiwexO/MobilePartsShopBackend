@@ -4,8 +4,9 @@ import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.AuthorizationR
 import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.RegistrationRequest;
 import com.nulp.mobilepartsshop.api.v1.authentication.dto.response.AuthorizationResponse;
 import com.nulp.mobilepartsshop.api.v1.authentication.service.AuthenticationService;
+import com.nulp.mobilepartsshop.core.service.email.EmailService;
 import com.nulp.mobilepartsshop.security.service.JwtService;
-import com.nulp.mobilepartsshop.core.enums.UserAuthority;
+import com.nulp.mobilepartsshop.core.enums.user.UserAuthority;
 import com.nulp.mobilepartsshop.core.entity.user.User;
 import com.nulp.mobilepartsshop.core.repository.user.UserRepository;
 import com.nulp.mobilepartsshop.exception.authentication.InvalidPasswordException;
@@ -32,6 +33,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
 
+    private final EmailService emailService;
+
     @Override
     public AuthorizationResponse register(RegistrationRequest request) throws UsernameAlreadyUsedException {
         final Optional<User> user = userRepository.findByUsername(request.getUsername());
@@ -47,6 +50,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .build();
         User savedUser = userRepository.save(newUser);
         final String jwtToken = jwtService.generateToken(newUser);
+        emailService.sendGreetingCustomerEmail(savedUser.getUsername(), savedUser.getFirstname());
         return AuthorizationResponse.builder()
                 .userId(savedUser.getId())
                 .jwtToken(jwtToken)

@@ -89,16 +89,6 @@ public class AddressServiceImpl implements AddressService {
         return Optional.of(savedAddress);
     }
 
-//    @Override
-//    public boolean deleteAddress(Long id) {
-//        Optional<Address> optionalAddress = addressRepository.findById(id);
-//        if (optionalAddress.isEmpty()) {
-//            return false;
-//        } //TODO nullify user's address
-//        addressRepository.deleteById(id);
-//        return true;
-//    }
-
     @Override
     public boolean deleteAddressByUserId(Long userId) {
         Optional<User> optionalUser = userRepository.findById(userId);

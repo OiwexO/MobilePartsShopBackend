@@ -19,7 +19,5 @@ public interface AddressService {
 
     Optional<Address> updateAddress(Long userId, AddressRequest request);
 
-//    boolean deleteAddress(Long id);
-
     boolean deleteAddressByUserId(Long userId);
 }

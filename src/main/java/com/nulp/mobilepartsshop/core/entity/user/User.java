@@ -1,7 +1,7 @@
 package com.nulp.mobilepartsshop.core.entity.user;
 
 import com.nulp.mobilepartsshop.core.entity.order.Order;
-import com.nulp.mobilepartsshop.core.enums.UserAuthority;
+import com.nulp.mobilepartsshop.core.enums.user.UserAuthority;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
