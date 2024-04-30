@@ -1,7 +1,6 @@
 package com.nulp.mobilepartsshop.api.v1.staffPanel.controller;
 
 import com.nulp.mobilepartsshop.api.v1.ApiConstants;
-import com.nulp.mobilepartsshop.api.v1.order.controller.OrderController;
 import com.nulp.mobilepartsshop.api.v1.order.dto.mapper.OrderMapper;
 import com.nulp.mobilepartsshop.api.v1.order.dto.response.OrderResponse;
 import com.nulp.mobilepartsshop.api.v1.order.dto.validator.OrderRequestValidator;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(OrderController.MAPPING)
+@RequestMapping(StaffController.MAPPING)
 @RequiredArgsConstructor
 public class StaffController {
 
@@ -27,7 +26,7 @@ public class StaffController {
 
     private final OrderMapper mapper = new OrderMapper();
 
-    @GetMapping("/orders{staffId}")
+    @GetMapping("/orders/{staffId}")
     public ResponseEntity<List<OrderResponse>> getAssignedOrders(@PathVariable Long staffId) {
         if (!requestValidator.isValidId(staffId)) {
             return ResponseEntity.badRequest().build();

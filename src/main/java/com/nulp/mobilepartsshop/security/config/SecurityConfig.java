@@ -2,6 +2,7 @@ package com.nulp.mobilepartsshop.security.config;
 
 import com.nulp.mobilepartsshop.api.v1.adminPanel.controller.UserRegistrationController;
 import com.nulp.mobilepartsshop.api.v1.authentication.controller.AuthenticationController;
+import com.nulp.mobilepartsshop.api.v1.authentication.controller.DemoController;
 import com.nulp.mobilepartsshop.api.v1.order.controller.OrderController;
 import com.nulp.mobilepartsshop.api.v1.part.controller.*;
 import com.nulp.mobilepartsshop.api.v1.review.controller.ReviewController;
@@ -34,14 +35,10 @@ public class SecurityConfig {
     };
 
     private static final String[] SECURED_MAPPINGS = {
-            // order mappings
-            OrderController.MAPPING + ANY_REQUEST,
-
             // part mappings
             DeviceTypeController.MAPPING + ANY_REQUEST,
             ManufacturerController.MAPPING + ANY_REQUEST,
             PartController.MAPPING + ANY_REQUEST,
-//            PartRecommendationController.MAPPING + ANY_REQUEST,
             PartTypeController.MAPPING + ANY_REQUEST,
 
             // review mappings
@@ -53,16 +50,17 @@ public class SecurityConfig {
     };
 
     private static final String[] SECURED_CUSTOMER_URL = {
-            "/api/v1/demo/customer",
+            DemoController.MAPPING + "/customer",
             PartRecommendationController.MAPPING + ANY_REQUEST,
+            OrderController.MAPPING + ANY_REQUEST,
     };
 
     private static final String[] SECURED_STAFF_URL = {
-            "/api/v1/demo/staff",
+            DemoController.MAPPING + "/staff",
             StaffController.MAPPING + ANY_REQUEST,
     };
     private static final String[] SECURED_ADMIN_URL = {
-            "/api/v1/demo/admin",
+            DemoController.MAPPING + "/admin",
             UserRegistrationController.MAPPING + ANY_REQUEST,
     };
 
