@@ -80,8 +80,9 @@ public class ManufacturerServiceImpl implements ManufacturerService {
         if (optionalManufacturer.isEmpty()) {
             return false;
         }
-        manufacturerLogoService.deleteManufacturerLogo(optionalManufacturer.get().getLogo());
+        ManufacturerLogo logo = optionalManufacturer.get().getLogo();
         manufacturerRepository.deleteById(id);
+        manufacturerLogoService.deleteManufacturerLogo(logo);
         return true;
     }
 }

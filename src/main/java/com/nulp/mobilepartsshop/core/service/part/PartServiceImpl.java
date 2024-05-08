@@ -95,8 +95,8 @@ public class PartServiceImpl implements PartService {
             return false;
         }
         PartImage partImage = optionalPart.get().getPartImage();
-        partImageService.deletePartImage(partImage);
         partRepository.deleteById(id);
+        partImageService.deletePartImage(partImage);
         return true;
     }
 
