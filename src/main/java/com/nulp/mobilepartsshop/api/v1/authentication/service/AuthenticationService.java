@@ -11,7 +11,13 @@ public interface AuthenticationService {
 
     AuthorizationResponse register(RegistrationRequest request) throws UsernameAlreadyUsedException;
 
-    AuthorizationResponse authorize(
+    AuthorizationResponse authorizeStaffOrAdmin(
             AuthorizationRequest request
     ) throws UsernameNotFoundException, InvalidPasswordException;
+
+    AuthorizationResponse authorizeCustomer(
+            AuthorizationRequest request
+    ) throws UsernameNotFoundException, InvalidPasswordException;
+
+
 }

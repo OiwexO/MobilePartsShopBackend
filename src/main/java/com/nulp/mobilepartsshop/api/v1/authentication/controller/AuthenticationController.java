@@ -32,20 +32,33 @@ public class AuthenticationController {
             response = authenticationService.register(request);
             return ResponseEntity.ok(response);
         } catch (UsernameAlreadyUsedException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(new AuthorizationResponse());
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }
 
-    @PostMapping("/authorize")
-    public ResponseEntity<AuthorizationResponse> authorize(@RequestBody AuthorizationRequest request) {
+    @PostMapping("/authorize/staff-admin")
+    public ResponseEntity<AuthorizationResponse> authorizeStaffOrAdmin(@RequestBody AuthorizationRequest request) {
+        return authorize(request, false);
+    }
+
+    @PostMapping("/authorize/customer")
+    public ResponseEntity<AuthorizationResponse> authorizeCustomer(@RequestBody AuthorizationRequest request) {
+        return authorize(request, true);
+    }
+
+    private ResponseEntity<AuthorizationResponse> authorize(AuthorizationRequest request, boolean isCustomer) {
         final AuthorizationResponse response;
         try {
-            response = authenticationService.authorize(request);
+            if (isCustomer) {
+                response = authenticationService.authorizeCustomer(request);
+            } else {
+                response = authenticationService.authorizeStaffOrAdmin(request);
+            }
             return ResponseEntity.ok(response);
         } catch (UsernameNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new AuthorizationResponse());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (InvalidPasswordException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new AuthorizationResponse());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
 }

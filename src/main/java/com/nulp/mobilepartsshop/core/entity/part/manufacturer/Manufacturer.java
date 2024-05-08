@@ -20,6 +20,6 @@ public class Manufacturer {
 
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private ManufacturerLogo logo;
 }
