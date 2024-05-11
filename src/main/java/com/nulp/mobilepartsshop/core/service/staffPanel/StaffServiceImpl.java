@@ -11,6 +11,7 @@ import com.nulp.mobilepartsshop.exception.entity.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -31,7 +32,19 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public List<Order> getAssignedOrders(Long staffId) throws EntityNotFoundException {
         User staff = userRepository.findById(staffId).orElseThrow(EntityNotFoundException::new);
-        return staff.getAssignedOrders();
+        List<Order> assignedOrders = staff.getAssignedOrders();
+        List<Order> filteredOrders = new ArrayList<>();
+        for (Order order : assignedOrders) {
+            if (order.getStatus() != OrderStatus.DELIVERED && order.getStatus() != OrderStatus.CANCELED) {
+                filteredOrders.add(order);
+            }
+        }
+        return filteredOrders;
+    }
+
+    @Override
+    public Order getOrderById(Long orderId) throws EntityNotFoundException {
+        return orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
     }
 
     @Override

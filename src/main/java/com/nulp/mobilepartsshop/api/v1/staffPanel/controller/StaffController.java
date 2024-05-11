@@ -41,6 +41,20 @@ public class StaffController {
         return ResponseEntity.ok(responseList);
     }
 
+    @GetMapping("/order/{orderId}")
+    public ResponseEntity<OrderResponse> getOrderById(@PathVariable Long orderId) {
+        if (!requestValidator.isValidId(orderId)) {
+            return ResponseEntity.badRequest().build();
+        }
+        Order order;
+        try {
+            order = staffService.getOrderById(orderId);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(mapper.toResponse(order));
+    }
+
     @PutMapping("/order/{orderId}/status")
     public ResponseEntity<OrderResponse> updateOrderStatus(@PathVariable Long orderId) {
         if (!requestValidator.isValidId(orderId)) {
