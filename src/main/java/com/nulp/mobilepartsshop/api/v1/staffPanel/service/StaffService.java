@@ -12,5 +12,7 @@ public interface StaffService {
 
     List<Order> getAssignedOrders(Long staffId) throws EntityNotFoundException;
 
+    Order getOrderById(Long orderId) throws EntityNotFoundException;
+
     Order updateOrderStatus(Long orderId) throws EntityNotFoundException;
 }
