@@ -1,5 +1,6 @@
 package com.nulp.mobilepartsshop.api.v1.review.dto.response;
 
+import com.nulp.mobilepartsshop.api.v1.user.dto.response.UserResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ public class ReviewResponse {
 
     private Long id;
 
-    private Long authorId;
+    private UserResponse author;
 
     private Long partId;
 
