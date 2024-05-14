@@ -35,7 +35,7 @@ public class StaffServiceImpl implements StaffService {
         List<Order> assignedOrders = staff.getAssignedOrders();
         List<Order> filteredOrders = new ArrayList<>();
         for (Order order : assignedOrders) {
-            if (order.getStatus() != OrderStatus.DELIVERED && order.getStatus() != OrderStatus.CANCELED) {
+            if (order.getStatus() != OrderStatus.COMPLETED && order.getStatus() != OrderStatus.CANCELED) {
                 filteredOrders.add(order);
             }
         }
