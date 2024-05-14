@@ -40,19 +40,15 @@ public class SecurityConfig {
             ManufacturerController.MAPPING + ANY_REQUEST,
             PartController.MAPPING + ANY_REQUEST,
             PartTypeController.MAPPING + ANY_REQUEST,
-
-            // review mappings
-            ReviewController.MAPPING + ANY_REQUEST,
-
-            // user mappings
-            AddressController.MAPPING + ANY_REQUEST,
-            DeviceController.MAPPING + ANY_REQUEST,
     };
 
     private static final String[] SECURED_CUSTOMER_URL = {
             DemoController.MAPPING + "/customer",
             PartRecommendationController.MAPPING + ANY_REQUEST,
             OrderController.MAPPING + ANY_REQUEST,
+            ReviewController.MAPPING + ANY_REQUEST,
+            AddressController.MAPPING + ANY_REQUEST,
+            DeviceController.MAPPING + ANY_REQUEST,
     };
 
     private static final String[] SECURED_STAFF_URL = {
