@@ -63,7 +63,10 @@ public class StaffServiceImpl implements StaffService {
                 User customer = order.getCustomer();
                 emailService.sendOrderDeliveredCustomerEmail(customer.getUsername(), customer.getFirstname(), orderId);
                 break;
-            case DELIVERED, CANCELED:
+            case DELIVERED:
+                order.setStatus(OrderStatus.COMPLETED);
+                break;
+            case COMPLETED, CANCELED:
                 return order;
         }
         return orderRepository.save(order);
