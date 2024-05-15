@@ -32,7 +32,7 @@ public class PartRecommendationController {
 
     private final PartMapper mapper = new PartMapper();
 
-    @GetMapping("/criteria")
+    @PostMapping("/criteria")
     public ResponseEntity<List<PartResponse>> getPartsByCriteria(@RequestBody RecommendationByCriteriaRequest request) {
         if (!criteriaRequestValidator.isValidRequest(request)) {
             return ResponseEntity.badRequest().build();
@@ -48,7 +48,7 @@ public class PartRecommendationController {
         return ResponseEntity.ok(responseList);
     }
 
-    @GetMapping("/device")
+    @PostMapping("/device")
     public ResponseEntity<List<PartResponse>> getPartsForDevice(@RequestBody RecommendationByDeviceRequest request) {
         if (!deviceRequestValidator.isValidRequest(request)) {
             return ResponseEntity.badRequest().build();
