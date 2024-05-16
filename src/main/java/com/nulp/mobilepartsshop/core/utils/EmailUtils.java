@@ -3,8 +3,11 @@ package com.nulp.mobilepartsshop.core.utils;
 import com.nulp.mobilepartsshop.exception.email.InvalidEmailTemplateException;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 public class EmailUtils {
@@ -52,10 +55,12 @@ public class EmailUtils {
         return emailTemplate.substring(startIndex, endIndex);
     }
 
+
     private static String getEmailTemplate(ResourceLoader resourceLoader, String templateName, String recipientName) throws IOException {
         Resource resource = resourceLoader.getResource(TEMPLATES_PATH + templateName);
-        String emailTemplate = new String(Files.readAllBytes(resource.getFile().toPath()));
+        String emailTemplate = StreamUtils.copyToString(resource.getInputStream(), StandardCharsets.UTF_8);
         return replacePlaceholder(emailTemplate, PLACEHOLDER_RECIPIENT_NAME, recipientName);
+
     }
 
     private static String replacePlaceholder(String emailTemplate, String placeHolder, String value) {

@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
+@EnableAsync
 @RequiredArgsConstructor
 public class GmailEmailServiceImpl implements EmailService {
 
@@ -22,13 +25,18 @@ public class GmailEmailServiceImpl implements EmailService {
     @Value("${spring.mail.username}")
     private String EMAIL_FROM;
 
+    @Value("${spring.mail.recipient}")
+    private String EMAIL_TO;
+
+    @Async
     @Override
     public void sendEmail(String recipientEmail, String recipientName, String emailTemplate) {
         try {
             String subject = EmailUtils.getSubject(emailTemplate);
             MimeMessage message = emailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setTo(recipientEmail);
+//            helper.setTo(recipientEmail);
+            helper.setTo(EMAIL_TO);
             helper.setFrom(EMAIL_FROM);
             helper.setSubject(subject);
             helper.setText(emailTemplate, true);
@@ -38,6 +46,7 @@ public class GmailEmailServiceImpl implements EmailService {
         }
     }
 
+    @Async
     @Override
     public void sendGreetingCustomerEmail(String recipientEmail, String recipientName) {
         String emailTemplate;
@@ -50,6 +59,7 @@ public class GmailEmailServiceImpl implements EmailService {
         sendEmail(recipientEmail, recipientName, emailTemplate);
     }
 
+    @Async
     @Override
     public void sendOrderAssignedStaffEmail(String recipientEmail, String recipientName, Long orderId) {
         String emailTemplate;
@@ -62,6 +72,7 @@ public class GmailEmailServiceImpl implements EmailService {
         sendEmail(recipientEmail, recipientName, emailTemplate);
     }
 
+    @Async
     @Override
     public void sendOrderDeliveredCustomerEmail(String recipientEmail, String recipientName, Long orderId) {
         String emailTemplate;
