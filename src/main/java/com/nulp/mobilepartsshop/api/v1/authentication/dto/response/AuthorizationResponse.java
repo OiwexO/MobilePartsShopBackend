@@ -16,3 +16,4 @@ public class AuthorizationResponse {
 
     private String jwtToken;
 }
+

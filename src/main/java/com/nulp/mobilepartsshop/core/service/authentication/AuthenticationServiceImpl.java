@@ -1,18 +1,17 @@
 package com.nulp.mobilepartsshop.core.service.authentication;
 
-import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.AuthorizationRequest;
-import com.nulp.mobilepartsshop.api.v1.authentication.dto.request.RegistrationRequest;
-import com.nulp.mobilepartsshop.api.v1.authentication.dto.response.AuthorizationResponse;
 import com.nulp.mobilepartsshop.api.v1.authentication.service.AuthenticationService;
-import com.nulp.mobilepartsshop.api.v1.user.dto.response.UserResponse;
-import com.nulp.mobilepartsshop.core.service.email.EmailService;
-import com.nulp.mobilepartsshop.security.service.JwtService;
-import com.nulp.mobilepartsshop.core.enums.user.UserAuthority;
+import com.nulp.mobilepartsshop.core.entity.authentication.AuthorizationData;
+import com.nulp.mobilepartsshop.core.entity.authentication.AuthorizationResponseData;
+import com.nulp.mobilepartsshop.core.entity.authentication.RegistrationData;
 import com.nulp.mobilepartsshop.core.entity.user.User;
+import com.nulp.mobilepartsshop.core.enums.user.UserAuthority;
 import com.nulp.mobilepartsshop.core.repository.user.UserRepository;
+import com.nulp.mobilepartsshop.core.service.email.EmailService;
 import com.nulp.mobilepartsshop.exception.authentication.InvalidPasswordException;
 import com.nulp.mobilepartsshop.exception.authentication.UsernameAlreadyUsedException;
 import com.nulp.mobilepartsshop.exception.authentication.UsernameNotFoundException;
+import com.nulp.mobilepartsshop.security.service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,50 +36,53 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final EmailService emailService;
 
     @Override
-    public AuthorizationResponse register(RegistrationRequest request) throws UsernameAlreadyUsedException {
-        final Optional<User> user = userRepository.findByUsername(request.getUsername());
+    public AuthorizationResponseData register(RegistrationData data) throws UsernameAlreadyUsedException {
+        final Optional<User> user = userRepository.findByUsername(data.username());
         if (user.isPresent()) {
             throw new UsernameAlreadyUsedException();
         }
         final User newUser = User.builder()
-                .username(request.getUsername())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .firstname(request.getFirstname())
-                .lastname(request.getLastname())
+                .username(data.username())
+                .password(passwordEncoder.encode(data.password()))
+                .firstname(data.firstname())
+                .lastname(data.lastname())
                 .authority(UserAuthority.CUSTOMER)
                 .build();
         User savedUser = userRepository.save(newUser);
         final String jwtToken = jwtService.generateToken(newUser);
         emailService.sendGreetingCustomerEmail(savedUser.getUsername(), savedUser.getFirstname());
-        return buildResponse(savedUser, jwtToken);
+        return AuthorizationResponseData.builder()
+                .user(savedUser)
+                .jwtToken(jwtToken)
+                .build();
     }
 
     @Override
-    public AuthorizationResponse authorizeStaffOrAdmin(
-            AuthorizationRequest request
+    public AuthorizationResponseData authorizeStaffOrAdmin(
+            AuthorizationData data
     ) throws UsernameNotFoundException, InvalidPasswordException {
-        return authorize(request, false);
+        return authorize(data, false);
     }
 
     @Override
-    public AuthorizationResponse authorizeCustomer(
-            AuthorizationRequest request
+    public AuthorizationResponseData authorizeCustomer(
+            AuthorizationData data
     ) throws UsernameNotFoundException, InvalidPasswordException {
-        return authorize(request, true);
+        return authorize(data, true);
     }
 
-    private AuthorizationResponse authorize(
-            AuthorizationRequest request, boolean isCustomer
+    private AuthorizationResponseData authorize(
+            AuthorizationData data, boolean isCustomer
     ) throws UsernameNotFoundException, InvalidPasswordException {
-        final User user = userRepository.findByUsername(request.getUsername()).orElseThrow(
+        final User user = userRepository.findByUsername(data.username()).orElseThrow(
                 UsernameNotFoundException::new
         );
         if (isCustomer != (user.getAuthority() == UserAuthority.CUSTOMER)) {
             throw new UsernameNotFoundException();
         }
         final UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                request.getUsername(),
-                request.getPassword()
+                data.username(),
+                data.password()
         );
         try {
             authenticationManager.authenticate(authToken);
@@ -88,19 +90,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             throw new InvalidPasswordException();
         }
         final String jwtToken = jwtService.generateToken(user);
-        return buildResponse(user, jwtToken);
-    }
-
-    private AuthorizationResponse buildResponse(User user, String jwtToken) {
-        UserResponse userResponse = UserResponse.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .firstname(user.getFirstname())
-                .lastname(user.getLastname())
-                .authority(user.getAuthority())
-                .build();
-        return AuthorizationResponse.builder()
-                .user(userResponse)
+        return AuthorizationResponseData.builder()
+                .user(user)
                 .jwtToken(jwtToken)
                 .build();
     }
