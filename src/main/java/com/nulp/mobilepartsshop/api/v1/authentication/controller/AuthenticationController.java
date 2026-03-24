@@ -31,25 +31,26 @@ public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
 
-    private final DecryptionService decryptionService;
+//    private final DecryptionService decryptionService;
 
     private final UserMapper mapper = new UserMapper();
 
-    @GetMapping("/encryption-data")
-    public ResponseEntity<EncryptionDataResponse> getEncryptionData() {
-        final EncryptionData data = decryptionService.getEncryptionData();
-        final EncryptionDataResponse response = EncryptionDataResponse.builder()
-                .cipher(data.cipher())
-                .keyAlgorithm(data.keyAlgorithm())
-                .publicKeyBase64(data.publicKeyBase64())
-                .build();
-        return ResponseEntity.ok(response);
-    }
+//    @GetMapping("/encryption-data")
+//    public ResponseEntity<EncryptionDataResponse> getEncryptionData() {
+//        final EncryptionData data = decryptionService.getEncryptionData();
+//        final EncryptionDataResponse response = EncryptionDataResponse.builder()
+//                .cipher(data.cipher())
+//                .keyAlgorithm(data.keyAlgorithm())
+//                .publicKeyBase64(data.publicKeyBase64())
+//                .build();
+//        return ResponseEntity.ok(response);
+//    }
 
     @PostMapping("/register")
     public ResponseEntity<AuthorizationResponse> register(@RequestBody RegistrationRequest request) {
         try {
-            final String decryptedPassword = decryptionService.decrypt(request.getPassword());
+//            final String decryptedPassword = decryptionService.decrypt(request.getPassword());
+            final String decryptedPassword = request.getPassword();
             RegistrationData data = RegistrationData.builder()
                     .username(request.getUsername())
                     .password(decryptedPassword)
@@ -65,9 +66,10 @@ public class AuthenticationController {
             return ResponseEntity.ok(response);
         } catch (UsernameAlreadyUsedException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
-        } catch (DecryptionException e) {
-            return ResponseEntity.badRequest().build();
         }
+//        } catch (DecryptionException e) {
+//            return ResponseEntity.badRequest().build();
+//        }
     }
 
     @PostMapping("/authorize/staff-admin")
@@ -82,7 +84,8 @@ public class AuthenticationController {
 
     private ResponseEntity<AuthorizationResponse> authorize(AuthorizationRequest request, boolean isCustomer) {
         try {
-            final String decryptedPassword = decryptionService.decrypt(request.getPassword());
+//            final String decryptedPassword = decryptionService.decrypt(request.getPassword());
+            final String decryptedPassword = request.getPassword();
             AuthorizationData data = AuthorizationData.builder()
                     .username(request.getUsername())
                     .password(decryptedPassword)
@@ -103,8 +106,9 @@ public class AuthenticationController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         } catch (InvalidPasswordException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        } catch (DecryptionException e) {
-            return ResponseEntity.badRequest().build();
         }
+//        } catch (DecryptionException e) {
+//            return ResponseEntity.badRequest().build();
+//        }
     }
 }
