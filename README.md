@@ -51,11 +51,11 @@ jwt.secret.key=key_hash
 ```
 
 ### **RSA Encryption** (`rsa.properties`)
-Parameters for asymmetric encryption and secure data handling.
+Parameters for asymmetric encryption and secure data handling. Use https://travistidwell.com/jsencrypt/demo/ to encode keys
 ```properties
-rsa.cipher=cipher
-rsa.key.algorithm=algorithm
-rsa.key.size=1024
-rsa.private.key=private_key_hash
-rsa.public.key=public_key_hash
+rsa.cipher=RSA/ECB/PKCS1Padding
+rsa.key.algorithm=RSA
+rsa.key.size=2048
+rsa.private.key=base64_encoded_private_key
+rsa.public.key=base64_encoded_public_key
 ```
