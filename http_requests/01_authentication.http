@@ -1,0 +1,124 @@
+### Register Admin #1
+POST {{host}}{{admin_mapping}}{{register_admin_mapping}}
+Content-Type: application/json
+
+{
+    "username": "{{admin_1_email}}",
+    "password": "{{password}}",
+    "firstname": "John",
+    "lastname": "Doe"
+}
+
+### Authorize Admin #1
+POST {{host}}{{authentication_mapping}}{{authorize_staff_admin_mapping}}
+Content-Type: application/json
+
+{
+    "username": "{{admin_1_email}}",
+    "password": "{{password}}"
+}
+
+### Register Staff #1
+POST {{host}}{{admin_mapping}}{{register_staff_mapping}}
+Content-Type: application/json
+Authorization: Bearer {{admin_auth_token}}
+
+{
+    "username": "{{staff_1_email}}",
+    "password": "{{password}}",
+    "firstname": "Robert",
+    "lastname": "Lewandowski"
+}
+
+### Register Staff #2
+POST {{host}}{{admin_mapping}}{{register_staff_mapping}}
+Content-Type: application/json
+Authorization: Bearer {{admin_auth_token}}
+
+{
+    "username": "{{staff_2_email}}",
+    "password": "{{password}}",
+    "firstname": "Anna",
+    "lastname": "Kowalska"
+}
+
+### Register Customer #1
+POST {{host}}{{admin_mapping}}{{register_customer_mapping}}
+Content-Type: application/json
+Authorization: Bearer {{admin_auth_token}}
+
+{
+    "username": "{{customer_1_email}}",
+    "password": "{{password}}",
+    "firstname": "Mark",
+    "lastname": "Spencer"
+}
+
+### Register Customer #2
+POST {{host}}{{admin_mapping}}{{register_customer_mapping}}
+Content-Type: application/json
+Authorization: Bearer {{admin_auth_token}}
+
+{
+    "username": "{{customer_2_email}}",
+    "password": "{{password}}",
+    "firstname": "Sophie",
+    "lastname": "Turner"
+}
+
+### Register Customer #3
+POST {{host}}{{admin_mapping}}{{register_customer_mapping}}
+Content-Type: application/json
+Authorization: Bearer {{admin_auth_token}}
+
+{
+    "username": "{{customer_3_email}}",
+    "password": "{{password}}",
+    "firstname": "Jakub",
+    "lastname": "Nowak"
+}
+
+### Authorize Staff #1
+POST {{host}}{{authentication_mapping}}{{authorize_staff_admin_mapping}}
+Content-Type: application/json
+
+{
+    "username": "{{staff_1_email}}",
+    "password": "{{password}}"
+}
+
+### Authorize Staff #2
+POST {{host}}{{authentication_mapping}}{{authorize_staff_admin_mapping}}
+Content-Type: application/json
+
+{
+    "username": "{{staff_2_email}}",
+    "password": "{{password}}"
+}
+
+### Authorize Customer #1
+POST {{host}}{{authentication_mapping}}{{authorize_customer_mapping}}
+Content-Type: application/json
+
+{
+    "username": "{{customer_1_email}}",
+    "password": "{{password}}"
+}
+
+### Authorize Customer #2
+POST {{host}}{{authentication_mapping}}{{authorize_customer_mapping}}
+Content-Type: application/json
+
+{
+    "username": "{{customer_2_email}}",
+    "password": "{{password}}"
+}
+
+### Authorize Customer #3
+POST {{host}}{{authentication_mapping}}{{authorize_customer_mapping}}
+Content-Type: application/json
+
+{
+    "username": "{{customer_3_email}}",
+    "password": "{{password}}"
+}

@@ -1,0 +1,33 @@
+### Add Laptop
+POST {{host}}{{part_mapping}}{{device_type_mapping}}
+Content-Type: application/json
+Authorization: Bearer {{staff_auth_token}}
+
+{
+  "nameEn": "Laptop",
+  "nameUk": "Ноутбук"
+}
+
+### Add Tablet
+POST {{host}}{{part_mapping}}{{device_type_mapping}}
+Content-Type: application/json
+Authorization: Bearer {{staff_auth_token}}
+
+{
+  "nameEn": "Tablet",
+  "nameUk": "Планшет"
+}
+
+### Add Phone
+POST {{host}}{{part_mapping}}{{device_type_mapping}}
+Content-Type: application/json
+Authorization: Bearer {{staff_auth_token}}
+
+{
+  "nameEn": "Phone",
+  "nameUk": "Телефон"
+}
+
+### Get all Device types (To verify they were added)
+GET {{host}}{{part_mapping}}{{device_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}

@@ -1,0 +1,451 @@
+### Generate 10 Microphone parts
+
+### 1. Add Apple iPhone 14 Pro Max Bottom Microphone Flex (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+650.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+40
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 14 Pro Max Bottom Microphone Flex
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Primary bottom microphone ribbon cable
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2849,A2651
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Samsung Galaxy S23 Ultra Top Mic Flex (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+480.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+35
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S23 Ultra Top Noise Cancelling Microphone
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Secondary top microphone for video recording and noise reduction
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-S918B
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Xiaomi 13 Pro Main Microphone Board (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+320.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+50
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi 13 Pro Main Microphone Sub-board
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Bottom microphone module with signal antenna contacts
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+2210132G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Apple MacBook Air M2 Microphone Array (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Air M2 3-Mic Array
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Directional beamforming three-microphone array cable
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2681
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone04.jpg
+
+--WebAppBoundary--
+
+### 5. Add Huawei P60 Pro Microphone Flex (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+400.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei P60 Pro Microphone Flex Cable
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Replacement bottom mic flex
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+MNA-LX9
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone05.jpg
+
+--WebAppBoundary--
+
+### 6. Add OPPO Find X5 Pro Mic Board (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+380.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Find X5 Pro Microphone Board
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Noise cancelling microphone component
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2305
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone06.jpg
+
+--WebAppBoundary--
+
+### 7. Add Vivo X90 Pro Top Microphone (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+350.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo X90 Pro Top Microphone Module
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Upper mic for video recording audio capture
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2219
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Apple iPad Pro 11 Microphone Ribbon (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+850.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+18
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPad Pro 11 Microphone Flex Ribbon
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Studio-quality microphone array flex cable
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2377,A2459
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Samsung Galaxy Tab S8 Mic Module (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+600.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+22
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S8 Microphone Flex
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Multi-directional microphone module
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-X700,SM-X706
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Xiaomi Mi Notebook Pro 15 Mic Array (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+750.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Mi Notebook Pro 15 Dual Mic Array
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Dual microphone array next to webcam
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+Mi Notebook Pro 15
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="microphone10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/microphone10.jpg
+
+--WebAppBoundary--

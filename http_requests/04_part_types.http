@@ -1,0 +1,103 @@
+### Add Display
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Display",
+  "nameUk": "Дисплей"
+}
+
+### Add Battery
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Battery",
+  "nameUk": "Акумулятор"
+}
+
+### Add Speaker
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Speaker",
+  "nameUk": "Динамік"
+}
+
+### Add Camera
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Camera",
+  "nameUk": "Камера"
+}
+
+### Add Motherboard
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Motherboard",
+  "nameUk": "Материнська плата"
+}
+
+### Add Charging Port
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Charging Port",
+  "nameUk": "Порт зарядки"
+}
+
+### Add Back Cover
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Back Cover",
+  "nameUk": "Задня кришка"
+}
+
+### Add Keyboard
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Keyboard",
+  "nameUk": "Клавіатура"
+}
+
+### Add Microphone
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Microphone",
+  "nameUk": "Мікрофон"
+}
+
+### Add Vibration Motor
+POST {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: application/json
+
+{
+  "nameEn": "Vibration Motor",
+  "nameUk": "Вібромотор"
+}
+
+### Get all Part Types (To verify they were added)
+GET {{host}}{{part_mapping}}{{part_type_mapping}}
+Authorization: Bearer {{staff_auth_token}}

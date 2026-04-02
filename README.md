@@ -59,3 +59,15 @@ rsa.key.size=2048
 rsa.private.key=base64_encoded_private_key
 rsa.public.key=base64_encoded_public_key
 ```
+
+### **HTTP Client Private Environment** (`rsa.properties`)
+Contains admin, staff and customer JWTs
+```json
+{
+  "local": {
+    "admin_auth_token": "token",
+    "staff_auth_token": "token",
+    "client_auth_token": "token"
+  }
+}
+```

@@ -1,0 +1,451 @@
+### Generate 10 Battery parts
+
+### 1. Add Samsung Galaxy S22 Battery (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2450.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S22 Replacement Battery
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+3700mAh, 3.88V, Li-ion
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-S901B,SM-S901U
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Apple iPhone 14 Battery (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 14 Internal Battery
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+3279mAh, 12.68Wh
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2882,A2649
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Huawei MatePad 11 Battery (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei MatePad 11 Battery Pack
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+7250mAh, 27.7Wh
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+DBY-W09
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Xiaomi Redmi Note 12 Battery (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1650.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+40
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Redmi Note 12 High Capacity Battery
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+5000mAh, 33W Fast Charging support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+22111317G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery04.jpg
+
+--WebAppBoundary--
+
+### 5. Add Apple MacBook Pro 14 M1 Battery (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+7200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Pro 14 (2021) Replacement Battery
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+6068mAh, 69.6Wh, Li-Polymer
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2442
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery05.jpg
+
+--WebAppBoundary--
+
+### 6. Add Vivo V27 Pro Battery (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1900.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+18
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo V27 Pro Battery Module
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+4600mAh, 66W FlashCharge compatible
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2230
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery06.jpg
+
+--WebAppBoundary--
+
+### 7. Add OPPO Reno 8 Battery (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+22
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Reno 8 Replacement Battery
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+4500mAh, Dual-cell design
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2359
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Samsung Galaxy Tab S8 Battery (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+4300.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+12
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S8 Battery Replacement
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+8000mAh, 45W Super Fast Charging support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-X700,SM-X706
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Xiaomi Mi Notebook Pro Battery (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+5400.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Mi Notebook Pro 15.6 Laptop Battery
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+60Wh, 7.6V, 4-cell Li-ion
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+Mi Notebook Pro 15
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Huawei P50 Pro Battery (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei P50 Pro Internal Battery
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+4360mAh, Li-Po, 66W support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+JAD-LX9
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="battery10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/battery10.jpg
+
+--WebAppBoundary--

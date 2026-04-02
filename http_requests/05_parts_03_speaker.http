@@ -1,0 +1,451 @@
+### Generate 10 Speaker parts
+
+### 1. Add Samsung Galaxy S21 Ultra Loudspeaker (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+650.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+45
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S21 Ultra Bottom Loudspeaker
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Original bottom polyphonic speaker, stereo support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-G998B,SM-G998U
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Apple MacBook Pro 16 Speakers (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Pro 16 Left & Right Speaker Assembly
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+High-fidelity six-speaker system with force-cancelling woofers
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2141
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Xiaomi Poco X3 Earpiece Speaker (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+320.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+60
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Poco X3 Top Earpiece Speaker
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Top ear speaker module, active noise cancellation support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+M2007J20CG
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Huawei MatePad Pro 11 Speakers (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei MatePad Pro 11 Quad Speaker Set
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Harman Kardon tuned quad-speaker system
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+GOT-W09,GOT-W29
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker04.jpg
+
+--WebAppBoundary--
+
+### 5. Add OPPO Reno 7 Loudspeaker (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+450.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Reno 7 Bottom Speaker
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Replacement bottom loudspeaker module
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2371
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker05.jpg
+
+--WebAppBoundary--
+
+### 6. Add Vivo X80 Pro Stereo Speakers (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+850.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo X80 Pro Dual Speaker Kit
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Stereo speaker set (top and bottom modules)
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2145
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker06.jpg
+
+--WebAppBoundary--
+
+### 7. Add Samsung Galaxy Tab S7 Speakers (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1450.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+12
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S7 AKG Speakers
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Quad speaker setup tuned by AKG, Dolby Atmos
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-T870,SM-T875
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Apple iPhone 13 Earpiece (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+950.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+35
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 13 Top Earpiece Speaker
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Earpiece speaker with integrated proximity sensor flex
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2633
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Xiaomi Mi Notebook Air 13.3 Speakers (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Mi Notebook Air 13.3 AKG Speakers
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Custom AKG dual speaker set, 2W x 2
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+161301-01
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Huawei P40 Pro Loudspeaker (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+580.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei P40 Pro Main Loudspeaker
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Bottom speaker ringer buzzer module
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+ELS-NX9
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="speaker10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/speaker10.jpg
+
+--WebAppBoundary--

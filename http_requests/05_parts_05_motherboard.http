@@ -1,0 +1,451 @@
+### Generate 10 Motherboard parts
+
+### 1. Add Samsung Galaxy S23 Ultra Motherboard (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+21500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S23 Ultra Mainboard 12GB/512GB
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Snapdragon 8 Gen 2, 12GB RAM, 512GB UFS 4.0 Storage, Unlocked
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-S918B
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Apple MacBook Pro 14 M2 Logic Board (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+45000.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Pro 14 M2 Pro Logic Board
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+M2 Pro 10-core CPU, 16-core GPU, 16GB Unified Memory, 512GB SSD
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2779
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Xiaomi Poco F5 Pro Motherboard (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+11200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Poco F5 Pro Motherboard 8GB/256GB
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Snapdragon 8+ Gen 1, 8GB LPDDR5 RAM, 256GB UFS 3.1
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+23013PC75G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Apple iPad Air 5th Gen Logic Board (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+16800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPad Air 5 (2022) M1 Logic Board 64GB Wi-Fi
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Apple M1 chip, 8GB RAM, 64GB Storage, Wi-Fi only version
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2588,A2589
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard04.jpg
+
+--WebAppBoundary--
+
+### 5. Add Huawei P50 Pro Motherboard (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+14500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei P50 Pro Mainboard 8GB/256GB
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Snapdragon 888 4G, 8GB RAM, 256GB Storage, Unlocked
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+JAD-LX9
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard05.jpg
+
+--WebAppBoundary--
+
+### 6. Add OPPO Find X5 Pro Motherboard (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+15300.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Find X5 Pro Motherboard 12GB/256GB
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Snapdragon 8 Gen 1, MariSilicon X NPU, 12GB RAM
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2305
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard06.jpg
+
+--WebAppBoundary--
+
+### 7. Add Vivo X80 Pro Motherboard (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+15800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo X80 Pro Mainboard 12GB/256GB
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Snapdragon 8 Gen 1, Vivo V1+ Chip, 12GB LPDDR5 RAM
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2145
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Samsung Galaxy Tab S8 Motherboard (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+13200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S8 Mainboard 8GB/128GB Wi-Fi
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Snapdragon 8 Gen 1, 8GB RAM, 128GB Storage, Wi-Fi Version
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-X700,SM-X706
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Xiaomi Mi Notebook Pro 15 Motherboard (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+28500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Mi Notebook Pro 15 Motherboard i7
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Intel Core i7-11370H, 16GB RAM, NVIDIA GeForce MX450
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+Mi Notebook Pro 15
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Apple iPhone 14 Pro Logic Board (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+26000.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 14 Pro Logic Board 256GB Unlocked
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+A16 Bionic chip, 6GB RAM, 256GB NVMe, Factory Unlocked
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2890,A2650
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="motherboard10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/motherboard10.jpg
+
+--WebAppBoundary--

@@ -1,0 +1,451 @@
+### Generate 10 Camera parts
+
+### 1. Add Samsung Galaxy S23 Ultra Main Camera (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+4500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S23 Ultra 200MP Main Camera Module
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+200 MP, f/1.7, 24mm (wide), multi-directional PDAF, Laser AF, OIS
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-S918B,SM-S918U
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Apple iPhone 14 Pro Max Rear Camera (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+5200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 14 Pro Max Rear Camera Assembly
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+48 MP main, 12 MP ultrawide, 12 MP telephoto, sensor-shift OIS
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2849,A2651
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Xiaomi 13 Pro Leica Camera Module (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi 13 Pro Leica Triple Camera Module
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+50.3 MP 1.0-inch sensor, 50 MP telephoto, 50 MP ultrawide, Leica lenses
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+2210132G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Huawei P60 Pro Telephoto Camera (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2900.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei P60 Pro Periscope Telephoto Camera
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+48 MP, f/2.1, 90mm, sensor-shift OIS, 3.5x optical zoom
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+MNA-LX9
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera04.jpg
+
+--WebAppBoundary--
+
+### 5. Add OPPO Find X5 Pro Hasselblad Camera (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+12
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Find X5 Pro Hasselblad Rear Camera
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+50 MP main with 3-axis sensor-shift OIS, Hasselblad Color Calibration
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2305
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera05.jpg
+
+--WebAppBoundary--
+
+### 6. Add Vivo X90 Pro Zeiss Camera System (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+4100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo X90 Pro Zeiss Main Camera
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+50.3 MP 1.0-inch sensor, Zeiss optics, T* lens coating
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2219
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera06.jpg
+
+--WebAppBoundary--
+
+### 7. Add Apple iPad Pro 11 Front Camera (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1850.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPad Pro 11 TrueDepth Front Camera
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+12 MP Ultra Wide, 122-degree field of view, Center Stage support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2759,A2435
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Samsung Galaxy Tab S8 Ultra Dual Front Camera (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+18
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S8 Ultra Dual Front Camera
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+12 MP Wide + 12 MP Ultrawide front-facing module
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-X900,SM-X906
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Apple MacBook Air M2 FaceTime Camera (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1600.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+14
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Air M2 1080p FaceTime HD Camera
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+1080p resolution, advanced image signal processor with computational video
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2681
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Xiaomi Pad 6 Rear Camera (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+950.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Pad 6 Rear Camera Module
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+13 MP, f/2.2, PDAF
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+23043RP34G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="camera10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/camera10.jpg
+
+--WebAppBoundary--

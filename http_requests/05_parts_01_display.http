@@ -1,0 +1,451 @@
+### Generate 10 Display parts
+
+### 1. Add Samsung Galaxy S23 Ultra Display (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+12500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S23 Ultra AMOLED Display
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+6.8 inches, Dynamic AMOLED 2X, 120Hz
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-S918B,SM-S918U
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Apple iPhone 15 Pro Max Display (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+16800.50
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 15 Pro Max Super Retina XDR Display
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+6.7 inches, OLED, 120Hz ProMotion
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2849,A3106
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Xiaomi 13 Pro Display (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+8400.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+12
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi 13 Pro OLED Display
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+6.73 inches, LTPO AMOLED, 120Hz
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+2210132G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Apple iPad Pro 12.9 Display (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+21500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPad Pro 12.9 (6th Gen) Liquid Retina XDR Display
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+12.9 inches, mini-LED LCD, 120Hz
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2436,A2764
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display04.jpg
+
+--WebAppBoundary--
+
+### 5. Add Samsung Galaxy Book3 Pro Display (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+18200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Book3 Pro 14 AMOLED Screen
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+14.0 inches, Dynamic AMOLED 2X, 3K resolution
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+NP940XFG
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display05.jpg
+
+--WebAppBoundary--
+
+### 6. Add Huawei P60 Pro Display (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+9100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei P60 Pro OLED Display
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+6.67 inches, LTPO OLED, 120Hz
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+MNA-LX9
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display06.jpg
+
+--WebAppBoundary--
+
+### 7. Add OPPO Find X5 Pro Display (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+10500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Find X5 Pro AMOLED Screen
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+6.7 inches, LTPO2 AMOLED, 120Hz
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2305
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Xiaomi Pad 6 Display (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+4200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Pad 6 IPS LCD Display
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+11.0 inches, IPS LCD, 144Hz
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+23043RP34G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Vivo X90 Pro Display (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+11300.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo X90 Pro AMOLED Display
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+6.78 inches, AMOLED, 120Hz
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2219
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Apple MacBook Air M2 Display (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+19500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+9
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Air M2 13.6 Liquid Retina Display
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+13.6 inches, Liquid Retina, 500 nits
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2681
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="display10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/display10.jpg
+
+--WebAppBoundary--

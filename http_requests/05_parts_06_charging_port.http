@@ -1,0 +1,451 @@
+### Generate 10 Charging Port parts
+
+### 1. Add Samsung Galaxy S23 Ultra Charging Port Flex (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+950.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+40
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S23 Ultra USB-C Charging Port Flex Cable
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Original Type-C dock connector with microphone
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-S918B
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Apple iPhone 14 Pro Lightning Connector (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+35
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 14 Pro Lightning Charging Port Flex
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Lightning connector assembly with dual microphones
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2890,A2650
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Xiaomi Poco F5 USB-C Board (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+450.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+50
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Poco F5 Charging Port Board
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Sub-board with Type-C port and fast charging support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+23049PCD8G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Huawei MatePad Pro USB-C Flex (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+650.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei MatePad Pro USB-C Charging Port Flex
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Replacement Type-C port flex cable
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+MRX-W09,MRX-AL09
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port04.jpg
+
+--WebAppBoundary--
+
+### 5. Add Apple MacBook Air M2 MagSafe 3 Board (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Air M2 MagSafe 3 Charging Board
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Original MagSafe 3 DC-In power jack board
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2681
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port05.jpg
+
+--WebAppBoundary--
+
+### 6. Add OPPO Reno 8 Charging Board (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Reno 8 USB-C Charging Port Board
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Bottom sub-board with Type-C and microphone
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2359
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port06.jpg
+
+--WebAppBoundary--
+
+### 7. Add Vivo X90 USB-C Dock (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+550.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+22
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo X90 USB-C Dock Connector Board
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Type-C charging port board with FlashCharge support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2218A
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Samsung Galaxy Tab S8 Charging Flex (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+750.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+18
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S8 USB-C Charging Port Flex
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Type-C connector ribbon cable
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-X700,SM-X706
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Xiaomi Mi Notebook Pro Power Jack (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+850.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Mi Notebook Pro DC Power Jack Type-C
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Type-C charging port interface socket
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+Mi Notebook Pro 15
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Apple iPad Pro 11 USB-C Port (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPad Pro 11 USB-C Charging Port Flex
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+USB-C connector with data transfer and charging support
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2377,A2459
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="charging_port10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/charging_port10.jpg
+
+--WebAppBoundary--

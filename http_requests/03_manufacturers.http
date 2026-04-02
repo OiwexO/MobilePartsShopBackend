@@ -1,0 +1,99 @@
+### Add Samsung
+POST {{host}}{{part_mapping}}{{manufacturer_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung
+--WebAppBoundary
+Content-Disposition: form-data; name="logo"; filename="logo_samsung.png"
+Content-Type: image/png
+
+< ./assets/logo/logo_samsung.png
+--WebAppBoundary--
+
+### Add Apple
+POST {{host}}{{part_mapping}}{{manufacturer_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple
+--WebAppBoundary
+Content-Disposition: form-data; name="logo"; filename="logo_apple.png"
+Content-Type: image/png
+
+< ./assets/logo/logo_apple.png
+--WebAppBoundary--
+
+### Add Xiaomi
+POST {{host}}{{part_mapping}}{{manufacturer_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi
+--WebAppBoundary
+Content-Disposition: form-data; name="logo"; filename="logo_xiaomi.png"
+Content-Type: image/png
+
+< ./assets/logo/logo_xiaomi.png
+--WebAppBoundary--
+
+### Add Huawei
+POST {{host}}{{part_mapping}}{{manufacturer_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei
+--WebAppBoundary
+Content-Disposition: form-data; name="logo"; filename="logo_huawei.png"
+Content-Type: image/png
+
+< ./assets/logo/logo_huawei.png
+--WebAppBoundary--
+
+### Add OPPO
+POST {{host}}{{part_mapping}}{{manufacturer_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO
+--WebAppBoundary
+Content-Disposition: form-data; name="logo"; filename="logo_oppo.png"
+Content-Type: image/png
+
+< ./assets/logo/logo_oppo.png
+--WebAppBoundary--
+
+### Add Vivo
+POST {{host}}{{part_mapping}}{{manufacturer_mapping}}
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo
+--WebAppBoundary
+Content-Disposition: form-data; name="logo"; filename="logo_vivo.png"
+Content-Type: image/png
+
+< ./assets/logo/logo_vivo.png
+--WebAppBoundary--
+
+### Get all Manufacturers (To verify they were added)
+GET {{host}}{{part_mapping}}{{manufacturer_mapping}}
+Authorization: Bearer {{staff_auth_token}}

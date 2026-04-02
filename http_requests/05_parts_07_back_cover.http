@@ -1,0 +1,451 @@
+### Generate 10 Back Cover parts
+
+### 1. Add Samsung Galaxy S23 Ultra Back Glass (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1850.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S23 Ultra Phantom Black Back Glass
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Original Gorilla Glass Victus 2 with camera lens cover
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-S918B
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Apple iPhone 14 Pro Max Back Glass (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 14 Pro Max Space Black Back Glass
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Textured matte glass back panel with MagSafe magnet ring
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2849,A2651
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Xiaomi 13 Pro Ceramic Back (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2400.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi 13 Pro Ceramic White Back Cover
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Premium bio-ceramic rear panel with camera housing
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+2210132G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Huawei P50 Pro Rear Panel (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1600.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei P50 Pro Golden Black Back Glass
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Glass rear cover with dual-ring camera design
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+JAD-LX9
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover04.jpg
+
+--WebAppBoundary--
+
+### 5. Add OPPO Find X5 Pro Ceramic Back (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Find X5 Pro Glaze Black Ceramic Cover
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Microcrystalline ceramic panel with seamless camera bump
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2305
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover05.jpg
+
+--WebAppBoundary--
+
+### 6. Add Vivo X90 Pro Vegan Leather Back (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1950.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+18
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo X90 Pro Legendary Black Leather Back
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Vegan leather rear panel with aluminum halo ring
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2219
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover06.jpg
+
+--WebAppBoundary--
+
+### 7. Add Apple iPad Pro 11 Rear Housing (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+4500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPad Pro 11 Space Gray Rear Housing
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Aluminum back enclosure with magnets and smart connector
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2377,A2459
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Samsung Galaxy Tab S8 Back Cover (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+12
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S8 Graphite Back Cover
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Armor Aluminum casing with magnetic S Pen holder strip
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-X700,SM-X706
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Apple MacBook Air M2 Bottom Case (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Air M2 Midnight Bottom Case
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Aluminum lower body panel with rubber feet
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2681
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Xiaomi Mi Notebook Pro Bottom Cover (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+2200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+14
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Mi Notebook Pro 15 Gray Bottom Cover
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+CNC machined aluminum bottom cover with ventilation grilles
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+7
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+Mi Notebook Pro 15
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="back_cover10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/back_cover10.jpg
+
+--WebAppBoundary--

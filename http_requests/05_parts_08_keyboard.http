@@ -1,0 +1,451 @@
+### Generate 10 Keyboard parts
+
+### 1. Add Apple MacBook Pro 16 Keyboard (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+6500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+12
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Pro 16 Magic Keyboard Assembly
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+US English layout, backlit, scissor mechanism with Touch ID
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2141
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Apple MacBook Air M2 Keyboard (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+5800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Air M2 Top Case with Keyboard
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Midnight color top case, US layout, includes trackpad cable
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2681
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Samsung Galaxy Book3 Pro Keyboard (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+4200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Book3 Pro 14 Keyboard
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Pro keyboard with 3-level backlighting, graphite
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+NP940XFG
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard03.jpg
+
+--WebAppBoundary--
+
+### 4. Add Xiaomi Mi Notebook Pro 15 Keyboard (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Mi Notebook Pro 15 Replacement Keyboard
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Full-size backlit keyboard, 1.5mm key travel
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+Mi Notebook Pro 15
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard04.jpg
+
+--WebAppBoundary--
+
+### 5. Add Huawei MateBook X Pro Keyboard (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei MateBook X Pro Top Case Keyboard
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Edge-to-edge backlit keyboard module, grey
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+MACH-W19,MACH-W29
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard05.jpg
+
+--WebAppBoundary--
+
+### 6. Add Apple Magic Keyboard for iPad Pro 11 (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+11500.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple Magic Keyboard for iPad Pro 11-inch
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Floating cantilever design, backlit keys, built-in trackpad
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2377,A2459
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard06.jpg
+
+--WebAppBoundary--
+
+### 7. Add Samsung Galaxy Tab S8 Book Cover Keyboard (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+6200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S8 Book Cover Keyboard
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Magnetic attachment, antimicrobial coating, pogo pin connection
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-X700,SM-X706
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Xiaomi Pad 6 Keyboard (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+3400.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Pad 6 Magnetic Keyboard
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+64-key layout, 1.2mm travel distance, Pogo Pin
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+23043RP34G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Huawei Smart Magnetic Keyboard (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+4100.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei Smart Magnetic Keyboard for MatePad 11
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Dual-angle stand, 1.3mm keystroke, magnetic pairing
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+DBY-W09
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard09.jpg
+
+--WebAppBoundary--
+
+### 10. Add OPPO Pad 2 Smart Touchpad Keyboard (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+4800.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+12
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Pad 2 Smart Touchpad Keyboard
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Integrated multi-touch trackpad, aviation-grade aluminum hinge
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+8
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+OPD2201
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="keyboard10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/keyboard10.jpg
+
+--WebAppBoundary--

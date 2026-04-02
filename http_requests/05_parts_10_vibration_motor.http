@@ -1,0 +1,451 @@
+### Generate 10 Vibration Motor parts
+
+### 1. Add Apple iPhone 14 Pro Max Taptic Engine (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+950.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+45
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPhone 14 Pro Max Taptic Engine
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Linear haptic feedback vibrator module
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2849,A2651
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor01.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor01.jpg
+
+--WebAppBoundary--
+
+### 2. Add Samsung Galaxy S23 Ultra Haptic Motor (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+780.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+35
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy S23 Ultra X-Axis Linear Motor
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+X-axis linear haptic motor for precise vibration
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-S918B
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor02.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor02.jpg
+
+--WebAppBoundary--
+
+### 3. Add Xiaomi 13 Pro Linear Motor (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+550.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+50
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi 13 Pro CyberEngine Haptic Motor
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Ultra-wideband X-axis linear motor
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+2210132G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor03.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor03.jpg
+
+--WebAppBoundary--
+
+### 4. Add OPPO Find X5 Pro Vibration Motor (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+620.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+OPPO Find X5 Pro O-Haptics Linear Motor
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Custom X-axis linear vibration motor
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+6
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+CPH2305
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor04.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor04.jpg
+
+--WebAppBoundary--
+
+### 5. Add Vivo X90 Pro Haptic Module (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+580.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Vivo X90 Pro Dual X-Axis Motor
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Large-volume haptic engine for gaming and typing
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+4
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+V2219
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor05.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor05.jpg
+
+--WebAppBoundary--
+
+### 6. Add Huawei P60 Pro Vibration Module (Phone)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+520.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+30
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Huawei P60 Pro Linear Vibration Motor
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Z-axis linear motor for haptic alerts
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+3
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+MNA-LX9
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor06.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor06.jpg
+
+--WebAppBoundary--
+
+### 7. Add Apple MacBook Air M2 Trackpad Motor (Laptop)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+1200.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+15
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple MacBook Air M2 Force Touch Trackpad Motor
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Taptic Engine integrated into Force Touch trackpad
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2681
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor07.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor07.jpg
+
+--WebAppBoundary--
+
+### 8. Add Samsung Galaxy Tab S8 Vibration Motor (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+450.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+20
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Samsung Galaxy Tab S8 Vibrator Module
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Coin-style vibration motor for notifications
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+1
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+SM-X700,SM-X706
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor08.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor08.jpg
+
+--WebAppBoundary--
+
+### 9. Add Apple iPad Pro 11 Taptic Engine (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+850.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+18
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Apple iPad Pro 11 Taptic Engine Module
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Tablet-sized haptic feedback actuator
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+A2377,A2459
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor09.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor09.jpg
+
+--WebAppBoundary--
+
+### 10. Add Xiaomi Pad 6 Vibration Motor (Tablet)
+POST {{host}}{{part_mapping}}/parts
+Authorization: Bearer {{staff_auth_token}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+380.00
+--WebAppBoundary
+Content-Disposition: form-data; name="quantity"
+
+25
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+Xiaomi Pad 6 Rotor Vibration Motor
+--WebAppBoundary
+Content-Disposition: form-data; name="specifications"
+
+Standard vibration motor for system alerts
+--WebAppBoundary
+Content-Disposition: form-data; name="manufacturerId"
+
+5
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceTypeId"
+
+2
+--WebAppBoundary
+Content-Disposition: form-data; name="partTypeId"
+
+10
+--WebAppBoundary
+Content-Disposition: form-data; name="deviceModels"
+
+23043RP34G
+--WebAppBoundary
+Content-Disposition: form-data; name="partImage"; filename="vibration_motor10.jpg"
+Content-Type: image/jpeg
+
+< ./assets/part_image/vibration_motor10.jpg
+
+--WebAppBoundary--
