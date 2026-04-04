@@ -7,6 +7,7 @@ import com.nulp.mobilepartsshop.api.v1.order.controller.OrderController;
 import com.nulp.mobilepartsshop.api.v1.part.controller.*;
 import com.nulp.mobilepartsshop.api.v1.review.controller.ReviewController;
 import com.nulp.mobilepartsshop.api.v1.staffPanel.controller.StaffController;
+import com.nulp.mobilepartsshop.api.v1.telemetry.controller.TelemetryController;
 import com.nulp.mobilepartsshop.api.v1.user.controller.AddressController;
 import com.nulp.mobilepartsshop.api.v1.user.controller.DeviceController;
 import com.nulp.mobilepartsshop.core.enums.user.UserAuthority;
@@ -49,6 +50,7 @@ public class SecurityConfig {
             ReviewController.MAPPING + ANY_REQUEST,
             AddressController.MAPPING + ANY_REQUEST,
             DeviceController.MAPPING + ANY_REQUEST,
+            TelemetryController.MAPPING + ANY_REQUEST,
     };
 
     private static final String[] SECURED_STAFF_URL = {
