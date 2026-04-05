@@ -12,13 +12,13 @@ public enum EventType {
 
     /**
      * Triggered when a new user account is successfully created.
-     * Expected Payload: {"role": "CUSTOMER" | "STAFF"}
+     * Expected Payload: {"userId": 123}
      */
     USER_REGISTERED,
 
     /**
      * Triggered when a user successfully authenticates into the system.
-     * Expected Payload: {"role": "CUSTOMER" | "STAFF"}
+     * Expected Payload: {"userId": 123, "authority": "CUSTOMER" | "STAFF"}
      */
     USER_LOGGED_IN,
 
@@ -47,7 +47,7 @@ public enum EventType {
 
     /**
      * Triggered when a customer opens the details screen of a specific part.
-     * Expected Payload: {"partId": 123, "partName": "Display"}
+     * Expected Payload: {"partId": 123}
      */
     PART_VIEWED,
 
@@ -71,35 +71,51 @@ public enum EventType {
 
     /**
      * Triggered when a customer removes a part from their shopping cart.
-     * Highly valuable for analyzing price rejection or cart abandonment.
      * Expected Payload: {"partId": 123, "price": 1500.00}
      */
     CART_ITEM_REMOVED,
 
     /**
      * Triggered when a customer successfully completes checkout and creates an order.
-     * Expected Payload: {"orderId": 456, "totalAmount": 3000.00, "itemsCount": 2}
+     * Expected Payload: {"orderId": 456, "totalAmount": 3000.00}
      */
     ORDER_CREATED,
 
     /**
-     * Triggered when a customer submits a search query.
-     * Expected Payload: {"searchQuery": "s23 ultra battery"}
+     * Triggered when the order is completed.
+     * Expected Payload: {"orderId": 456}
      */
-    SEARCH_PERFORMED,
+    ORDER_COMPLETED,
 
     /**
-     * Triggered when a customer applies filters to a product list or search results.
-     * Expected Payload: {"filters": ["Samsung", "Motherboards"]}
+     * Triggered when the order is canceled by the customer.
+     * Expected Payload: {"orderId": 456}
      */
-    SEARCH_FILTER_APPLIED,
+    ORDER_CANCELED,
 
     /**
-     * Triggered when a search query returns zero results.
-     * Crucial for inventory planning (understanding what users want but cannot find).
-     * Expected Payload: {"searchQuery": "iPhone 16 logic board"}
+     * Triggered when a customer searches parts for a specific device.
+     * Expected Payload: {"deviceId": 123}
      */
-    SEARCH_EMPTY_RESULT,
+    SEARCH_BY_DEVICE_PERFORMED,
+
+    /**
+     * Triggered when a customer searches parts for a specific device.
+     * Expected Payload: {"manufacturerId": 123, "deviceTypeId": 123, "partTypeId": 123}
+     */
+    SEARCH_BY_CRITERIA_PERFORMED,
+
+    /**
+     * Triggered when a search by device returns zero results.
+     * Expected Payload: {"deviceId": 123}
+     */
+    SEARCH_BY_DEVICE_RESULT_EMPTY,
+
+    /**
+     * Triggered when a search by criteria returns zero results.
+     * Expected Payload: {"manufacturerId": 123, "deviceTypeId": 123, "partTypeId": 123}
+     */
+    SEARCH_BY_CRITERIA_RESULT_EMPTY,
 
 
     // ==========================================
@@ -116,7 +132,7 @@ public enum EventType {
     /**
      * Triggered when a staff member completes the processing of an order.
      * Used to calculate the total processing time and staff efficiency.
-     * Expected Payload: {"orderId": 456, "processingTimeSeconds": 300, "status": "SHIPPED"}
+     * Expected Payload: {"orderId": 456}
      */
     ORDER_PROCESSING_FINISHED,
 }
