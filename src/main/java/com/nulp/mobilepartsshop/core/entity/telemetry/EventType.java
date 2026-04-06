@@ -11,12 +11,6 @@ public enum EventType {
     // ==========================================
 
     /**
-     * Triggered when a new user account is successfully created.
-     * Expected Payload: {"userId": 123}
-     */
-    USER_REGISTERED,
-
-    /**
      * Triggered when a user successfully authenticates into the system.
      * Expected Payload: {"userId": 123, "authority": "CUSTOMER" | "STAFF"}
      */
