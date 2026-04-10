@@ -1,6 +1,7 @@
 package com.nulp.mobilepartsshop.security.config;
 
 import com.nulp.mobilepartsshop.api.v1.adminPanel.controller.UserRegistrationController;
+import com.nulp.mobilepartsshop.api.v1.analytics.controller.AnalyticsController;
 import com.nulp.mobilepartsshop.api.v1.authentication.controller.AuthenticationController;
 import com.nulp.mobilepartsshop.api.v1.authentication.controller.DemoController;
 import com.nulp.mobilepartsshop.api.v1.order.controller.OrderController;
@@ -60,6 +61,7 @@ public class SecurityConfig {
     private static final String[] SECURED_ADMIN_URL = {
             DemoController.MAPPING + "/admin",
             UserRegistrationController.MAPPING + ANY_REQUEST,
+            AnalyticsController.MAPPING + ANY_REQUEST,
     };
 
     private static final String[] AUTHORITY_CUSTOMER_OR_HIGHER = {
