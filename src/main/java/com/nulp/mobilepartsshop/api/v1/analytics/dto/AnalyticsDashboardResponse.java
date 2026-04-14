@@ -1,13 +1,11 @@
 package com.nulp.mobilepartsshop.api.v1.analytics.dto;
 
+import com.nulp.mobilepartsshop.api.v1.part.dto.response.PartResponse; // Import your actual PartResponse
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
-/**
- * Data Transfer Object representing the comprehensive business analytics dashboard.
- */
 @Data
 @Builder
 public class AnalyticsDashboardResponse {
@@ -16,7 +14,11 @@ public class AnalyticsDashboardResponse {
     private final EngagementMetrics engagementMetrics;
     private final CartMetrics cartMetrics;
     private final SystemHealth systemHealth;
-    private final List<TopViewedPart> topViewedParts;
+
+    // Updated to hold the full PartResponse
+    private final List<PartMetricItem> topViewedParts;
+    private final List<PartMetricItem> topPurchasedParts;
+
     private final List<UnmetDemandItem> unmetDemand;
 
     @Data
@@ -47,11 +49,15 @@ public class AnalyticsDashboardResponse {
         private final Integer appErrorCount;
     }
 
+    /**
+     * Universal class to hold any part-related metric (views, purchases, etc.)
+     * containing the full part details for the client UI.
+     */
     @Data
     @Builder
-    public static class TopViewedPart {
-        private final Long partId;
-        private final Integer viewCount;
+    public static class PartMetricItem {
+        private final PartResponse part;
+        private final Integer count;
     }
 
     @Data

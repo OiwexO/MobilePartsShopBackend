@@ -46,18 +46,40 @@ public interface TelemetryEventRepository extends JpaRepository<TelemetryEvent, 
             """, nativeQuery = true)
     CartMetricsProjection getCartMetricsSince(@Param("startDate") LocalDateTime startDate);
 
+    /**
+     * Retrieves the most frequently viewed parts.
+     */
     @Query(value = """
             SELECT 
                 JSON_EXTRACT(payload, '$.partId') AS partId, 
-                COUNT(id) AS viewCount
+                COUNT(id) AS eventCount
             FROM telemetry_events 
             WHERE event_type = 'PART_VIEWED'
             AND client_timestamp >= :startDate
             GROUP BY partId
-            ORDER BY viewCount DESC
+            ORDER BY eventCount DESC
             LIMIT :limit
             """, nativeQuery = true)
-    List<TopViewedPartProjection> getTopViewedPartsSince(
+    List<PartCountProjection> getTopViewedPartsSince(
+            @Param("startDate") LocalDateTime startDate,
+            @Param("limit") int limit
+    );
+
+    /**
+     * Retrieves the most frequently added to cart (purchased) parts.
+     */
+    @Query(value = """
+            SELECT 
+                JSON_EXTRACT(payload, '$.partId') AS partId, 
+                COUNT(id) AS eventCount
+            FROM telemetry_events 
+            WHERE event_type = 'CART_ITEM_ADDED'
+            AND client_timestamp >= :startDate
+            GROUP BY partId
+            ORDER BY eventCount DESC
+            LIMIT :limit
+            """, nativeQuery = true)
+    List<PartCountProjection> getTopPurchasedPartsSince(
             @Param("startDate") LocalDateTime startDate,
             @Param("limit") int limit
     );

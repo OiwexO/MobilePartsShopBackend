@@ -18,9 +18,9 @@ public interface AnalyticsProjections {
         Integer getItemsRemoved();
     }
 
-    interface TopViewedPartProjection {
+    interface PartCountProjection {
         Long getPartId();
-        Integer getViewCount();
+        Integer getEventCount();
     }
 
     interface UnmetDemandProjection {
