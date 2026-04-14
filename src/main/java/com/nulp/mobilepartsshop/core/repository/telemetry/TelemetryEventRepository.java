@@ -1,9 +1,7 @@
 package com.nulp.mobilepartsshop.core.repository.telemetry;
 
 import com.nulp.mobilepartsshop.core.entity.telemetry.TelemetryEvent;
-import com.nulp.mobilepartsshop.core.repository.telemetry.projection.RevenueProjection;
-import com.nulp.mobilepartsshop.core.repository.telemetry.projection.StaffEfficiencyProjection;
-import com.nulp.mobilepartsshop.core.repository.telemetry.projection.UnmetDemandProjection;
+import com.nulp.mobilepartsshop.core.repository.telemetry.projection.AnalyticsProjections.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -13,37 +11,57 @@ import java.util.List;
 
 public interface TelemetryEventRepository extends JpaRepository<TelemetryEvent, Long> {
 
-    /**
-     * Calculates total revenue and order count for a specific period.
-     * Uses MySQL JSON extraction to get the 'totalAmount' from the payload.
-     */
     @Query(value = """
             SELECT 
-                COUNT(id) AS totalOrders, 
-                SUM(JSON_EXTRACT(payload, '$.totalAmount')) AS totalRevenue
+                SUM(CASE WHEN event_type = 'ORDER_CREATED' THEN 1 ELSE 0 END) AS totalOrders,
+                SUM(CASE WHEN event_type = 'ORDER_CREATED' THEN JSON_EXTRACT(payload, '$.totalAmount') ELSE 0 END) AS totalRevenue,
+                SUM(CASE WHEN event_type = 'ORDER_CANCELED' THEN 1 ELSE 0 END) AS canceledOrders
             FROM telemetry_events 
-            WHERE event_type = 'ORDER_CREATED' 
+            WHERE event_type IN ('ORDER_CREATED', 'ORDER_CANCELED')
             AND client_timestamp >= :startDate
             """, nativeQuery = true)
-    RevenueProjection calculateRevenueSince(@Param("startDate") LocalDateTime startDate);
+    FinancialProjection getFinancialMetricsSince(@Param("startDate") LocalDateTime startDate);
 
-    /**
-     * Calculates the average processing time based on staff finishing orders.
-     */
     @Query(value = """
             SELECT 
-                COUNT(id) AS totalProcessedOrders, 
-                AVG(JSON_EXTRACT(payload, '$.processingTimeSeconds')) AS averageProcessingTimeSeconds
+                AVG(CASE WHEN source_app = :clientAppName THEN JSON_EXTRACT(payload, '$.sessionDurationSeconds') ELSE NULL END) AS avgCustomerSession,
+                AVG(CASE WHEN source_app = :staffAppName THEN JSON_EXTRACT(payload, '$.sessionDurationSeconds') ELSE NULL END) AS avgStaffSession
             FROM telemetry_events 
-            WHERE event_type = 'ORDER_PROCESSING_FINISHED' 
+            WHERE event_type = 'APP_SESSION_ENDED'
             AND client_timestamp >= :startDate
             """, nativeQuery = true)
-    StaffEfficiencyProjection calculateStaffEfficiencySince(@Param("startDate") LocalDateTime startDate);
+    SessionProjection getSessionMetricsSince(
+            @Param("startDate") LocalDateTime startDate,
+            @Param("clientAppName") String clientAppName,
+            @Param("staffAppName") String staffAppName
+    );
 
-    /**
-     * Identifies the most frequent searches that yielded zero results.
-     * Essential for inventory planning.
-     */
+    @Query(value = """
+            SELECT 
+                SUM(CASE WHEN event_type = 'CART_ITEM_ADDED' THEN 1 ELSE 0 END) AS itemsAdded,
+                SUM(CASE WHEN event_type = 'CART_ITEM_REMOVED' THEN 1 ELSE 0 END) AS itemsRemoved
+            FROM telemetry_events 
+            WHERE event_type IN ('CART_ITEM_ADDED', 'CART_ITEM_REMOVED')
+            AND client_timestamp >= :startDate
+            """, nativeQuery = true)
+    CartMetricsProjection getCartMetricsSince(@Param("startDate") LocalDateTime startDate);
+
+    @Query(value = """
+            SELECT 
+                JSON_EXTRACT(payload, '$.partId') AS partId, 
+                COUNT(id) AS viewCount
+            FROM telemetry_events 
+            WHERE event_type = 'PART_VIEWED'
+            AND client_timestamp >= :startDate
+            GROUP BY partId
+            ORDER BY viewCount DESC
+            LIMIT :limit
+            """, nativeQuery = true)
+    List<TopViewedPartProjection> getTopViewedPartsSince(
+            @Param("startDate") LocalDateTime startDate,
+            @Param("limit") int limit
+    );
+
     @Query(value = """
             SELECT 
                 payload AS searchCriteria, 
@@ -59,4 +77,11 @@ public interface TelemetryEventRepository extends JpaRepository<TelemetryEvent, 
             @Param("startDate") LocalDateTime startDate,
             @Param("limit") int limit
     );
+
+    @Query(value = """
+            SELECT COUNT(id) FROM telemetry_events 
+            WHERE event_type = 'APP_ERROR' 
+            AND client_timestamp >= :startDate
+            """, nativeQuery = true)
+    Integer countAppErrorsSince(@Param("startDate") LocalDateTime startDate);
 }

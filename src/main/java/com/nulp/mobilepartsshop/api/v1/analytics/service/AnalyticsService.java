@@ -12,5 +12,5 @@ public interface AnalyticsService {
      *
      * @return AnalyticsDashboardResponse containing revenue, staff efficiency, and unmet demand.
      */
-    AnalyticsDashboardResponse getMonthlyDashboard();
+    AnalyticsDashboardResponse getDashboard(int days);
 }

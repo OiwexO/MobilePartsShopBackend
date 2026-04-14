@@ -13,9 +13,10 @@ import java.util.List;
 public class AnalyticsDashboardResponse {
 
     private final FinancialMetrics financialMetrics;
-
-    private final StaffMetrics staffMetrics;
-
+    private final EngagementMetrics engagementMetrics;
+    private final CartMetrics cartMetrics;
+    private final SystemHealth systemHealth;
+    private final List<TopViewedPart> topViewedParts;
     private final List<UnmetDemandItem> unmetDemand;
 
     @Data
@@ -23,13 +24,34 @@ public class AnalyticsDashboardResponse {
     public static class FinancialMetrics {
         private final Integer totalOrders;
         private final Double totalRevenue;
+        private final Integer canceledOrders;
     }
 
     @Data
     @Builder
-    public static class StaffMetrics {
-        private final Integer totalProcessedOrders;
-        private final Double averageProcessingTimeSeconds;
+    public static class EngagementMetrics {
+        private final Double avgCustomerSessionSeconds;
+        private final Double avgStaffSessionSeconds;
+    }
+
+    @Data
+    @Builder
+    public static class CartMetrics {
+        private final Integer itemsAdded;
+        private final Integer itemsRemoved;
+    }
+
+    @Data
+    @Builder
+    public static class SystemHealth {
+        private final Integer appErrorCount;
+    }
+
+    @Data
+    @Builder
+    public static class TopViewedPart {
+        private final Long partId;
+        private final Integer viewCount;
     }
 
     @Data

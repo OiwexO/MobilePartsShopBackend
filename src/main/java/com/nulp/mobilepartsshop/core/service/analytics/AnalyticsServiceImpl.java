@@ -1,11 +1,10 @@
 package com.nulp.mobilepartsshop.core.service.analytics;
 
 import com.nulp.mobilepartsshop.api.v1.analytics.dto.AnalyticsDashboardResponse;
+import com.nulp.mobilepartsshop.api.v1.analytics.dto.AnalyticsDashboardResponse.*;
 import com.nulp.mobilepartsshop.api.v1.analytics.service.AnalyticsService;
 import com.nulp.mobilepartsshop.core.repository.telemetry.TelemetryEventRepository;
-import com.nulp.mobilepartsshop.core.repository.telemetry.projection.RevenueProjection;
-import com.nulp.mobilepartsshop.core.repository.telemetry.projection.StaffEfficiencyProjection;
-import com.nulp.mobilepartsshop.core.repository.telemetry.projection.UnmetDemandProjection;
+import com.nulp.mobilepartsshop.core.repository.telemetry.projection.AnalyticsProjections.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,63 +19,71 @@ public class AnalyticsServiceImpl implements AnalyticsService {
 
     private final TelemetryEventRepository telemetryRepository;
 
-    private static final int DASHBOARD_PERIOD_DAYS = 30;
-    private static final int UNMET_DEMAND_LIMIT = 5;
+    private static final int TOP_LIST_LIMIT = 5;
+
+    // Ensure these match the exact strings sent by your Android application configuration
+    private static final String CLIENT_APP_SOURCE = "customer_application";
+    private static final String STAFF_APP_SOURCE = "staff_application";
 
     @Override
     @Transactional(readOnly = true)
-    public AnalyticsDashboardResponse getMonthlyDashboard() {
-        LocalDateTime startDate = LocalDateTime.now().minusDays(DASHBOARD_PERIOD_DAYS);
+    public AnalyticsDashboardResponse getDashboard(int days) {
+        LocalDateTime startDate = LocalDateTime.now().minusDays(days);
 
-        // 1. Fetch raw projections from the database
-        RevenueProjection revenue = telemetryRepository.calculateRevenueSince(startDate);
-        StaffEfficiencyProjection staff = telemetryRepository.calculateStaffEfficiencySince(startDate);
-        List<UnmetDemandProjection> unmetDemand = telemetryRepository.getTopUnmetDemandSince(startDate, UNMET_DEMAND_LIMIT);
+        FinancialProjection financial = telemetryRepository.getFinancialMetricsSince(startDate);
+        SessionProjection sessions = telemetryRepository.getSessionMetricsSince(startDate, CLIENT_APP_SOURCE, STAFF_APP_SOURCE);
+        CartMetricsProjection cart = telemetryRepository.getCartMetricsSince(startDate);
+        Integer errorCount = telemetryRepository.countAppErrorsSince(startDate);
 
-        // 2. Map projections to the clean response DTO
-        return mapToDashboardResponse(revenue, staff, unmetDemand);
+        List<TopViewedPartProjection> topParts = telemetryRepository.getTopViewedPartsSince(startDate, TOP_LIST_LIMIT);
+        List<UnmetDemandProjection> unmetDemand = telemetryRepository.getTopUnmetDemandSince(startDate, TOP_LIST_LIMIT);
+
+        return buildDashboardResponse(financial, sessions, cart, errorCount, topParts, unmetDemand);
     }
 
-    /**
-     * Maps database projections to the response DTO, safely handling potential SQL nulls.
-     * SQL aggregations like SUM() or AVG() return NULL if no rows match the WHERE clause.
-     */
-    private AnalyticsDashboardResponse mapToDashboardResponse(
-            RevenueProjection revenue,
-            StaffEfficiencyProjection staff,
+    private AnalyticsDashboardResponse buildDashboardResponse(
+            FinancialProjection financial,
+            SessionProjection sessions,
+            CartMetricsProjection cart,
+            Integer errorCount,
+            List<TopViewedPartProjection> topParts,
             List<UnmetDemandProjection> unmetDemand
     ) {
-        // Safe mapping for Financial Metrics
-        Integer totalOrders = (revenue != null && revenue.getTotalOrders() != null)
-                ? revenue.getTotalOrders() : 0;
-        Double totalRevenue = (revenue != null && revenue.getTotalRevenue() != null)
-                ? revenue.getTotalRevenue() : 0.0;
-
-        // Safe mapping for Staff Efficiency Metrics
-        Integer processedOrders = (staff != null && staff.getTotalProcessedOrders() != null)
-                ? staff.getTotalProcessedOrders() : 0;
-        Double avgTime = (staff != null && staff.getAverageProcessingTimeSeconds() != null)
-                ? staff.getAverageProcessingTimeSeconds() : 0.0;
-
-        // Safe mapping for Unmet Demand List
-        List<AnalyticsDashboardResponse.UnmetDemandItem> demandItems = unmetDemand.stream()
-                .map(item -> AnalyticsDashboardResponse.UnmetDemandItem.builder()
-                        .searchCriteria(item.getSearchCriteria())
-                        .searchCount(item.getSearchCount() != null ? item.getSearchCount() : 0)
+        // Map Top Parts
+        List<TopViewedPart> partList = topParts.stream()
+                .map(p -> TopViewedPart.builder()
+                        .partId(p.getPartId())
+                        .viewCount(p.getViewCount() != null ? p.getViewCount() : 0)
                         .build())
                 .collect(Collectors.toList());
 
-        // Build and return the final response
+        // Map Unmet Demand
+        List<UnmetDemandItem> demandList = unmetDemand.stream()
+                .map(d -> UnmetDemandItem.builder()
+                        .searchCriteria(d.getSearchCriteria())
+                        .searchCount(d.getSearchCount() != null ? d.getSearchCount() : 0)
+                        .build())
+                .collect(Collectors.toList());
+
         return AnalyticsDashboardResponse.builder()
-                .financialMetrics(AnalyticsDashboardResponse.FinancialMetrics.builder()
-                        .totalOrders(totalOrders)
-                        .totalRevenue(totalRevenue)
+                .financialMetrics(FinancialMetrics.builder()
+                        .totalOrders(financial != null && financial.getTotalOrders() != null ? financial.getTotalOrders() : 0)
+                        .totalRevenue(financial != null && financial.getTotalRevenue() != null ? financial.getTotalRevenue() : 0.0)
+                        .canceledOrders(financial != null && financial.getCanceledOrders() != null ? financial.getCanceledOrders() : 0)
                         .build())
-                .staffMetrics(AnalyticsDashboardResponse.StaffMetrics.builder()
-                        .totalProcessedOrders(processedOrders)
-                        .averageProcessingTimeSeconds(avgTime)
+                .engagementMetrics(EngagementMetrics.builder()
+                        .avgCustomerSessionSeconds(sessions != null && sessions.getAvgCustomerSession() != null ? sessions.getAvgCustomerSession() : 0.0)
+                        .avgStaffSessionSeconds(sessions != null && sessions.getAvgStaffSession() != null ? sessions.getAvgStaffSession() : 0.0)
                         .build())
-                .unmetDemand(demandItems)
+                .cartMetrics(CartMetrics.builder()
+                        .itemsAdded(cart != null && cart.getItemsAdded() != null ? cart.getItemsAdded() : 0)
+                        .itemsRemoved(cart != null && cart.getItemsRemoved() != null ? cart.getItemsRemoved() : 0)
+                        .build())
+                .systemHealth(SystemHealth.builder()
+                        .appErrorCount(errorCount != null ? errorCount : 0)
+                        .build())
+                .topViewedParts(partList)
+                .unmetDemand(demandList)
                 .build();
     }
 }
