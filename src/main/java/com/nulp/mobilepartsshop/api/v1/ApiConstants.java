@@ -15,4 +15,8 @@ public class ApiConstants {
     public static final String ADMIN_MAPPING_V1 = GLOBAL_MAPPING_V1 + "/admin";
 
     public static final String STAFF_MAPPING_V1 = GLOBAL_MAPPING_V1 + "/staff";
+
+    public static final String TELEMETRY_MAPPING_V1 = GLOBAL_MAPPING_V1 + "/telemetry";
+
+    public static final String ANALYTICS_MAPPING_V1 = GLOBAL_MAPPING_V1 + "/analytics";
 }
